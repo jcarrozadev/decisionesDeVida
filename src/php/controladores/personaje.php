@@ -26,15 +26,15 @@
                 return false;
             }
 
-            move_uploaded_file($datos['spriteF']['tmp_name'], SPRITE_PATH . $datos['spriteF']['name']);
-            move_uploaded_file($datos['spriteB']['tmp_name'], SPRITE_PATH . $datos['spriteB']['name']);
-            move_uploaded_file($datos['spriteL']['tmp_name'], SPRITE_PATH . $datos['spriteL']['name']);
-            move_uploaded_file($datos['spriteR']['tmp_name'], SPRITE_PATH . $datos['spriteR']['name']);
+            move_uploaded_file($datos['spriteF']['tmp_name'], SPRITE_PATH . $datos['nombre'] . '_F.png');
+            move_uploaded_file($datos['spriteB']['tmp_name'], SPRITE_PATH . $datos['nombre'] . '_B.png');
+            move_uploaded_file($datos['spriteL']['tmp_name'], SPRITE_PATH . $datos['nombre'] . '_L.png');
+            move_uploaded_file($datos['spriteR']['tmp_name'], SPRITE_PATH . $datos['nombre'] . '_R.png');
 
-            $datos['spriteF'] = file_get_contents(SPRITE_PATH . $datos['spriteF']['name']);
-            $datos['spriteB'] = file_get_contents(SPRITE_PATH . $datos['spriteB']['name']);
-            $datos['spriteL'] = file_get_contents(SPRITE_PATH . $datos['spriteL']['name']);
-            $datos['spriteR'] = file_get_contents(SPRITE_PATH . $datos['spriteR']['name']);
+            $datos['spriteF'] = file_get_contents(SPRITE_PATH . $datos['nombre'] . '_F.png');
+            $datos['spriteB'] = file_get_contents(SPRITE_PATH . $datos['nombre'] . '_B.png');
+            $datos['spriteL'] = file_get_contents(SPRITE_PATH . $datos['nombre'] . '_L.png');
+            $datos['spriteR'] = file_get_contents(SPRITE_PATH . $datos['nombre'] . '_R.png');
 
             $personaje = new mPersonaje();
             $personaje->altaPersonaje($datos);
