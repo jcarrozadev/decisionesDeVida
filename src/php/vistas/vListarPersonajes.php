@@ -32,6 +32,7 @@
         foreach ($datos as $personaje) {
             echo "<div>";
                 echo "<img src='data:image/png;base64," . base64_encode($personaje['spriteFront']) . "' />";
+
                 echo "<p>" . $personaje['nombrePersonaje'] . "</p>";
             echo "</div>";
         }

@@ -3,6 +3,7 @@
     class CPersonaje {
 
         public readonly string $vista;
+        public readonly string $mensaje;
 
         public function __construct() {
             // require_once 'php/config/conexion.php';
@@ -18,7 +19,14 @@
             require_once 'php/modelos/mPersonaje.php';
             require_once 'php/config/config.php';
 
-            $datos = $datos + $files;
+            $datos += $files;
+
+            print_r($datos);
+
+            if(!$this->validarDatosAlta($datos)) {
+                $this->vista = 'vMensaje';
+                return false;
+            }
 
             move_uploaded_file($datos['spriteF']['tmp_name'], SPRITE_PATH . $datos['spriteF']['name']);
             move_uploaded_file($datos['spriteB']['tmp_name'], SPRITE_PATH . $datos['spriteB']['name']);
@@ -34,7 +42,51 @@
             $personaje->altaPersonaje($datos);
 
             $this->vista = 'vMensaje';
-            return 'Personaje dado de alta correctamente';
+            $this->mensaje = 'Personaje dado de alta correctamente';
+            return true;
+        }
+
+        private function validarDatosAlta($datos) {
+            
+            // Comprobamos que los datos vengan rellenos
+            if(empty($datos['nombre']) || empty($datos['spriteF']['tmp_name']) || empty($datos['spriteB']['tmp_name'])
+                || empty($datos['spriteL']['tmp_name']) || empty($datos['spriteR']['tmp_name'])) {
+
+                $this->mensaje = 'Faltan datos';
+                return false;
+            }
+
+            // Comprobamos que el nombre no tenga más de 50 caracteres
+            if(strlen($datos['nombre']) > 50) {
+                $this->mensaje = 'El nombre no puede tener más de 50 caracteres';
+                return false;
+            }
+
+            // Comprobamos que el nombre no tenga caracteres especiales para evitar inyecciones SQL etc...
+            if(preg_match(CARACTERES_NO_PERMITIDOS, $datos['nombre'])) {
+                $this->mensaje = 'El nombre no puede contener caracteres especiales';
+                return false;
+            }
+
+            // Comprobamos que las imagenes sean PNG y no ejecutables etc...
+            if($datos['spriteF']['type'] != 'image/png' || $datos['spriteB']['type'] != 'image/png'
+                || $datos['spriteL']['type'] != 'image/png' || $datos['spriteR']['type'] != 'image/png') {
+
+                $this->mensaje = 'Los sprites deben ser de tipo PNG';
+                return false;
+            }
+
+            // Comprobamos el tamaño de las imagenes entre 1 byte y 10 KB
+            if(($datos['spriteF']['size'] < 1 || $datos['spriteF']['size'] > MAX_SPRITE_SIZE)
+                || ($datos['spriteB']['size'] < 1 || $datos['spriteB']['size'] > MAX_SPRITE_SIZE)
+                || ($datos['spriteL']['size'] < 1 || $datos['spriteL']['size'] > MAX_SPRITE_SIZE)
+                || ($datos['spriteR']['size'] < 1 || $datos['spriteR']['size'] > MAX_SPRITE_SIZE)) {
+
+                $this->mensaje = 'Los sprites deben tener un tamaño entre 1 byte y 10 KB';
+                return false;
+            }
+
+            return true;
         }
 
         public function listarPersonajes() {

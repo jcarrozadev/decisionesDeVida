@@ -6,6 +6,6 @@
         <title>Mensaje</title>
     </head>
     <body>
-        <h1><?php echo $datos; ?></h1>
+        <h1><?php echo $controlador->mensaje; ?></h1>
     </body>
 </html>
