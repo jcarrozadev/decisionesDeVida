@@ -8,11 +8,6 @@
         
         public function altaPersonaje($datos) {
 
-            $datos['spriteF'] = file_get_contents($datos['spriteF']['tmp_name']);
-            $datos['spriteB'] = file_get_contents($datos['spriteB']['tmp_name']);
-            $datos['spriteL'] = file_get_contents($datos['spriteL']['tmp_name']);
-            $datos['spriteR'] = file_get_contents($datos['spriteR']['tmp_name']);
-
             $conexion = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
             $conexion->set_charset("utf8");
 
@@ -24,7 +19,7 @@
         }
 
         public function listarPersonajes() {
-            
+
             $sql = "SELECT * FROM Personaje";
             $conexion = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
             $resultado = $conexion->query($sql);

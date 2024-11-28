@@ -13,7 +13,7 @@
         </style>
     </head>
     <body>
-        <form action="altaPersonaje.php" method="POST" enctype="multipart/form-data">
+        <form action="index.php?c=personaje&m=altaPersonaje" method="POST" enctype="multipart/form-data">
             <label for="nombre">Nombre Personaje</label>
             <input type="text" id="nombre" name="nombre">
             <label for="spriteF">Diseño Frontal</label>
