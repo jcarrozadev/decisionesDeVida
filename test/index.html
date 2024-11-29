@@ -1,114 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charmander</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        table {
-            border-collapse: collapse;
-            margin: 2% auto;
-        }
-        table, th, td {
-            border: 2px solid black;
-        }
-        th, td {
-            width: 80px;
-            height: 80px;
-            text-align: center;
-            position: relative;
-        }
-        .charmander {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        .muerte {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-    </style>
-</head>
-<body>
-    <table>
-        <tbody>
-            <script>
-                for (let i = 0; i < 10; i++) {
-                    document.write('<tr>');
-                    for (let j = 0; j < 12; j++) {
-                        document.write(`<td data-row="${i}" data-col="${j}" onclick="placeCharmander(this)"></td>`);
-                    }
-                    document.write('</tr>');
-                }
-
-                function eventoMuerte() {
-                    const filasTotales = 10;
-                    const columnasTotales = 12;
-                    const filaRandom = Math.floor(Math.random() * filasTotales);
-                    const columRandom = Math.floor(Math.random() * columnasTotales);
-
-                    // Seleccionar la celda aleatoria y aplicarle la imagen 'muerte.png'
-                    const celdaRandom = document.querySelector(`td[data-row='${filaRandom}'][data-col='${columRandom}']`);
-                    celdaRandom.innerHTML = '<img src="/img/muerte.png" class="muerte">';
-                    celdaRandom.classList.add("muerte-celda");
-                    celdaRandom.onclick = function() {
-                        // Eliminar la imagen de la celda
-                        celdaRandom.innerHTML = "";
-                        // Eliminar la clase 'muerte-celda'
-                        celdaRandom.classList.remove("muerte-celda");
-                        prompt("Dialogo de Justicia Social","Respuesta");
-                        location.reload();
-                    };
-                }
-
-                // Llamar a la función para colocar la imagen en una celda aleatoria
-                eventoMuerte();
-
-            </script>
-        </tbody>
-    </table>
-
-    <script>
-        // Variable para rastrear la posición actual de Charmander
-        let fila = 9;
-        let columna = 6;
-
-        // Inicializar Charmander en la celda (9,6), abajo en el centro
-        document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = '<img src="/img/charmander.png" class="charmander">';
-
-        function placeCharmander(cell) {
-            // Obtener la fila y columna de la celda clicada
-            const row = parseInt(cell.getAttribute('data-row'));
-            const col = parseInt(cell.getAttribute('data-col'));
-
-            // Verificar si la celda clicada es colindante a la posición actual
-            if (isAdjacent(row, col)) {
-                // Mover a Charmander
-                document.querySelectorAll("td").forEach(td => {
-                    // Si la celda NO contiene la clase 'muerte-celda', limpiarla
-                    if (!td.classList.contains("muerte-celda")) {
-                        td.innerHTML = "";
-                    }
-                });
-                cell.innerHTML = '<img src="/img/charmander.png" class="charmander">';
-                // Actualizar la posición actual
-                fila = row;
-                columna = col;
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>20x20 Table</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
             }
-        }
-
-        function isAdjacent(row, col) {
-            // Comprobar si la celda clicada está en una posición adyacente
-            return (
-                (row === fila && Math.abs(col - columna) === 1) ||  // Izquierda/Derecha
-                (col === columna && Math.abs(row - fila) === 1)     // Arriba/Abajo
-            );
-        }
-    </script>
-</body>
+            table {
+                border-collapse: collapse;
+                /* width: 100%;  */
+                margin: 2% auto;
+            }
+            table, th, td {
+                border: 2px solid black;
+            }
+            th, td {
+                width: 80px;
+                height: 80px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tbody>
+                <!-- Generate table rows and cells -->
+                <script>
+                    for (let i = 1; i <= 10; i++) {
+                        for (let j = 1; j <= 12; j++) {
+                            document.write('<td></td>');
+                        }
+                        document.write('</tr>');
+                    }
+                </script>
+            </tbody>
+        </table>
+    </body>
 </html>
