@@ -1,0 +1,121 @@
+/* Estilos generales */
+body {
+    background-color: #2F2F2F;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #F8F8F0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+.encabezado {
+    background-color: #1D4E89;
+    color: #F8F8F0;
+    padding: 20px;
+    text-align: center;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Navegación */
+.navegacion {
+    background-color: #A9A9A9;
+    padding: 10px;
+}
+
+.navegacion a {
+    color: #F8F8F0;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.navegacion a:nth-child(2) {
+    color: #E3B505;
+}
+
+.navegacion a:nth-child(3) {
+    color: #1D4E89;
+}
+
+/* Botón */
+.boton-continuar {
+    background-color: #3B7359;
+    color: #F8F8F0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Nota */
+.nota {
+    margin: 1% 0;
+    background-color: #F8F8F0;
+    color: #2F2F2F;
+    padding: 15px;
+    border-left: 5px solid #1D4E89;
+}
+
+.nota h2 {
+    font-size: 16px;
+}
+
+.nota p {
+    font-size: 12px;
+}
+
+/* Caja de Diálogo */
+.caja-dialogo {
+    background-color: #F8F8F0;
+    border: 3px solid #1D4E89;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.caja-dialogo p {
+    color: #2F2F2F;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boton-opcion {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.boton-opcion.aceptar {
+    background-color: #3B7359;
+    color: #F8F8F0;
+}
+
+.boton-opcion.rechazar {
+    background-color: #D22B2B;
+    color: #F8F8F0;
+}
+
+button {
+    margin: 1%;
+    font-family: 'Press Start 2P';
+}
+
+/* Pie de Página */
+.pie {
+    background-color: #1D4E89;
+    color: #F8F8F0;
+    padding: 15px;
+    text-align: center;
+    font-size: 12px;
+}

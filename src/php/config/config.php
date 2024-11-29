@@ -1,8 +1,8 @@
 <?php
 
     // ----------------------- CONTROLADOR Y METODO POR DEFECTO
-    define('CONTROLADOR_DEFECTO', 'home');
-    define('METODO_DEFECTO', 'index');
+    define('CONTROLADOR_DEFECTO', 'Personaje'); // cambiarlo
+    define('METODO_DEFECTO', 'listarPersonajes'); // cambiarlo
 
     // ----------------------- RUTAS
     define('SPRITE_PATH', 'img/spritesPersonajes/');
