@@ -96,7 +96,7 @@
             $personaje = new mPersonaje();
             $personajes = $personaje->listarPersonajes();
 
-            $this->vista = 'vListarPersonajes';
+            $this->vista = 'vListarPersonajesMockup';
             return $personajes;
         }
 
