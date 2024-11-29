@@ -31,9 +31,5 @@
             <a href="#">Acceder</a>
             </div>
         </main>
-
-        <footer>
-            <p>© 2024 Decisiones de Vida. Todos los derechos reservados.</p>
-        </footer>
-    </body>
-</html>
+        <button class="boton-volver">Volver al Panel de Administración</button>
+<?php include_once '.././includes/templates/php/footer.php'; ?>

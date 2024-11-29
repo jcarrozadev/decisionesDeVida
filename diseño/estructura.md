@@ -64,6 +64,58 @@ Su uso, realizado por Javier Arias Carroza:
     line-height: 1.6;
     ```
 
+- **Header (`header`)**:
+    ```css
+    header {
+        background-color: var(--color-azul);
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .barra-navegacion {
+        display: flex;
+        justify-content: space-between; /* Centra los enlaces, botón a la derecha */
+        align-items: center;
+        padding: 10px 5%;
+    }
+
+    .enlaces-centro {
+        display: flex;
+        justify-content: center; /* Centra los enlaces */
+        flex: 1;
+        gap: 20px;
+    }
+
+    .enlaces-centro a {
+        color: var(--color-blanco);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .enlaces-centro a:hover {
+        background-color: var(--color-amarillo);
+        color: var(--color-gris-oscuro);
+    }
+
+    .boton-perfil {
+        background-color: var(--color-amarillo);
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: var(--color-gris-oscuro);
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .boton-perfil:hover {
+        background-color: var(--color-amarillo-oscuro);
+    }
+    ```
+
 - **Encabezado (`header`)**:
     ```css
     background-color: #1D4E89;
@@ -84,11 +136,6 @@ Su uso, realizado por Javier Arias Carroza:
     ```
 
 - **Footer (`footer`)**:
-    ```html
-    <footer>
-        <p>© 2024 Decisiones de Vida. Todos los derechos reservados.</p>
-    </footer>
-    ```
     ```css
     footer {
     text-align: center;
