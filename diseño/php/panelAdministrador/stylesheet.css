@@ -124,13 +124,6 @@ button:hover {
     background-color: #caa308;
 }
 
-footer {
-    text-align: center;
-    background-color: var(--color-azul);
-    color: var(--color-blanco);
-    padding: 20px;
-    margin-top: auto;
-}
 
 /* Media Queries */
 @media (max-width: 768px) {
