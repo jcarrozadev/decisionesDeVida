@@ -13,7 +13,7 @@
     $controlador = new $nombreControlador();
     
     $datos = array();
-    if(method_exists($controlador, $_GET['m'])) $datos = $controlador->{$_GET['m']}(); // PREGUNTAR ISA POR PASO DE PARAMETROS
+    if(method_exists($controlador, $_GET['m'])) $datos = $controlador->{$_GET['m']}();
 
     require_once 'php/vistas/' . $controlador->vista . '.php';
 
