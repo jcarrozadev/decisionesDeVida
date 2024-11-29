@@ -58,6 +58,12 @@ Su uso, realizado por Javier Arias Carroza:
 
 ## Estructura CSS
 
+- **Fuente (`font-family`)**:
+    ```css
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    ```
+
 - **Encabezado (`header`)**:
     ```css
     background-color: #1D4E89;
