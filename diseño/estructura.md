@@ -83,6 +83,22 @@ Su uso, realizado por Javier Arias Carroza:
     border-color: #ddd; /* Gris claro */
     ```
 
+- **Footer (`footer`)**:
+    ```html
+    <footer>
+        <p>© 2024 Decisiones de Vida. Todos los derechos reservados.</p>
+    </footer>
+    ```
+    ```css
+    footer {
+    text-align: center;
+    padding: 3% 5%;
+    background-color: var(--color-azul);
+    border-top: 1px solid #ddd;
+    color: var(--color-blanco);
+    }
+    ```
+
 ## Conclusión
 
 Cada color se utiliza para crear una jerarquía visual que facilita la interacción del usuario con la interfaz. Los colores principales se enfocan en acciones clave y elementos destacados, mientras que los colores secundarios proporcionan un fondo neutro y claro.
