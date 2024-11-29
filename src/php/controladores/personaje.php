@@ -15,9 +15,12 @@
 
         }
         
-        public function altaPersonaje($files, $datos) {
+        public function altaPersonaje() {
             require_once 'php/modelos/mPersonaje.php';
             require_once 'php/config/config.php';
+
+            $files = $_FILES;
+            $datos = $_POST;
 
             $datos += $files;
 
@@ -97,13 +100,17 @@
             return $personajes;
         }
 
-        public function modificarPersonaje($files, $datos, $id) {
-
-            if($id == null) {
+        public function modificarPersonaje() {
+            
+            if(!isset($_GET['id'])) {
                 $this->vista = 'vMensaje';
                 $this->mensaje = 'No se ha seleccionado ningún personaje';
                 return false;
             }
+
+            $files = $_FILES;
+            $datos = $_POST;
+            $id = $_GET['id'];
 
             require_once 'php/modelos/mPersonaje.php';
 
@@ -115,7 +122,10 @@
 
         }
 
-        public function modificarPersonajeGuardar($files, $datos) {
+        public function modificarPersonajeGuardar() {
+
+            $files = $_FILES;
+            $datos = $_POST;
 
             require_once 'php/modelos/mPersonaje.php';
 
@@ -188,7 +198,11 @@
 
         }
         
-        public function eliminarPersonaje($files, $datos, $id) {
+        public function eliminarPersonaje() {
+
+            $files = $_FILES;
+            $datos = $_POST;
+            $id = $_GET['id'];
 
             require_once 'php/modelos/mPersonaje.php';
 

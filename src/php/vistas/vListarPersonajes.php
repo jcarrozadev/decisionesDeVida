@@ -34,8 +34,8 @@
                 echo "<img src='data:image/png;base64," . base64_encode($personaje['spriteFront']) . "' />";
 
                 echo "<p>" . $personaje['nombrePersonaje'] . "</p>";
-                echo "<a href='index.php?c=personaje&m=modificarPersonaje&v=" . $personaje['idPersonaje'] . "'>Modificar</a>";
-                echo "<a href='index.php?c=personaje&m=eliminarPersonaje&v=" . $personaje['idPersonaje'] . "'>Eliminar</a>";
+                echo "<a href='index.php?c=personaje&m=modificarPersonaje&id=" . $personaje['idPersonaje'] . "'>Modificar</a>";
+                echo "<a href='index.php?c=personaje&m=eliminarPersonaje&id=" . $personaje['idPersonaje'] . "'>Eliminar</a>";
             echo "</div>";
         }
         
