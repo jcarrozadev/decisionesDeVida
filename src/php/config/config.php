@@ -12,5 +12,9 @@
 
     // ----------------------- Caracteres no permitidos en campos de texto
     define('CARACTERES_NO_PERMITIDOS', '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/');
+
+    // ----------------------- Tamaño máximo de dinero y tiempo
+    define('DINERO_MAX', 100000);
+    define('TIEMPO_MAX', 100000);
     
 ?>

@@ -17,5 +17,4 @@
 
     require_once 'php/vistas/' . $controlador->vista . '.php';
 
-    // esto es una prueba
 ?>

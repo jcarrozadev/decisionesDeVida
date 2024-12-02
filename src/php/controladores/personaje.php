@@ -197,11 +197,11 @@
         
         public function eliminarPersonaje() {
 
+            require_once 'php/modelos/mPersonaje.php';
+
             $files = $_FILES;
             $datos = $_POST;
             $id = $_GET['id'];
-
-            require_once 'php/modelos/mPersonaje.php';
 
             $personaje = new mPersonaje();
             $personaje->eliminarPersonaje($id);
