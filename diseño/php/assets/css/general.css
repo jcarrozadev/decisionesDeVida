@@ -20,6 +20,20 @@ body {
     padding: 20px;
 }
 
+.titulo {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.titulo h1 {
+    font-size: 2rem;
+}
+
+.titulo p {
+    font-size: 1.2rem;
+    color: var(--color-gris-claro);
+}
+
 /********************************************************* Gestión de Personajes ***********************************************/
 .contenedor-personajes {
     display: flex;
@@ -96,6 +110,19 @@ body {
 }
 
 /**************************************************** Panel de Administración *****************************************/
+#headerPanelAdmin {
+    text-align: center;
+    padding: 15px 5%;
+    background-color: var(--color-azul);
+    border-bottom: 1px solid var(--color-gris-claro);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#headerPanelAdmin h1 {
+    font-size: 2rem;
+    color: var(--color-blanco);
+}
+
 .contenedor-grid {
     flex: 1;
     display: grid;
@@ -168,7 +195,7 @@ body {
 }
 
 /* Botones Generales */
-button {
+.boton-volver {
     width: 100%;
     height: 60px;
     background-color: var(--color-amarillo);
@@ -176,7 +203,7 @@ button {
     margin: 0 auto;
 }
 
-button:hover {
+.boton-volver:hover {
     background-color: #caa308;
 }
 

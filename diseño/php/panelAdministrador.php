@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="panelAdministrador.css">
     </head>
     <body>
-        <header>
+        <header id="headerPanelAdmin">
             <h1>Panel de Administración</h1>
             <p>Decisiones de Vida</p>
         </header>
