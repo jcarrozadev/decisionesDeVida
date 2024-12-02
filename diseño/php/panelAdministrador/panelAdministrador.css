@@ -1,0 +1,155 @@
+/* CSS Panel Administración - Javier Arias Carroza */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 15px 5%;
+    background-color: var(--color-azul);
+    border-bottom: 1px solid var(--color-gris-claro);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--color-blanco);
+}
+
+.contenedor-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5%;
+    padding: 3% 5%;
+    max-width: 100%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.tarjeta {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    height: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: 30vw;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta .imagen-tarjeta {
+    margin: 0 auto;
+    height: 120px;
+    width: 120px;
+    background-color: var(--color-amarillo);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tarjeta .imagen-tarjeta img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.tarjeta > p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-gris-oscuro);
+    margin-bottom: 10px;
+}
+
+.tarjeta a {
+    text-decoration: none;
+    color: var(--color-azul);
+    font-weight: bold;
+    border: 2px solid var(--color-azul);
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.tarjeta a:hover {
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+}
+
+button {
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-amarillo);
+    border-radius: 4px;
+    margin-right: 15px;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #caa308;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    padding: 20px;
+    margin-top: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Tablet */
+    header {
+        padding: 20px 5%;
+    }
+
+    .contenedor-grid {
+        grid-template-columns: 1fr;
+        padding: 2% 3%;
+    }
+
+    .tarjeta {
+        width: 80vw;
+        padding: 15px;
+    }
+
+    .tarjeta a {
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Móvil */
+    .contenedor-grid {
+        grid-template-columns: 1fr;
+        padding: 5% 2%;
+    }
+
+    .tarjeta {
+        width: 80vw;
+        padding: 12px;
+    }
+
+    .tarjeta a {
+        width: 100%;
+    }
+}
