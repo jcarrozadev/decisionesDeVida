@@ -1,4 +1,5 @@
-<?php include_once '.././includes/templates/php/header.php'; ?>
+<!-- HTML Listar Personajes - Javier Arias Carroza -->
+<?php include_once '.././includes/header.php'; ?>
 <main class="contenedor-principal">
     <div class="titulo">
         <h1>Gestión de Personajes</h1>
@@ -31,4 +32,4 @@
         </div>
     </section>
 </main>
-<?php include_once '.././includes/templates/php/footer.php'; ?>
+<?php include_once '.././includes/footer.php'; ?>

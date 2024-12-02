@@ -1,3 +1,4 @@
+<!-- HTML Panel Administración - Javier Arias Carroza -->
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -6,7 +7,7 @@
         <meta name="author" content="Javier Arias Carroza jariascarroza@gmail.com">
         <title>Panel de Administración</title>
         <!-- CSS -->
-        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="panelAdministrador.css">
     </head>
     <body>
         <header>
@@ -32,4 +33,4 @@
             </div>
         </main>
         <button class="boton-volver">Volver al Panel de Administración</button>
-<?php include_once '.././includes/templates/php/footer.php'; ?>
+<?php include_once '.././includes/footer.php'; ?>
