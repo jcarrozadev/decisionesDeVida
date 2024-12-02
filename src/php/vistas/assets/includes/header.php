@@ -18,7 +18,7 @@
         <header>
             <nav class="barra-navegacion">
                 <div class="enlaces-centro">
-                    <a href="#gestionar-personajes">Gestión de Personajes</a>
+                    <a href="index.php?c=personaje&m=listarPersonajes">Gestión de Personajes</a>
                     <a href="#gestionar-usuarios">Gestión de Usuarios</a>
                     <a href="#gestionar-ranking">Gestión de Ranking</a>
                 </div>

@@ -131,7 +131,6 @@
 
                 // validamos el nombre
             if(!$this->validarDatosModificar($datos)) {
-                print_r($datos);
                 $this->vista = 'vMensaje';
                 return false;
             }
@@ -174,10 +173,8 @@
         }
 
         private function validarDatosModificar($datos) {
-
             // Comprobamos que los datos vengan rellenos
             if(empty($datos['nombre'])) {
-
                 $this->mensaje = 'Faltan datos';
                 return false;
             }

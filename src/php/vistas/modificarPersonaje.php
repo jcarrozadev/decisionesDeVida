@@ -2,7 +2,7 @@
 
 <?php include 'php/vistas/assets/includes/header.php'; ?>
 <main> <!-- Contenido principal del documento -->
-    <a href="">
+    <a href="index.php?c=personaje&m=listarPersonajes">
         <button class="boton_volver">Volver</button> <!-- Botón para volver a la página anterior -->
     </a>
     <div class="div_form">
@@ -18,19 +18,19 @@
                 
             <label for="frontal"><b>Diseño Frontal</b></label><br/>
             <img src="data:image/png;base64,<?php echo base64_encode($datos['spriteFront']); ?>" alt="Sprite Frontal"> <!-- Imagen de muestra del diseño frontal -->
-            <input type="file" name="frontal"><br/><!-- Campo de archivo para subir el diseño frontal -->
+            <input type="file" name="spriteF"><br/><!-- Campo de archivo para subir el diseño frontal -->
 
             <label for="trasero"><b>Diseño Trasero</b></label><br/>
             <img src="data:image/png;base64,<?php echo base64_encode($datos['spriteBack']); ?>" alt="Sprite Trasero"> <!-- Imagen de muestra del diseño trasero -->
-            <input type="file" name="trasero"><br/><!-- Campo de archivo para subir el diseño trasero -->
+            <input type="file" name="spriteB"><br/><!-- Campo de archivo para subir el diseño trasero -->
 
             <label for="derecho"><b>Diseño Derecho</b></label><br/>
             <img src="data:image/png;base64,<?php echo base64_encode($datos['spriteRight']); ?>" alt="Sprite Lateral Derecho"><!-- Imagen de muestra del diseño derecho -->
-            <input type="file" name="derecho"><br/><!-- Campo de archivo para subir el diseño derecho -->
+            <input type="file" name="spriteR"><br/><!-- Campo de archivo para subir el diseño derecho -->
 
             <label for="izquierdo"><b>Diseño Izquierdo</b></label><br/>
             <img src="data:image/png;base64,<?php echo base64_encode($datos['spriteLeft']); ?>" alt="Sprite Lateral Izquierdo"> <!-- Imagen de muestra del diseño izquierdo -->
-            <input type="file" name="izquierdo"><br/><!-- Campo de archivo para subir el diseño izquierdo -->
+            <input type="file" name="spriteL"><br/><!-- Campo de archivo para subir el diseño izquierdo -->
 
             <input type="submit" value="Modificar"><!-- Botón para enviar el formulario y realizar la modificación -->
 

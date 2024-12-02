@@ -2,7 +2,7 @@
 
 <?php include 'php/vistas/assets/includes/header.php'; ?>
 <main><!-- Contenido principal del documento -->
-    <a href="">
+    <a href="index.php?c=personaje&m=listarPersonajes">
         <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
     </a>
     <div class="div_form">

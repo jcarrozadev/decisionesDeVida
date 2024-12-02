@@ -26,7 +26,7 @@
             <div class="tarjeta">
             <div class="imagen-tarjeta"></div>
             <p>Gestión de Personajes</p>
-            <a href="#">Acceder</a>
+            <a href="index.php?c=personaje&m=listarPersonajes">Acceder</a>
             </div>
             <div class="tarjeta">
             <div class="imagen-tarjeta"></div>

@@ -109,6 +109,28 @@ body {
     background-color: var(--color-rojo-oscuro);
 }
 
+.boton-agregar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-amarillo);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.boton-agregar i {
+    font-size: 1.2rem;
+}
+
+.boton-agregar:hover {
+    background-color: var(--color-amarillo-oscuro);
+}
+
 /**************************************************** Panel de Administración *****************************************/
 #headerPanelAdmin {
     text-align: center;
@@ -199,11 +221,15 @@ body {
     width: 100%;
     height: 60px;
     background-color: var(--color-amarillo);
-    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    font-weight: bold;
     margin: 0 auto;
 }
 
 .boton-volver:hover {
+    cursor: pointer;
     background-color: #caa308;
 }
 

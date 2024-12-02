@@ -5,8 +5,13 @@
         <h1>Gestión de Personajes</h1>
         <p>Decisiones de Vida</p>
     </div>
+    <a href="index.php?c=personaje&m=formularioAlta">
+        <button class="boton-agregar">
+            <i class="fa fa-plus"></i> Añadir
+        </button>
+    </a>
     <section class="contenedor-personajes">
-    <?php
+        <?php
             foreach ($datos as $personaje) {
                 echo "<div class='fila-personaje'>";
                     echo "<div class='icono-personaje' style='background-image: url(data:image/png;base64," . base64_encode($personaje['spriteFront']) . ")'></div>";
@@ -21,5 +26,8 @@
         ?>
     </section>
 </main>
-<button class="boton-volver">Volver al Panel de Administración</button>
+<a href="index.php?c=panelAdmin&m=inicio">
+    <button class="boton-volver"><i class="fa fa-arrow-left"></i> Volver al Panel de Administración</button>
+</a>
+
 <?php include_once 'php/vistas/assets/includes/footer.php'; ?>
