@@ -12,6 +12,9 @@
     </a>
     <section class="contenedor-personajes">
         <?php
+            if(count($datos) == 0) {
+                echo "<p>No hay personajes disponibles</p>";
+            }
             foreach ($datos as $personaje) {
                 echo "<div class='fila-personaje'>";
                     echo "<div class='icono-personaje' style='background-image: url(data:image/png;base64," . base64_encode($personaje['spriteFront']) . ")'></div>";

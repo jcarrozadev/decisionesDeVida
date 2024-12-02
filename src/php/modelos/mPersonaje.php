@@ -138,7 +138,11 @@
             } catch (mysqli_sql_exception $e) {
                 $this->conexion->close();
 
-                $this->mensaje = "Error al eliminar el personaje: " . $e->getMessage();
+                if ($e->getCode() == 1451) { // Error code for foreign key constraint failure
+                    $this->mensaje = "Error al eliminar el personaje: No se puede borrar el personaje ya que hay algún jugador guardado con este personaje.";
+                } else {
+                    $this->mensaje = "Error al eliminar el personaje: " . $e->getMessage();
+                }
                 return false;
             }
 
