@@ -1,0 +1,406 @@
+/* CSS General*/
+
+/**************************************************************************************************************************
+*                                                         Trabajo de Javier                                               *
+***************************************************************************************************************************/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenedores Generales */
+.contenedor-principal {
+    flex: 1;
+    padding: 20px;
+}
+
+/********************************************************* Gestión de Personajes ***********************************************/
+.contenedor-personajes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.fila-personaje {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.fila-personaje:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.icono-personaje {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-amarillo);
+    border-radius: 10%;
+    margin-right: 15px;
+}
+
+.fila-personaje p {
+    flex: 1;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-gris-oscuro);
+    margin: 0;
+}
+
+.acciones {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.boton-modificar,
+.boton-eliminar {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.boton-modificar {
+    background-color: var(--color-verde);
+    color: var(--color-blanco);
+}
+
+.boton-modificar:hover {
+    background-color: var(--color-verde-oscuro);
+}
+
+.boton-eliminar {
+    background-color: var(--color-rojo);
+    color: var(--color-blanco);
+}
+
+.boton-eliminar:hover {
+    background-color: var(--color-rojo-oscuro);
+}
+
+/**************************************************** Panel de Administración *****************************************/
+.contenedor-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5%;
+    padding: 3% 5%;
+    max-width: 100%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.tarjeta {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    height: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: 30vw;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta .imagen-tarjeta {
+    margin: 0 auto;
+    height: 120px;
+    width: 120px;
+    background-color: var(--color-amarillo);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tarjeta .imagen-tarjeta img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.tarjeta > p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-gris-oscuro);
+    margin-bottom: 10px;
+}
+
+.tarjeta a {
+    text-decoration: none;
+    color: var(--color-azul);
+    font-weight: bold;
+    border: 2px solid var(--color-azul);
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.tarjeta a:hover {
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+}
+
+/* Botones Generales */
+button {
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-amarillo);
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #caa308;
+}
+
+/**************************************************************************************************************************
+*                                                         Trabajo de Miriam                                               *
+***************************************************************************************************************************/
+
+.boton_volver{
+    background-color: var(--color-amarillo);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 2vw 0 0 2vw;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el botón */
+}
+
+/* Estilos para la caja del formulario */
+#caja_form{
+    width: 50%;
+    height: 60vh;
+    background-color: var(--formulario);
+    font-size: 16px;
+    margin: 10vh 25%; /* Centra el formulario horizontalmente */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Estilos para el contenedor del formulario */
+.div_form {
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px 20px 50px 20px;
+    text-align: center;
+}
+
+/* Estilos para el título del formulario */
+.div_form > h1 {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Estilos para el subtítulo del formulario */
+.div_form > h3 {
+    color: #949393;
+    margin-bottom: 30px;
+}
+
+/* Estilos para el formulario */
+.form {
+    background-color: #cdd5e6;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    box-sizing: content-box; /* Asegura que el padding no afecte el tamaño total */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el formulario */
+}
+
+/* Estilos para las etiquetas dentro del formulario */
+.form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+/* Estilos para los campos de texto del formulario */
+.form input[type="text"] {
+    width: 77%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para los campos de archivo del formulario */
+.form input[type="file"] {
+    width: 100%;
+    margin-bottom: 15px;
+    border: none;
+    padding: 0 10%;
+    /* display: none; */
+}
+
+/* Estilos para el botón de enviar del formulario */
+.form input[type="submit"] {
+    background-color: #3B7359;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/**************************************************************************************************************************
+*                                                         Trabajo Conjunto de MQ                                          *
+***************************************************************************************************************************/
+
+/*************************************************************** Media Queries **********************************************/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contenedor-grid {
+        grid-template-columns: 1fr;
+        padding: 2% 3%;
+    }
+
+    .tarjeta {
+        width: 80vw;
+        padding: 15px;
+    }
+
+    .contenedor-personajes .fila-personaje {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .icono-personaje {
+        width: 80px;
+        height: 80px;
+    }
+
+    .acciones {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .boton-modificar,
+    .boton-eliminar {
+        width: 45%;
+    }
+
+    .boton_volver{
+        padding: 15px 30px; /*Disminuyo el padding del botón para que paarezca más pequeño*/
+        margin: 4vw 0 0 4vw; /*Aumento el margen del botón para que haya más separación*/
+    }
+
+    .div_form {
+        width: 80%; /*Aumento el tamaño del contenedor del formulario para que se adapte más a la pantalla*/
+        padding: 30px 20px 100px 20px; /*Incluimos mas padding para mejorar la visibilidad*/
+    }
+
+    .div_form > h1 {
+        font-size: 50px; /*Agrandamos el tamaño de la letra para diferentes tipos de pantallas*/
+    }
+    
+    .div_form > h3 {
+        font-size: 25px; /*Agrandamos el tamaño de la letra para diferentes tipos de pantallas*/
+        
+    }
+
+    .form label{
+        margin-bottom: 30px; /*Mayor margen inferior para equilibrar la distancia del label al input*/
+        font-size: 30px; /*Agrandamos el tamaño de la letra para diferentes tipos de pantallas*/
+    }
+
+    .form input[type="submit"] {
+        padding: 20px 20px; /*Ajustamos el tamaño del botón del botón submit, haciéndolo más pequeño*/
+        margin: 10px 0px;
+        font-size: 20px; /*Agrandamos el tamaño de la letra para diferentes tipos de pantallas*/
+    }
+
+    #caja_form{
+        height: 80vh;
+        margin: 10vh 25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor-grid {
+        grid-template-columns: 1fr;
+        padding: 5% 2%;
+    }
+
+    .contenedor-personajes .fila-personaje {
+        padding: 20px;
+    }
+
+    .icono-personaje {
+        width: 60px;
+        height: 60px;
+    }
+
+    .acciones {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .boton-modificar,
+    .boton-eliminar {
+        width: 100%;
+    }
+
+    .boton_volver{
+        padding: 10px 15px; /*Disminuyo el padding del botón para que paarezca más pequeño*/
+        margin: 4vw 0 0 4vw; /*Aumento el margen del botón para que haya más separación*/
+    }
+
+    .div_form {
+        width: 75%; /*Aumento el tamaño del contenedor del formulario para que se adapte más a la pantalla*/
+    }
+    
+    .form input[type="text"] {
+        padding: 7px; /*Disminuimos el tamaño del padding del tipo input*/
+        margin: 0px; /*Elimino el margen*/
+    }
+
+    .form input[type="submit"] {
+        padding: 8px 15px; /*Ajustamos el tamaño del botón del botón submit, haciéndolo más pequeño*/
+        margin: 10px 0px;
+    }
+
+    .form label{
+        margin-bottom: 20px; /*Mayor margen inferior para equilibrar la distancia del label al input*/
+    }
+}

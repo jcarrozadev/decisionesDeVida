@@ -1,6 +1,7 @@
 <!-- HTML Include Plantilla - Javier Arias Carroza -->
 <head>
     <!-- CSS -->
+    <link rel="stylesheet" href="../css/import.css">
     <link rel="stylesheet" href="../css/footer.css">
 </head>
     <footer>

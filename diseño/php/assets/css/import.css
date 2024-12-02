@@ -14,6 +14,7 @@
     --color-gris-claro: #DDD; /* Gris claro */
     --color-gris-medio: #9b7b7b; /* Gris medio */
     --color-blanco-sombra: rgba(255, 255, 255, 0.1); /* Sombra de blanco */
+    --formulario: #d3d3ce;
 }
 
 * {
