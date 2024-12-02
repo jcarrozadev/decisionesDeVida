@@ -35,5 +35,5 @@
         </div>
     </section>
 </main>
-<button class="boton-volver">Volver al Panel de Administración</button>
+<button class="boton-volver"><i class="fa fa-arrow-left"></i> Volver al Panel de Administración</button>
 <?php include_once 'assets/includes/footer.php'; ?>
