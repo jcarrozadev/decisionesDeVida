@@ -1,22 +1,4 @@
-:root {
-    /* Paleta de Colores */
-    --color-azul: #1D4E89;
-    --color-amarillo: #E3B505;
-    --color-verde: #3B7359;
-    --color-verde-oscuro: #2F5C47;
-    --color-gris-oscuro: #2F2F2F;
-    --color-blanco: #F8F8F0;
-    --color-rojo: #D22B2B;
-    --color-rojo-oscuro: #A61C1C;
-    --color-gris-claro: #ddd;
-    --color-amarillo-oscuro: #D19804;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* CSS Gestión de Personajes - Javier Arias Carroza */
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
