@@ -11,7 +11,7 @@
 
         public function formularioAlta() {
 
-            $this->vista = 'vAltaPersonaje';
+            $this->vista = 'altaPersonaje';
 
         }
         
@@ -96,7 +96,7 @@
             $personaje = new mPersonaje();
             $personajes = $personaje->listarPersonajes();
 
-            $this->vista = 'vListarPersonajes';
+            $this->vista = 'gestionPersonajes';
             return $personajes;
         }
 
@@ -117,7 +117,7 @@
             $personaje = new mPersonaje();
             $personaje = $personaje->obtenerDatosPersonaje($id);
 
-            $this->vista = 'vModificarPersonaje';
+            $this->vista = 'modificarPersonaje';
             return $personaje;
 
         }
