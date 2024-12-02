@@ -5,6 +5,9 @@
         <h1>Gestión de Personajes</h1>
         <p>Decisiones de Vida</p>
     </div>
+    <button class="boton-agregar">
+        <i class="fa fa-plus"></i> Añadir
+    </button>
     <section class="contenedor-personajes">
         <div class="fila-personaje">
             <div class="icono-personaje"></div>
