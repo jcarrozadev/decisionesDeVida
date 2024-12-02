@@ -1,0 +1,294 @@
+/*Estilos de mockups Alta  y Modificación de Personaje*/
+/*Miriam López Vega*/
+
+/* Reset de estilos básicos para márgenes y paddings, 
+y establecer una fuente base */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Definición de variables CSS para una paleta de colores */
+:root {
+    --color-azul: #1D4E89;
+    --color-amarillo: #E3B505;
+    --color-verde: #3B7359;
+    --color-gris-oscuro: #2F2F2F;
+    --color-blanco: #F8F8F0;
+    --color-rojo: #D22B2B;
+    --color-gris-claro: #ddd;
+    --color-amarillo-oscuro: #D19804;
+    --formulario: #d3d3ce;
+}
+
+/* Estilos generales para el cuerpo del documento */
+body{
+    color: white;
+    background-color: var(--color-gris-oscuro);
+    font-size: 16px;
+    min-height: 100vh; /* Asegura que el cuerpo tenga al menos la altura de la ventana */
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: var(--color-azul);
+    padding: 10px 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para el encabezado */
+    width: 100%;
+}
+
+/* Barra de navegación, centrando elementos y alineándolos */
+.barra-navegacion {
+    display: flex;
+    justify-content: space-between; /* Centra los enlaces y coloca el botón a la derecha */
+    align-items: center;
+    padding: 10px 5%;
+}
+
+/* Estilos para los enlaces centrales de la barra de navegación */
+.enlaces-centro {
+    display: flex;
+    justify-content: center; /* Centra los enlaces */
+    flex: 1;
+    gap: 20px; /* Espacio entre enlaces */
+}
+
+/* Estilos para los enlaces individuales dentro de la barra de navegación */
+.enlaces-centro a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transición suave para cambios de color */
+}
+
+.enlaces-centro a:hover {
+    background-color: var(--color-amarillo);
+    color: var(--color-gris-oscuro);
+}
+
+/* Estilos para el botón de perfil en la barra de navegación */
+.boton-perfil {
+    background-color: var(--color-amarillo);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: var(--color-gris-oscuro);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease; /* Transición suave para cambios de color */
+}
+
+.boton-perfil:hover {
+    background-color: var(--color-amarillo-oscuro);
+}
+
+/* Estilos adicionales para enlaces en la barra de navegación */
+.barra-navegacion a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.barra-navegacion a:hover {
+    background-color: var(--color-amarillo);
+    color: var(--color-gris-oscuro);
+}
+
+/* Estilos para el botón de "volver" */
+.boton_volver{
+    background-color: var(--color-amarillo);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 2vw 0 0 2vw;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el botón */
+}
+
+/* Estilos para la caja del formulario */
+#caja_form{
+    width: 50%;
+    height: 60vh;
+    background-color: var(--formulario);
+    font-size: 16px;
+    margin: 10vh 25%; /* Centra el formulario horizontalmente */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Estilos para el contenedor del formulario */
+.div_form {
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px 20px 50px 20px;
+    text-align: center;
+}
+
+/* Estilos para el título del formulario */
+.div_form > h1 {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Estilos para el subtítulo del formulario */
+.div_form > h3 {
+    color: #949393;
+    margin-bottom: 30px;
+}
+
+/* Estilos para el formulario */
+.form {
+    background-color: #cdd5e6;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    box-sizing: content-box; /* Asegura que el padding no afecte el tamaño total */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el formulario */
+}
+
+/* Estilos para las etiquetas dentro del formulario */
+.form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+/* Estilos para los campos de texto del formulario */
+.form input[type="text"] {
+    width: 77%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para los campos de archivo del formulario */
+.form input[type="file"] {
+    width: 100%;
+    margin-bottom: 15px;
+    border: none;
+    padding: 0 10%;
+    /* display: none; */
+}
+
+/* Estilos para el botón de enviar del formulario */
+.form input[type="submit"] {
+    background-color: #3B7359;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el pie de página */
+footer {
+    text-align: center;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    padding: 20px;
+    margin-top: auto; /* Empuja el pie de página hacia el final de la página */
+}
+
+
+
+@media (width < 1024px){ /*Resolución para tablet: 1024x1366*/
+
+    header{
+        padding:0px;
+        width: 100%;
+    }
+
+     .enlaces-centro {
+       gap: 20px;/*Disminuimos la diferencia entre los elementos del la barra de navegación*/
+        font-size: 22px;/* Ajustamos el tamaño de fuente */
+    } 
+
+    .boton_volver{
+        padding: 15px 30px; /*Disminuyo el padding del botón para que paarezca más pequeño*/
+        margin: 4vw 0 0 4vw; /*Aumento el margen del botón para que haya más separación*/
+    }
+
+    .div_form {
+        width: 80%; /*Aumento el tamaño del contenedor del formulario para que se adapte más a la pantalla*/
+        padding: 30px 20px 100px 20px; /*Incluimos mas padding para mejorar la visibilidad*/
+    }
+
+    .div_form > h1 {
+        font-size: 50px; /*Agrandamos el tamaño de la letra para diferentes tipos de pantallas*/
+    }
+    
+    .div_form > h3 {
+        font-size: 25px; /*Agrandamos el tamaño de la letra para diferentes tipos de pantallas*/
+        
+    }
+
+    .form label{
+        margin-bottom: 30px; /*Mayor margen inferior para equilibrar la distancia del label al input*/
+        font-size: 30px; /*Agrandamos el tamaño de la letra para diferentes tipos de pantallas*/
+    }
+
+    .form input[type="submit"] {
+        padding: 20px 20px; /*Ajustamos el tamaño del botón del botón submit, haciéndolo más pequeño*/
+        margin: 10px 0px;
+        font-size: 20px; /*Agrandamos el tamaño de la letra para diferentes tipos de pantallas*/
+    }
+
+    #caja_form{
+        height: 80vh;
+        margin: 10vh 25%;
+    }
+
+    footer {
+        padding: 40px; /*Disminuimos el padding*/
+        font-size: 20px; /*Aumento el tamaño de letra*/
+    }
+}
+
+@media (max-width: 550px) { /*Resolución para móvil*/
+
+    .boton_volver{
+        padding: 10px 15px; /*Disminuyo el padding del botón para que paarezca más pequeño*/
+        margin: 4vw 0 0 4vw; /*Aumento el margen del botón para que haya más separación*/
+    }
+
+    .div_form {
+        width: 75%; /*Aumento el tamaño del contenedor del formulario para que se adapte más a la pantalla*/
+    }
+    
+    .form input[type="text"] {
+        padding: 7px; /*Disminuimos el tamaño del padding del tipo input*/
+        margin: 0px; /*Elimino el margen*/
+    }
+
+    .form input[type="submit"] {
+        padding: 8px 15px; /*Ajustamos el tamaño del botón del botón submit, haciéndolo más pequeño*/
+        margin: 10px 0px;
+    }
+
+    .form label{
+        margin-bottom: 20px; /*Mayor margen inferior para equilibrar la distancia del label al input*/
+    }
+
+    .enlaces-centro {
+        gap: 10px; /*Disminuimos la diferencia entre los elementos del la barra de navegación*/
+        font-size: 17px; /*Ajustamos el tamaño de fuente*/
+    }
+
+    footer {
+        padding: 60px;
+        font-size: 20px; /*Aumentamos el tamaño del padding tamaño de letra*/
+    }
+}
