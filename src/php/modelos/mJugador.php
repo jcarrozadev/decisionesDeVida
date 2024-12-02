@@ -4,6 +4,14 @@
 
         // atributos
         private $conexion;
+
+        /**
+         * Se carga un string con el mensaje que se mostrará
+         * en la vista que se cargue en el index, este mensaje
+         * se debe cargar en el atributo mensaje del controlador
+         * ya que es el que se muestra realmente en la vista
+         * @var string
+         */
         public readonly string $mensaje;
     
         public function __construct() {

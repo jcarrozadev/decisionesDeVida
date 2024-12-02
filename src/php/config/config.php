@@ -6,6 +6,9 @@
 
     // ----------------------- RUTAS
     define('SPRITE_PATH', 'img/spritesPersonajes/');
+    define('MODEL_PATH', 'php/modelos/');
+    define('VIEW_PATH', 'php/vistas/');
+    define('CONTROLLER_PATH', 'php/controladores/');
 
     // ----------------------- Tamaño máximo de SPRITES
     define('MAX_SPRITE_SIZE', 10000);

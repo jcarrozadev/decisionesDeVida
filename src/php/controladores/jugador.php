@@ -3,7 +3,20 @@
     class Cjugador {
 
         // atributos
+
+        /**
+         * Se carga un string con el nombre de la vista que se
+         * va a cargar en el index para mostrar la información
+         * esta vista va sin extension ya que todas son php
+         * @var string
+         */
         public readonly string $vista;
+
+        /**
+         * Se carga un string con el mensaje que se mostrará
+         * en la vista que se cargue en el index
+         * @var string
+         */
         public readonly string $mensaje;
 
         // constructor
@@ -14,11 +27,11 @@
         /**
          * Metodo (temporal) para mostrar el
          * formulario de alta de un jugador
-         * @return array Devuelve los personajes a elegir
+         * @return array Devuelve los personajes a disponibles
          */
         public function formularioAlta() {
 
-            require_once 'php/modelos/mPersonaje.php';
+            require_once MODEL_PATH . 'mPersonaje.php';
 
             $objPersonaje = new MPersonaje();
             $personajes = $objPersonaje->listarPersonajes();
@@ -40,8 +53,8 @@
                 datos incorrectos o puntuaciones más altas de las que realmente ha obtenido.
             */
 
-            require_once 'php/modelos/mJugador.php';
             require_once 'php/config/config.php';
+            require_once MODEL_PATH . 'mJugador.php';
 
             $datos = $_POST;
 
@@ -66,7 +79,7 @@
 
         /**
          * Método para validar los datos de alta de un jugador
-         * @param array $datos
+         * @param array $datos Datos del jugador
          * @return bool
          */
         public function validarDatosAlta($datos) {

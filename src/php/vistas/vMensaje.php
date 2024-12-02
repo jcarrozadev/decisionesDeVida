@@ -1,3 +1,4 @@
+<!-- Este mensaje de error se va a eliminar en un futuro al incorporar javascript en el proyecto. -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
