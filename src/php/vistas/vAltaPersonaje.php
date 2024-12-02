@@ -70,10 +70,10 @@
         }
 
         // Validar el tamaño de cada archivo de imagen
-        if (!validarTamañoArchivo(spriteF[0], 'frontal', maxFileSize)) return false;
-        if (!validarTamañoArchivo(spriteB[0], 'trasero', maxFileSize)) return false;
-        if (!validarTamañoArchivo(spriteL[0], 'izquierda', maxFileSize)) return false;
-        if (!validarTamañoArchivo(spriteR[0], 'derecha', maxFileSize)) return false;
+        if (!validarTamañoArchivo(spriteF[0], 'frontal', tamañoMaximo)) return false;
+        if (!validarTamañoArchivo(spriteB[0], 'trasero', tamañoMaximo)) return false;
+        if (!validarTamañoArchivo(spriteL[0], 'izquierda', tamañoMaximo)) return false;
+        if (!validarTamañoArchivo(spriteR[0], 'derecha', tamañoMaximo)) return false;
 
         // Si todas las validaciones pasan, se permite el envío del formulario
         return true;
