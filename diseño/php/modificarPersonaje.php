@@ -1,6 +1,6 @@
 <!--Miriam López Vega-->
 
-<?php include '../assets/includes/header.php'; ?>
+<?php include 'assets/includes/header.php'; ?>
 <main> <!-- Contenido principal del documento -->
     <a href="">
         <button class="boton_volver">Volver</button> <!-- Botón para volver a la página anterior -->
@@ -35,4 +35,4 @@
         </form>
     </div>
 </main>
-<?php include '../assets/includes/footer.php'; ?>
+<?php include 'assets/includes/footer.php'; ?>

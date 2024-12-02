@@ -7,7 +7,9 @@
         <meta name="author" content="Javier Arias Carroza jariascarroza@gmail.com">
         <title>Panel de Administración</title>
         <!-- CSS -->
-        <link rel="stylesheet" href="panelAdministrador.css">
+        <link rel="stylesheet" href="assets/css/import.css">
+        <link rel="stylesheet" href="assets/css/general.css">
+        <link rel="stylesheet" href="assets/css/footer.css">
     </head>
     <body>
         <header id="headerPanelAdmin">
@@ -32,5 +34,4 @@
             <a href="#">Acceder</a>
             </div>
         </main>
-        <button class="boton-volver">Volver al Panel de Administración</button>
-<?php include_once '.././includes/footer.php'; ?>
+<?php include_once 'assets/includes/footer.php'; ?>
