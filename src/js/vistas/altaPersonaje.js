@@ -1,6 +1,8 @@
 document.getElementById('formulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío del formulario por defecto
 
+    // confirm('¿Estás seguro de que deseas dar de alta el personaje?'); ELIMINAR DESPUES
+
     if (validarFormulario()) {
 
         var formData = new FormData(this);

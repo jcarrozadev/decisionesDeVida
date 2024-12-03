@@ -30,6 +30,6 @@
     </div>
 </main>
 
-<script src="js/vistas/validarAlta.js"></script>
+<script src="js/vistas/altaPersonaje.js"></script>
 
 <?php include 'php/vistas/assets/includes/footer.php'; ?>
