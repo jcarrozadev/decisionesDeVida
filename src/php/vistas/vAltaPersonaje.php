@@ -35,6 +35,6 @@
             <input type="submit" value="Enviar">
         </form>
 
-        <script src="././js/vistas/validarAlta.js"></script>
+        <script src="src\js\vistas\validarAlta.js"></script>
     </body>
 </html>
