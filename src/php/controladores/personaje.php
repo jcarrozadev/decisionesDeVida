@@ -32,7 +32,6 @@
         /**
          * Da de alta un personaje validando los datos de $_FILES y $_POST
          * y guardando las imagenes en la carpeta de sprites
-         * Carga la vista de mensaje con el mensaje correspondiente en sus atributos
          * @return bool
          */
         public function altaPersonaje() {
@@ -63,7 +62,7 @@
             $personaje = new mPersonaje();
             $estado = $personaje->altaPersonaje($datos);
 
-            //header('Content-Type: application/json');
+            // mandamos el mensaje a JavaScript
             echo $personaje->mensaje;
 
             // esto no es realmente necesario pero lo dejo por
@@ -169,12 +168,11 @@
         /**
          * Modifica un personaje validando los datos de $_FILES y $_POST
          * y guardando las imagenes en la carpeta de sprites
-         * Carga la vista de mensaje con el mensaje correspondiente en sus atributos
          * @return bool
          */
         public function modificarPersonajeGuardar() {
 
-             /*
+            /*
                 Al modificar el nombre del personaje se debería modificar el nombre
                 de los sprites de la copia de seguridad pero no me ha dado tiempo
             */
@@ -187,8 +185,9 @@
 
                 // validamos el nombre
             if(!$this->validarDatosModificar($datos)) {
-                $this->vista = 'vMensaje';
-                return false;
+                // manda a JavaScript el mensaje
+                echo $this->mensaje;
+                return false; // detener la ejecucion del metodo
             }
 
             if(empty($files['spriteF']['tmp_name'])) {
@@ -222,8 +221,10 @@
             $personaje = new mPersonaje();
             $estado = $personaje->modificarPersonaje($datos);
             
-            $this->vista = 'vMensaje';
             $this->mensaje = $personaje->mensaje;
+
+            // mandamos el mensaje a JavaScript
+            echo $this->mensaje;
 
             if(!$estado) {
                 return false;
@@ -272,8 +273,10 @@
             $personaje = new mPersonaje();
             $estado = $personaje->eliminarPersonaje($id);
 
-            $this->vista = 'vMensaje';
             $this->mensaje = $personaje->mensaje;
+            
+            // mandamos el mensaje a JavaScript
+            echo $this->mensaje;
 
             if(!$estado) {
                 return false;
