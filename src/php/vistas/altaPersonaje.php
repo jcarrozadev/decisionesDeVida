@@ -9,7 +9,7 @@
         <h1 class="title">Alta de Personajes</h1><!--Titulo de la página-->
         <h3 class="subtitle">Decisiones de Vida</h3><!--Subtítulo de la página-->
 
-        <form class="form" action="index.php?c=Personaje&m=altaPersonaje" method="POST" enctype="multipart/form-data">
+        <form id="formulario" class="form" enctype="multipart/form-data">
             <label for="nombre">Nombre del personaje</label>
             <input type="text" id="nombre" placeholder="Introduzca el nombre" name="nombre">
 
@@ -29,4 +29,27 @@
         </form>
     </div>
 </main>
+
+<script>
+    document.getElementById('formulario').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío del formulario por defecto
+
+        var formData = new FormData(this);
+
+        fetch('index.php?c=personaje&m=altaPersonaje', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // Muestra la respuesta del servidor en la consola
+            alert(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al dar de alta el personaje');
+        });
+    });
+</script>
+
 <?php include 'php/vistas/assets/includes/footer.php'; ?>

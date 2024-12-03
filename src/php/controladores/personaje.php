@@ -46,7 +46,7 @@
             $datos += $files;
 
             if(!$this->validarDatosAlta($datos)) {
-                $this->vista = 'vMensaje';
+                echo $this->mensaje;
                 return false;
             }
 
@@ -63,8 +63,8 @@
             $personaje = new mPersonaje();
             $estado = $personaje->altaPersonaje($datos);
 
-            $this->vista = 'vMensaje';
-            $this->mensaje = $personaje->mensaje;
+            //header('Content-Type: application/json');
+            echo $personaje->mensaje;
 
             // esto no es realmente necesario pero lo dejo por
             // si hubiese algun cambio en el index en deteccion de errores
