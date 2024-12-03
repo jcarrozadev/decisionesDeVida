@@ -22,7 +22,8 @@
                     echo "<p>" . $personaje['nombrePersonaje'] . "</p>";
                     echo "<div class='acciones'>";
                         echo "<a class='boton-modificar' href='index.php?c=personaje&m=modificarPersonaje&id=" . $personaje['idPersonaje'] . "'>Modificar</a>";
-                        echo "<a class='boton-eliminar' href='index.php?c=personaje&m=eliminarPersonaje&id=" . $personaje['idPersonaje'] . "'>Eliminar</a>";
+                        // Cambiar el enlace de "Eliminar" para que use la función de JavaScript
+                        echo "<a class='boton-eliminar' href='javascript:void(0)' onclick='eliminarPersonaje(" . $personaje['idPersonaje'] . ")'>Eliminar</a>";
                     echo "</div>";
                 echo "</div>";
             }
@@ -34,3 +35,5 @@
 </a>
 
 <?php include_once 'php/vistas/assets/includes/footer.php'; ?>
+
+<script src="js/vistas/eliminarPersonaje.js"></script>
