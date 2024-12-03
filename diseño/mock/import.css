@@ -1,0 +1,23 @@
+/* IMPORT GENERAL de Mockups - Javier Arias Carroza */
+
+:root {
+    /* Paleta de Colores */
+    --color-azul: #1D4E89; /* Azul */
+    --color-amarillo: #E3B505; /* Amarillo */
+    --color-amarillo-oscuro: #D19804;
+    --color-verde: #3B7359; /* Verde */
+    --color-verde-oscuro: #2F5C47; /* Verde oscuro */
+    --color-gris-oscuro: #2F2F2F; /* Gris oscuro */
+    --color-blanco: #F8F8F0; /* Blanco */
+    --color-rojo: #D22B2B; /* Rojo */
+    --color-rojo-oscuro: #A61C1C; /* Rojo oscuro */
+    --color-gris-claro: #DDD; /* Gris claro */
+    --color-gris-medio: #9b7b7b; /* Gris medio */
+    --color-blanco-sombra: rgba(255, 255, 255, 0.1); /* Sombra de blanco */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
