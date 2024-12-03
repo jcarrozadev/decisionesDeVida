@@ -27,8 +27,6 @@
     // Incluimos la vista que nos devuelve el controlador para usar los datos que nos ha devuelto el metodo, esta ruta se encuentra en el config
     if(!empty($controlador->vista)){
         require_once VIEW_PATH . $controlador->vista . '.php';
-    }
-    $controlador->mensaje
-        
+    }    
 
 ?>

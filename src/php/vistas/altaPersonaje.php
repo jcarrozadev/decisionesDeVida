@@ -14,42 +14,22 @@
             <input type="text" id="nombre" placeholder="Introduzca el nombre" name="nombre">
 
             <label for="frontal">Diseño Frontal</label>
-            <input type="file" id="frontal" name="spriteF"><!--Campo para insertar archivos-->
+            <input type="file" id="spriteF" name="spriteF"><!--Campo para insertar archivos-->
 
             <label for="trasero">Diseño Trasero</label>
-            <input type="file" id="trasero" name="spriteB"><!--Campo para insertar archivos-->
+            <input type="file" id="spriteB" name="spriteB"><!--Campo para insertar archivos-->
 
             <label for="derecho">Diseño Derecho</label>
-            <input type="file" id="derecho" name="spriteR"><!--Campo para insertar archivos-->
+            <input type="file" id="spriteR" name="spriteR"><!--Campo para insertar archivos-->
 
             <label for="izquierdo">Diseño Izquierdo</label>
-            <input type="file" id="izquierdo" name="spriteL"><!--Campo para insertar archivos-->
+            <input type="file" id="spriteL" name="spriteL"><!--Campo para insertar archivos-->
 
-            <input type="submit" value="Dar de Alta"><!--Botón para enviar el formulario y dar de alta un personaje-->
+            <input type="submit"><!--Botón para enviar el formulario y dar de alta un personaje-->
         </form>
     </div>
 </main>
 
-<script>
-    document.getElementById('formulario').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita el envío del formulario por defecto
-
-        var formData = new FormData(this);
-
-        fetch('index.php?c=personaje&m=altaPersonaje', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); // Muestra la respuesta del servidor en la consola
-            alert(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Hubo un error al dar de alta el personaje');
-        });
-    });
-</script>
+<script src="js/vistas/validarAlta.js"></script>
 
 <?php include 'php/vistas/assets/includes/footer.php'; ?>
