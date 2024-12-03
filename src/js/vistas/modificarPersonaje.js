@@ -12,6 +12,7 @@ document.getElementById('formulario').addEventListener('submit', function(event)
         .then(data => {
             console.log(data); // Muestra la respuesta del servidor en la consola
             alert(data);  // Mostrar mensaje devuelto por el servidor
+            window.location.reload(); // Recargar la página
         })
         .catch(error => {
             console.error('Error:', error);

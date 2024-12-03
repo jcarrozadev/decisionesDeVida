@@ -193,6 +193,12 @@
             if(empty($files['spriteF']['tmp_name'])) {
                 $datos['spriteF'] = null;
             } else {
+
+                if(!$this->validarDatosImagen($files['spriteF'])) {
+                    echo $this->mensaje;
+                    return false;
+                }
+
                 move_uploaded_file($files['spriteF']['tmp_name'], SPRITE_PATH . $datos['nombre'] . '_F.png');
                 $datos['spriteF'] = file_get_contents(SPRITE_PATH . $datos['nombre'] . '_F.png');
             }
@@ -200,6 +206,12 @@
             if(empty($files['spriteB']['tmp_name'])) {
                 $datos['spriteB'] = null;
             } else {
+
+                if(!$this->validarDatosImagen($files['spriteB'])) {
+                    echo $this->mensaje;
+                    return false;
+                }
+
                 move_uploaded_file($files['spriteB']['tmp_name'], SPRITE_PATH . $datos['nombre'] . '_B.png');
                 $datos['spriteB'] = file_get_contents(SPRITE_PATH . $datos['nombre'] . '_B.png');
             }
@@ -207,6 +219,12 @@
             if(empty($files['spriteL']['tmp_name'])) {
                 $datos['spriteL'] = null;
             } else {
+
+                if(!$this->validarDatosImagen($files['spriteL'])) {
+                    echo $this->mensaje;
+                    return false;
+                }
+
                 move_uploaded_file($files['spriteL']['tmp_name'], SPRITE_PATH . $datos['nombre'] . '_L.png');
                 $datos['spriteL'] = file_get_contents(SPRITE_PATH . $datos['nombre'] . '_L.png');
             }
@@ -214,6 +232,12 @@
             if(empty($files['spriteR']['tmp_name'])) {
                 $datos['spriteR'] = null;
             } else {
+
+                if(!$this->validarDatosImagen($files['spriteR'])) {
+                    echo $this->mensaje;
+                    return false;
+                }
+
                 move_uploaded_file($files['spriteR']['tmp_name'], SPRITE_PATH . $datos['nombre'] . '_R.png');
                 $datos['spriteR'] = file_get_contents(SPRITE_PATH . $datos['nombre'] . '_R.png');
             }
@@ -249,6 +273,24 @@
             // Comprobamos que el nombre no tenga caracteres especiales para evitar inyecciones SQL etc...
             if(preg_match(CARACTERES_NO_PERMITIDOS, $datos['nombre'])) {
                 $this->mensaje = 'El nombre no puede contener caracteres especiales';
+                return false;
+            }
+
+            return true;
+
+        }
+
+        private function validarDatosImagen($datosImagen) {
+
+            // Comprobamos que las imagenes sean PNG y no ejecutables etc...
+            if($datosImagen['type'] != 'image/png') {
+                $this->mensaje = 'Los sprites deben ser de tipo PNG';
+                return false;
+            }
+
+            // Comprobamos el tamaño de las imagenes entre 1 byte y 10 KB
+            if($datosImagen['size'] < 1 || $datosImagen['size'] > MAX_SPRITE_SIZE) {
+                $this->mensaje = 'Los sprites deben tener un tamaño entre 1 byte y 10 KB';
                 return false;
             }
 
