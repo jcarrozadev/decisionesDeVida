@@ -2,7 +2,7 @@
 
 -- Inserción masiva de escenarios
 
-INSERT INTO Escenarios (nombreEscenario, nombreImagen, mensajeNarrativo) VALUES
+INSERT INTO Escenario (nombreEscenario, nombreImagen, mensajeNarrativo) VALUES
 ('Bosque Encantado', 'bosque.png', 'Te encuentras en un bosque lleno de magia y misterio.'),
 ('Cueva Oscura', 'cueva.png', 'Una cueva oscura se extiende frente a ti. Los ecos te ponen los pelos de punta.'),
 ('Castillo Abandonado', 'castillo.png', 'Un castillo en ruinas aparece ante tus ojos. ¿Qué secretos esconderá?'),

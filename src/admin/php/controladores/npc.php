@@ -60,7 +60,7 @@
             move_uploaded_file($datos['npcSprite']['tmp_name'], SPRITE_PATH_NPC . $datos['nombre'] . '_NPC.png');
             $datos['npcSprite'] = file_get_contents(SPRITE_PATH_NPC . $datos['nombre'] . '_NPC.png');
 
-            $npc = new mNPC();
+            $npc = new MNPC();
             $npc->altaNPC($datos);
 
             echo $npc->mensaje; // Mensaje a JavaScript

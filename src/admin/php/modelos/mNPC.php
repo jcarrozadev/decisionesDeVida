@@ -1,6 +1,6 @@
 <?php
 
-    class mNPC {
+    class MNPC {
 
         private $conexion;
 
