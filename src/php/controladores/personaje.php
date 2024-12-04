@@ -32,6 +32,7 @@
          */
         public function formularioAlta() {
 
+            $this->tituloPag = 'Alta personaje';
             $this->vista = 'altaPersonaje';
 
         }
@@ -140,6 +141,7 @@
             $personaje = new mPersonaje();
             $personajes = $personaje->listarPersonajes();
 
+            $this->tituloPag = 'Gestión de personajes';
             $this->vista = 'gestionPersonajes';
             return $personajes;
         }
@@ -167,6 +169,7 @@
             $personaje = new mPersonaje();
             $personaje = $personaje->obtenerDatosPersonaje($id);
 
+            $this->tituloPag = 'Modificar personaje';
             $this->vista = 'modificarPersonaje';
             return $personaje;
 
