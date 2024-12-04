@@ -21,6 +21,7 @@
                     <a href="index.php?c=personaje&m=listarPersonajes">Gestión de Personajes</a>
                     <a href="#gestionar-usuarios">Gestión de Usuarios</a>
                     <a href="#gestionar-ranking">Gestión de Ranking</a>
+                    <a href="index.php?c=npc&m=formularioAltaNPC">Gestión de NPC</a>
                 </div>
                 <button class="boton-perfil"><i class="fas fa-user"></i></button>
             </nav>

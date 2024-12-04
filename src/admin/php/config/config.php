@@ -6,6 +6,7 @@
 
     // ----------------------- RUTAS
     define('SPRITE_PATH', 'img/spritesPersonajes/');
+    define('SPRITE_PATH_NPC', 'img/spritesNPC/');
     define('MODEL_PATH', 'php/modelos/');
     define('VIEW_PATH', 'php/vistas/');
     define('CONTROLLER_PATH', 'php/controladores/');

@@ -22,25 +22,29 @@ CREATE TABLE Respuestas (
     mensaje VARCHAR(30) NOT NULL,
     dinero VARCHAR(20) NOT NULL,
     tiempo VARCHAR(150) NOT NULL,
-    idDiálogo SMALLINT UNSIGNED NOT NULL,
-    idEscenario TINYINT UNSIGNED NOT NULL,
-    PRIMARY KEY (idRespuesta),
-    FOREIGN KEY (idDiálogo) REFERENCES Diálogos(idDiálogo),
-    FOREIGN KEY (idEscenario) REFERENCES Escenario(idEscenario)
+    idDialogo SMALLINT UNSIGNED NULL,
+    idEscenario TINYINT UNSIGNED NULL,
+    PRIMARY KEY (idRespuesta)
 );
 
-CREATE TABLE Diálogos (
-    idDiálogo SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE Dialogos (
+    idDialogo SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     nombreDiálogo VARCHAR(20) NOT NULL,
     mensaje VARCHAR(150) NOT NULL,
     casilla CHAR(2) NOT NULL,
     idNPC TINYINT UNSIGNED NOT NULL,
-    idRespuesta1 TINYINT UNSIGNED NOT NULL,
-    idRespuesta2 TINYINT UNSIGNED NOT NULL,
+    idRespuesta1 TINYINT UNSIGNED NULL,
+    idRespuesta2 TINYINT UNSIGNED NULL,
     idEscenario TINYINT UNSIGNED NOT NULL,
-    PRIMARY KEY (idDiálogo),
-    FOREIGN KEY (idNPC) REFERENCES NPC(idNPC),
-    FOREIGN KEY (idRespuesta1) REFERENCES Respuestas(idRespuesta),
-    FOREIGN KEY (idRespuesta2) REFERENCES Respuestas(idRespuesta),
-    FOREIGN KEY (idEscenario) REFERENCES Escenario(idEscenario)
+    PRIMARY KEY (idDialogo)
 );
+
+ALTER TABLE Respuestas 
+ADD CONSTRAINT fk_idDialogo FOREIGN KEY (idDialogo) REFERENCES Dialogos(idDialogo),
+ADD CONSTRAINT fk_idEscenarioRespuestas FOREIGN KEY (idEscenario) REFERENCES Escenario(idEscenario);
+
+ALTER TABLE Dialogos 
+ADD CONSTRAINT fk_idNPC FOREIGN KEY (idNPC) REFERENCES NPC(idNPC),
+ADD CONSTRAINT fk_idRespuesta1 FOREIGN KEY (idRespuesta1) REFERENCES Respuestas(idRespuesta),
+ADD CONSTRAINT fk_idRespuesta2 FOREIGN KEY (idRespuesta2) REFERENCES Respuestas(idRespuesta),
+ADD CONSTRAINT fk_idEscenarioDialogos FOREIGN KEY (idEscenario) REFERENCES Escenario(idEscenario);

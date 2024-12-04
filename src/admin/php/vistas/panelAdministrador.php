@@ -19,19 +19,24 @@
 
         <main class="contenedor-grid">
             <div class="tarjeta">
-            <div class="imagen-tarjeta"></div>
-            <p>Gestión de Usuarios</p>
-            <a href="#">Acceder</a>
+                <div class="imagen-tarjeta"></div>
+                <p>Gestión de Usuarios</p>
+                <a href="#">Acceder</a>
             </div>
             <div class="tarjeta">
-            <div class="imagen-tarjeta"></div>
-            <p>Gestión de Personajes</p>
-            <a href="index.php?c=personaje&m=listarPersonajes">Acceder</a>
+                <div class="imagen-tarjeta"></div>
+                <p>Gestión de Personajes</p>
+                <a href="index.php?c=personaje&m=listarPersonajes">Acceder</a>
             </div>
             <div class="tarjeta">
-            <div class="imagen-tarjeta"></div>
-            <p>Gestión de Ranking</p>
-            <a href="#">Acceder</a>
+                <div class="imagen-tarjeta"></div>
+                <p>Gestión de Ranking</p>
+                <a href="#">Acceder</a>
+            </div>
+            <div class="tarjeta">
+                <div class="imagen-tarjeta"><img src="img/spritesDefault/Chino_F.png" alt="Foto NPC"></div>
+                <p>Gestión de NPC</p>
+                <a href="index.php?c=npc&m=formularioAltaNPC">Acceder</a>
             </div>
         </main>
 <?php include_once 'php/vistas/assets/includes/footer.php'; ?>
