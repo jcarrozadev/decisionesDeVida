@@ -10,6 +10,13 @@
          */
         public readonly string $vista;
 
+
+        /**
+         * Se carga un string para agregar el titulo de la vista
+         * @var string
+         */
+        public readonly string $tituloPag;
+
         /**
          * Se carga un string con el mensaje que se mostrará
          * en la vista que se cargue en el index
