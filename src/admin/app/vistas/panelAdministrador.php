@@ -46,4 +46,4 @@
                 <a href="#"><span style="color:red;">Locked</span></a>
             </div>
         </main>
-<?php include_once 'php/vistas/assets/includes/footer.php'; ?>
+<?php include_once 'app/vistas/assets/includes/footer.php'; ?>

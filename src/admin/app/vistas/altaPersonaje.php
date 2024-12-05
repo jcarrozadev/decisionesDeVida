@@ -1,6 +1,6 @@
 <!--Miriam López Vega-->
 
-<?php include 'php/vistas/assets/includes/header.php'; ?>
+<?php include 'app/vistas/assets/includes/header.php'; ?>
 <main><!-- Contenido principal del documento -->
     <a href="index.php?c=personaje&m=listarPersonajes">
         <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
@@ -32,4 +32,4 @@
 
 <script src="js/vistas/altaPersonaje.js"></script>
 
-<?php include 'php/vistas/assets/includes/footer.php'; ?>
+<?php include 'app/vistas/assets/includes/footer.php'; ?>

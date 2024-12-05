@@ -44,7 +44,7 @@
          */
         public function altaNPC() {
 
-            require_once 'php/config/config.php';
+            require_once 'app/config/config.php';
             require_once MODEL_PATH . 'mNPC.php';
 
             $datos = $_POST;

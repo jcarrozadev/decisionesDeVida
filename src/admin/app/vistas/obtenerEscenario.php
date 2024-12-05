@@ -1,6 +1,6 @@
 <!-- Javier Arias Carroza -->
 
-<?php include 'php/vistas/assets/includes/header.php'; ?>
+<?php include 'app/vistas/assets/includes/header.php'; ?>
 <style>
     form#dialogoForm {
         max-width: 600px;
@@ -80,4 +80,4 @@
     <a href="index.php" class="btn-submit" style="background-color: var(--color-amarillo); text-decoration:none;">Volver</a>
 </div>
 
-<?php include 'php/vistas/assets/includes/footer.php'; ?>
+<?php include 'app/vistas/assets/includes/footer.php'; ?>

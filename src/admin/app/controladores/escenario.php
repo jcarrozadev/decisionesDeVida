@@ -33,9 +33,14 @@
 
         }
 
+
+        /**´
+         * Método que se encarga de obtener los escenarios de la base de datos
+         * @return array
+         */
         public function listarEscenarios() {
 
-            require_once 'php/config/config.php';
+            require_once 'app/config/config.php';
             require_once MODEL_PATH . 'mEscenario.php';
 
             $mEscenario = new MEscenario();

@@ -1,6 +1,6 @@
 <!-- NO ES UN MOCKUP, ESTE FORMULARIO ES PARA PROBAR EL ALTA DEL JUGADOR -->
 
-<?php include 'php/vistas/assets/includes/header.php'; ?>
+<?php include 'app/vistas/assets/includes/header.php'; ?>
 <main><!-- Contenido principal del documento -->
     <a href="index.php">
         <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
@@ -32,4 +32,4 @@
         </form>
     </div>
 </main>
-<?php include 'php/vistas/assets/includes/footer.php'; ?>
+<?php include 'app/vistas/assets/includes/footer.php'; ?>
