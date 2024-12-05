@@ -1,66 +1,25 @@
 <!-- Javier Arias Carroza -->
 
 <?php include ASSETS_PATH . 'header.php'; ?>
-<style>
-    #npcForm {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        background-color: var(--color-azul);
-        margin-top: 10vh;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .form-group {
-        margin: 4% 1%;
-    }
-
-    .form-label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    .form-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid var(--formulario);
-        border-radius: 5px;
-    }
-
-    .btn-submit {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: var(--color-amarillo);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .btn-submit:hover {
-        background-color: var(--color-amarillo-oscuro);
-    }
-</style>
-<form id="npcForm" enctype="multipart/form-data">
-    <h2 style="text-align:center;">Alta de NPC</h2>
-    <hr>
-    <div class="form-group">
-        <label for="nombre" class="form-label">Nombre del NPC:</label>
-        <input type="text" class="form-control" id="nombre" name="nombre">
-    </div>
-    <div class="form-group">
-        <label for="npcSprite" class="form-label">Sprite del NPC:</label>
-        <input type="file" class="form-control" id="npcSprite" name="npcSprite" accept="image/*">
-    </div>
-    <button type="submit" class="btn-submit">Enviar</button>
-</form>
-<div style="text-align:center; margin-top: 20px; max-width: 600px; margin: 20px auto; width: 25%;">
-    <a href="index.php" class="btn-submit" style="background-color: var(--color-amarillo); text-decoration:none;">Volver</a>
-</div>
+<main>
+        <a href="index.php">
+            <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
+        </a>
+        <div class="div_form">
+            <h1 class="title">Alta de NPC</h1><!--Titulo de la página-->
+            <h3 class="subtitle">Decisiones de Vida</h3><!--Subtítulo de la página-->
+    
+            <form class="form" name="form" action="" method="">
+                <label for="nombre">Nombre del NPC</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Introduzca el nombre">
+    
+                <label for="frontal">Diseño Frontal</label>
+                <input type="file" name="npcSprite" id="npcSprite"><!--Campo para insertar archivos-->
+                
+                <button type="submit" class="formAltaNPC-btn-submit">Enviar</button><!--Botón para enviar el formulario y dar de alta un personaje-->
+            </form>
+        </div>
+    </main>
 <script>
 document.getElementById('npcForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío del formulario por defecto
