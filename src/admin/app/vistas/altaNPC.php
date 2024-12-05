@@ -1,6 +1,6 @@
 <!-- Javier Arias Carroza -->
 
-<?php include 'app/vistas/assets/includes/header.php'; ?>
+<?php include ASSETS_PATH . 'header.php'; ?>
 <style>
     #npcForm {
         max-width: 600px;
@@ -130,4 +130,4 @@ function validarTamañoArchivo(archivo, nombre, tamanioMaximo) {
 }
 </script>
 
-<?php include 'app/vistas/assets/includes/footer.php'; ?>
+<?php include ASSETS_PATH . 'footer.php'; ?>

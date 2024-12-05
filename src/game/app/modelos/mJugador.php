@@ -15,7 +15,7 @@
         public readonly string $mensaje;
     
         public function __construct() {
-            require_once 'app/config/configdb.php';
+            require_once CONFIG_PATH . 'configdb.php';
         }
 
         private function conexionBaseDatos() {

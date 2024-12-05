@@ -17,7 +17,7 @@
          * Constructor de la clase
          */
         public function __construct() {
-            require_once 'php/config/configdb.php';
+            require_once CONFIG_PATH . 'configdb.php';
         }
 
         /**
