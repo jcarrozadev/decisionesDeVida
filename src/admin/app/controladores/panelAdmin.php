@@ -12,7 +12,7 @@
         // public readonly string $mensaje; no es necesario de momento, descomentar si fuese necesario
 
         public function __construct() {
-            // require_once 'php/config/conexion.php';
+            // require_once 'app/config/conexion.php';
         }
 
         /**

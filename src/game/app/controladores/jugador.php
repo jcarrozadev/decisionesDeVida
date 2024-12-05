@@ -53,7 +53,7 @@
                 datos incorrectos o puntuaciones más altas de las que realmente ha obtenido.
             */
 
-            require_once 'php/config/config.php';
+            require_once 'app/config/config.php';
             require_once MODEL_PATH . 'mJugador.php';
 
             $datos = $_POST;
