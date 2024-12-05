@@ -1,2 +1,2 @@
-src/game/php/config/configdb.php
-src/admin/php/config/configdb.php
+src/game/app/config/configdb.php
+src/admin/app/config/configdb.php
