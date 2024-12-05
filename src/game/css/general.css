@@ -552,7 +552,7 @@ body {
     font-size: 5vw;
     color: var(--color-rojo-oscuro);
     text-align: center;
-    margin: 0; /* Eliminamos el margen superior para evitar desplazamiento */
+    margin: 0;
 }
 
 .botonJuego {
