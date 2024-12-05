@@ -3,14 +3,17 @@
 <?php include ASSETS_PATH . 'header.php'; ?>
 
 <main><!-- Contenido por Pablo -->
-    <a href="index.php">
+    <a href="index.php?c=escenario&m=formularioObtenerEscenario">
         <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
     </a>
     <div class="div_formAltaDialogo">
-        <h1 class="title">Alta de Diálogo</h1><!--Titulo de la página-->
-        <h3 class="subtitle">Decisiones de Vida</h3><!--Subtítulo de la página-->
+        <h1 class="title">Alta de Diálogo</h1>
+        <h3 class="subtitle">Decisiones de Vida</h3>
 
         <form class="formAltaDialogo" name="form" action="" method="">
+
+            <label for="escenario">Escenario Elegido:</label>
+            <input type="text" placeholder="<?php echo $datos[1]; ?>" disabled>
 
             <label for="nombre" class="formAltaDialogo-label">Nombre del Diálogo:</label>
             <input type="text" placeholder="Nombre" name="nombre">
@@ -46,7 +49,7 @@
             <label for="respuesta2" class="formAltaDialogo-label">Respuesta 2:</label>
             <input type="text" placeholder="Respuesta 2" name="respuesta2"><br/>
             
-            <button type="submit">Dar de alta</button><!--Botón para enviar el formulario y dar de alta un personaje-->
+            <button type="submit" class="btn-submit">Dar de alta</button><!--Botón para enviar el formulario y dar de alta un personaje-->
         </form>
     </div>
 </main>

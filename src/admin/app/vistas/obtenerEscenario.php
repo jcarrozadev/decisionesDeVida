@@ -10,7 +10,7 @@
         <h1>Alta de Diálogo</h1><!--Titulo de la página-->
         <h3>Decisiones de Vida</h3><!--Subtítulo de la página-->
 
-        <form class="formAltaDialogo" name="formAltaDialogo">
+        <form class="formAltaDialogo" name="formAltaDialogo" method="post" action="index.php?c=dialogo&m=formularioAltaDialogo">
 
             <label for="listaEscenario" class="formAltaDialogo-label">Selecciona un Escenario:</label>
             <select name="listaEscenario" id="listaEscenario" class="formAltaDialogo-control">
@@ -20,13 +20,13 @@
                     $escenarios = $controlador->listarEscenarios();
 
                     foreach ($escenarios as $escenario) {
-                        echo "<option value='" . $escenario['idEscenario'] . "'>" . $escenario['nombreEscenario'] . "</option>";
+                        echo "<option value='" . $escenario['idEscenario'] . "#" . $escenario['nombreEscenario'] . "'>" . $escenario['nombreEscenario'] . "</option>";
                     }
 
                 ?>
             </select>
             
-            <button type="submit">Siguiente</button><!--Botón para enviar el formulario y dar de alta un personaje-->
+            <input type="submit" class="btn-submit" value="Siguiente">
         </form>
     </div>
 </main>

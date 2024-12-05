@@ -44,7 +44,7 @@
          */
         public function altaPersonaje() {
             
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
             $files = $_FILES;
@@ -135,7 +135,7 @@
                 Falta comprobar si se ha conseguido listar algun personaje
                 si no, poner un comentario como que no hay personajes disponibles
             */
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
             $personaje = new mPersonaje();
@@ -152,7 +152,7 @@
          */
         public function modificarPersonaje() {
 
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             
             if(!isset($_GET['id'])) {
                 $this->vista = 'vMensaje';
@@ -190,7 +190,7 @@
             $files = $_FILES;
             $datos = $_POST;
 
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
                 // validamos el nombre
@@ -315,7 +315,7 @@
          */
         public function eliminarPersonaje() {
 
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
             $files = $_FILES;

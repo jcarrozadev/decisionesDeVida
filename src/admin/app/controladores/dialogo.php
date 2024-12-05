@@ -31,6 +31,12 @@
             $this->tituloPag = 'Alta Dialogo';
             $this->vista = 'altaDialogo';
 
+            $datos = $_POST;
+
+            $datos = explode('#', $datos['listaEscenario']);
+
+            return $datos;
+
         }
 
     }

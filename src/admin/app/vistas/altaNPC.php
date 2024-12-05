@@ -5,18 +5,19 @@
         <a href="index.php">
             <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
         </a>
-        <div class="div_form">
+        <div class="div_formAltaDialogo">
             <h1 class="title">Alta de NPC</h1><!--Titulo de la página-->
             <h3 class="subtitle">Decisiones de Vida</h3><!--Subtítulo de la página-->
     
-            <form class="form" name="form" action="" method="">
+            <form class="form" name="form" id="npcForm">
                 <label for="nombre">Nombre del NPC</label>
                 <input type="text" name="nombre" id="nombre" placeholder="Introduzca el nombre">
     
                 <label for="frontal">Diseño Frontal</label>
                 <input type="file" name="npcSprite" id="npcSprite"><!--Campo para insertar archivos-->
-                
-                <button type="submit" class="formAltaNPC-btn-submit">Enviar</button><!--Botón para enviar el formulario y dar de alta un personaje-->
+
+                <!--Botón para enviar el formulario y dar de alta un personaje-->
+                <button type="submit" class="btn-submit">Crear NPC</button>
             </form>
         </div>
     </main>
