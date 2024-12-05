@@ -5,6 +5,7 @@
     define('METODO_DEFECTO', 'inicio'); // cambiarlo
 
     // ----------------------- RUTAS
+    define('ASSETS_PATH', 'app/vistas/assets/includes/');
     define('SPRITE_PATH', 'img/spritesPersonajes/');
     define('MODEL_PATH', 'app/modelos/');
     define('VIEW_PATH', 'app/vistas/');

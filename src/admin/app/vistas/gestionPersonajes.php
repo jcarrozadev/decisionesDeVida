@@ -1,5 +1,5 @@
 <!-- HTML Listar Personajes - Javier Arias Carroza -->
-<?php include_once 'php/vistas/assets/includes/header.php'; ?>
+<?php include ASSETS_PATH . 'header.php'; ?>
 <main class="contenedor-principal">
     <div class="titulo">
         <h1>Gestión de Personajes</h1>
@@ -34,6 +34,6 @@
     <button class="boton-volver"><i class="fa fa-arrow-left"></i> Volver al Panel de Administración</button>
 </a>
 
-<?php include_once 'php/vistas/assets/includes/footer.php'; ?>
+<?php include ASSETS_PATH . 'footer.php'; ?>
 
 <script src="js/vistas/eliminarPersonaje.js"></script>

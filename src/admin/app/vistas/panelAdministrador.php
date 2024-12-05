@@ -34,4 +34,4 @@
             <a href="#">Acceder</a>
             </div>
         </main>
-<?php include_once 'php/vistas/assets/includes/footer.php'; ?>
+    <?php include ASSETS_PATH . 'footer.php'; ?>
