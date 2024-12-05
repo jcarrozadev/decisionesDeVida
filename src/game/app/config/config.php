@@ -1,14 +1,14 @@
 <?php
 
     // ----------------------- CONTROLADOR Y METODO POR DEFECTO
-    define('CONTROLADOR_DEFECTO', 'panelAdmin'); // cambiarlo
-    define('METODO_DEFECTO', 'inicio'); // cambiarlo
+    define('CONTROLADOR_DEFECTO', 'jugar'); // cambiarlo
+    define('METODO_DEFECTO', 'index'); // cambiarlo
 
     // ----------------------- RUTAS
     define('SPRITE_PATH', 'img/spritesPersonajes/');
-    define('MODEL_PATH', 'php/modelos/');
-    define('VIEW_PATH', 'php/vistas/');
-    define('CONTROLLER_PATH', 'php/controladores/');
+    define('MODEL_PATH', 'app/modelos/');
+    define('VIEW_PATH', 'app/vistas/');
+    define('CONTROLLER_PATH', 'app/controladores/');
 
     // ----------------------- Tamaño máximo de SPRITES
     define('MAX_SPRITE_SIZE', 10000);
