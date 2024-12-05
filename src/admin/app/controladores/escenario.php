@@ -40,7 +40,7 @@
          */
         public function listarEscenarios() {
 
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
 
             $mEscenario = new MEscenario();
