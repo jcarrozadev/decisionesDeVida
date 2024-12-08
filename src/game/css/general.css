@@ -548,6 +548,18 @@ body {
     left: 20px;
 }
 
+#primerTitulo{
+    color:#d7bd53;
+}
+
+#segundoTitulo{
+    color:#b8bde4;
+}
+
+#tercerTitulo{
+    color:#038e9e;
+}
+
 .tituloJuego {
     font-size: 5vw;
     color: var(--color-rojo-oscuro);
@@ -559,7 +571,7 @@ body {
     background-color: var(--color-amarillo);
     color: white;
     border: none;
-    padding: 20px 50px;
+    padding: 50px 80px;
     font-size: medium;
     border-radius: 5px;
     cursor: pointer;
@@ -641,8 +653,9 @@ body {
 .iniciarJuego{
     background-color: var(--color-amarillo);
     color: white;
+    font-size:large;
     border: none;
-    padding: 20px 30px;
+    padding: 50px 70px;
     margin: 2vw 0 0 2vw;
     border-radius: 5px;
     cursor: pointer;
