@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head class="cabeceraDialogo">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alta de Diálogo</title>
+        <link rel="stylesheet" href="../import.css">
+        <link rel="stylesheet" href="../../../src/game/css/general.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <main><!-- Contenido principal del documento -->
+            <a href="">
+                <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
+            </a>
+            <div class="div_formAltaDialogo">
+                <h1 class="title">Alta de Diálogo</h1><!--Titulo de la página-->
+                <h3 class="subtitle">Decisiones de Vida</h3><!--Subtítulo de la página-->
+        
+                <form class="formAltaDialogo" name="form" action="" method="">
+        
+                    <label for="listaNPC" class="formAltaDialogo-label">Selecciona un dialogo:</label>
+                    <select name="listaNPC" id="listaNPC" class="formAltaDialogo-control">
+                        <option hidden disabled selected>- Elige Dialogo -</option>
+                    </select>
+
+                    <label for="colisiones" class="formAltaDialogo-label">Colisiones:</label>
+                    <table class="mapa">
+                        <tbody>
+                            <script>
+                                // Crear una tabla de 10 filas y 12 columnas de forma dinámica
+                                for (let i = 0; i < 10; i++) {
+                                    document.write('<tr>'); // Crear una nueva fila
+                                    for (let j = 0; j < 12; j++) {
+                                        // Crear una celda con atributos personalizados de fila y columna, y una función onclick
+                                        document.write(`<td data-row="${i}" data-col="${j}" class="celdas"></td>`);
+                                    }
+                                    document.write('</tr>'); // Cerrar la fila
+                                }
+                            </script>
+                        </tbody>
+                    </table>
+
+                    <label for="listaNPC" class="formAltaDialogo-label">Selecciona un NPC:</label>
+                    <select name="listaNPC" id="listaNPC" class="formAltaDialogo-control">
+                        <option hidden disabled selected>- Elige NPC -</option>
+                    </select>
+
+                    <label for="mensaje" class="formAltaDialogo-label">Mensaje:</label>
+                    <input type="text" placeholder="Mensaje" name="mensaje">
+
+                    <label for="respuesta1" class="formAltaDialogo-label">Respuesta 1:</label>
+                    <input type="text" placeholder="Respuesta 1" name="respuesta1">
+
+                    <label for="respuesta2" class="formAltaDialogo-label">Respuesta 2:</label>
+                    <input type="text" placeholder="Respuesta 2" name="respuesta2"><br/>
+                    
+                    <button type="submit">Modificar</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
