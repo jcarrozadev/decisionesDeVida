@@ -10,14 +10,14 @@
         <h1 class="title">Alta de Diálogo</h1>
         <h3 class="subtitle">Decisiones de Vida</h3>
 
-        <form class="formAltaDialogo" name="form" action="" method="">
+        <form class="formAltaDialogo" action="index.php?c=dialogo&m=altaDialogo" method="POST">
 
             <label for="escenario">Escenario Elegido:</label>
             <input type="text" placeholder="<?php echo $datos['escenarios'][1]; ?>" disabled>
-            <input type="text" value="<?php echo $datos['escenarios'][0]; ?>" hidden>
+            <input type="text" name="idEscenario" value="<?php echo $datos['escenarios'][0]; ?>" hidden>
 
-            <label for="nombre" class="formAltaDialogo-label">Nombre del Diálogo:</label>
-            <input type="text" placeholder="Nombre" name="nombre">
+            <label for="nombreDialogo" class="formAltaDialogo-label">Nombre del Diálogo:</label>
+            <input type="text" placeholder="Nombre" name="nombreDialogo">
 
             <label for="colisiones" class="formAltaDialogo-label">Colisiones:</label>
             <table class="mapa">
@@ -37,7 +37,7 @@
                     </script>
                 </tbody>
             </table>
-            <input type="text" name="colisionElegida" placeholder="A2">
+            <input type="text" name="casilla" placeholder="A2">
 
             <label for="listaNPC" class="formAltaDialogo-label">Selecciona un NPC:</label>
             <select name="listaNPC" id="listaNPC" class="formAltaDialogo-control">
@@ -47,7 +47,7 @@
                     // Recorremos la lista de NPCs y crear una opción para cada uno
                     for ($i = 0; $i < count($datos['npcs']); $i++) {
                         $npc = $datos['npcs'][$i];
-                        echo "<option value='" . $npc['idNPC'] . "#" . $npc['nombreNPC'] . "'>" . $npc['nombreNPC'] . "</option>";
+                        echo "<option value='" . $npc['idNPC'] . "'>" . $npc['nombreNPC'] . "</option>";
                     }
         
                 ?>
@@ -62,7 +62,7 @@
             <label for="respuesta2" class="formAltaDialogo-label">Respuesta 2:</label>
             <input type="text" placeholder="Respuesta 2" name="respuesta2"><br/>
             
-            <button type="submit" class="btn-submit">Dar de alta</button><!--Botón para enviar el formulario y dar de alta un personaje-->
+            <input type="submit" class="btn-submit" value="Registrar Diálogo"></input>
         </form>
     </div>
 </main>

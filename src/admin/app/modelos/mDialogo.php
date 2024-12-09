@@ -22,6 +22,26 @@
             $this->conexion->set_charset("utf8");
         }
 
-        
+        public function altaDialogo($datos) {
+            $this->conexionBBDD();
+    
+            $sql = "INSERT INTO Dialogos (nombreDiálogo, mensaje, casilla, idNPC, idEscenario)
+                    VALUES ('" . $this->conexion->real_escape_string($datos['nombreDialogo']) . "', 
+                            '" . $this->conexion->real_escape_string($datos['mensaje']) . "', 
+                            '" . $this->conexion->real_escape_string($datos['casilla']) . "', 
+                            '" . $this->conexion->real_escape_string($datos['listaNPC']) . "', 
+                            '" . $this->conexion->real_escape_string($datos['idEscenario']) . "')";
+    
+            try {
+                $this->conexion->query($sql);
+            } catch (mysqli_sql_exception $e) {
+                $this->conexion->close();
+                $this->mensaje = "Error al crear el diálogo: " . $e->getMessage();
+                return false;
+            }
+    
+            $this->conexion->close();
+            return true;    
+        }
 
     }
