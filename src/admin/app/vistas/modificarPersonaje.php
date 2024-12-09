@@ -39,4 +39,4 @@
     </div>
 </main>
         <script src="js/vistas/modificarPersonaje.js"></script>
-        <?php include ASSETS_PATH . 'footer.php'; ?>
+<?php include ASSETS_PATH . 'footer.php'; ?>

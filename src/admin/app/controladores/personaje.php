@@ -10,6 +10,13 @@
          */
         public readonly string $vista;
 
+
+        /**
+         * Se carga un string para agregar el titulo de la vista
+         * @var string
+         */
+        public readonly string $tituloPag;
+
         /**
          * Se carga un string con el mensaje que se mostrará
          * en la vista que se cargue en el index
@@ -25,6 +32,7 @@
          */
         public function formularioAlta() {
 
+            $this->tituloPag = 'Alta personaje';
             $this->vista = 'altaPersonaje';
 
         }
@@ -36,7 +44,7 @@
          */
         public function altaPersonaje() {
             
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
             $files = $_FILES;
@@ -127,12 +135,13 @@
                 Falta comprobar si se ha conseguido listar algun personaje
                 si no, poner un comentario como que no hay personajes disponibles
             */
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
             $personaje = new mPersonaje();
             $personajes = $personaje->listarPersonajes();
 
+            $this->tituloPag = 'Gestión de personajes';
             $this->vista = 'gestionPersonajes';
             return $personajes;
         }
@@ -143,7 +152,7 @@
          */
         public function modificarPersonaje() {
 
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             
             if(!isset($_GET['id'])) {
                 $this->vista = 'vMensaje';
@@ -160,6 +169,7 @@
             $personaje = new mPersonaje();
             $personaje = $personaje->obtenerDatosPersonaje($id);
 
+            $this->tituloPag = 'Modificar personaje';
             $this->vista = 'modificarPersonaje';
             return $personaje;
 
@@ -180,7 +190,7 @@
             $files = $_FILES;
             $datos = $_POST;
 
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
                 // validamos el nombre
@@ -305,7 +315,7 @@
          */
         public function eliminarPersonaje() {
 
-            require_once 'app/config/config.php';
+            require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
             $files = $_FILES;
