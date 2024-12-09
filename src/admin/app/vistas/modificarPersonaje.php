@@ -38,5 +38,5 @@
 
     </div>
 </main>
-        <script src="js/vistas/modificarPersonaje.js"></script>
+<script src="js/vistas/modificarPersonaje.js"></script>
 <?php include ASSETS_PATH . 'footer.php'; ?>
