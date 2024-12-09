@@ -10,6 +10,8 @@
     define('VIEW_PATH', 'app/vistas/');
     define('CONTROLLER_PATH', 'app/controladores/');
 
+    define('VIEW_JS_PATH', 'js/vistas/');
+
     // ----------------------- Tamaño máximo de SPRITES
     define('MAX_SPRITE_SIZE', 10000);
 
