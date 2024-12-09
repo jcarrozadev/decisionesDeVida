@@ -1,4 +1,4 @@
 # decisionesDeVida
 Minijuego ilustrado en Justicia Social con decisiones
 
-Sprint 1 Finalizado.
+Sprint 2 Javier Arias Carroza - En curso

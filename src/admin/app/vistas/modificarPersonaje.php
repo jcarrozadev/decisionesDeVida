@@ -39,4 +39,8 @@
     </div>
 </main>
         <script src="js/vistas/modificarPersonaje.js"></script>
+<<<<<<< HEAD
         <?php include ASSETS_PATH . 'footer.php'; ?>
+=======
+<?php include ASSETS_PATH . 'footer.php'; ?>
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a

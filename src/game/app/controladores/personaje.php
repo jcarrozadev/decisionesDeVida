@@ -10,6 +10,16 @@
          */
         public readonly string $vista;
 
+<<<<<<< HEAD
+=======
+
+        /**
+         * Se carga un string para agregar el titulo de la vista
+         * @var string
+         */
+        public readonly string $tituloPag;
+
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
         /**
          * Se carga un string con el mensaje que se mostrará
          * en la vista que se cargue en el index
@@ -25,9 +35,13 @@
          */
         public function listarPersonajes() {
 
+<<<<<<< HEAD
 
         }
 
+=======
+        }
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
     }
     
 ?>

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Javier Arias Carroza jariascarroza@gmail.com">
-        <title><?php // aqui iría el nombre con variable ?></title>
+        <title><?php echo $controlador->tituloPag ?></title>
         <!-- CSS -->
         <link rel="stylesheet" href="css/import.css">
         <link rel="stylesheet" href="css/header.css">
@@ -21,6 +21,7 @@
                     <a href="index.php?c=personaje&m=listarPersonajes">Gestión de Personajes</a>
                     <a href="#gestionar-usuarios">Gestión de Usuarios</a>
                     <a href="#gestionar-ranking">Gestión de Ranking</a>
+                    <a href="index.php?c=npc&m=formularioAltaNPC">Gestión de NPC</a>
                 </div>
                 <button class="boton-perfil"><i class="fas fa-user"></i></button>
             </nav>

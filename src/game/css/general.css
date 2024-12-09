@@ -146,14 +146,24 @@ body {
 }
 
 .contenedor-grid {
+<<<<<<< HEAD
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Tarjetas de mínimo 250px */
     gap: 20px; /* Separación entre tarjetas */
+=======
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5%;
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
     padding: 3% 5%;
     max-width: 100%;
     margin: 0 auto;
     align-items: center;
+<<<<<<< HEAD
     box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
+=======
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
 }
 
 .tarjeta {
@@ -162,10 +172,18 @@ body {
     border-radius: 8px;
     text-align: center;
     padding: 15px;
+<<<<<<< HEAD
     height: 300px; /* Altura fija */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+=======
+    height: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: 30vw;
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
 }
 
 .tarjeta:hover {
@@ -173,7 +191,10 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
 .tarjeta .imagen-tarjeta {
     margin: 0 auto;
     height: 120px;
@@ -329,6 +350,7 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+<<<<<<< HEAD
 
 
 /**************************************************************************************************************************
@@ -738,6 +760,8 @@ body {
 }
 
 
+=======
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
 /**************************************************************************************************************************
 *                                                         Trabajo Conjunto de MQ                                          *
 ***************************************************************************************************************************/
@@ -866,4 +890,7 @@ body {
         margin-bottom: 20px; /*Mayor margen inferior para equilibrar la distancia del label al input*/
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
