@@ -26,17 +26,26 @@
          * Carga la vista del formulario de alta de dialogo
          * @return void
          */
-        public function formularioAltaDialogo() {
+            public function formularioAltaDialogo() {
 
-            $this->tituloPag = 'Alta Dialogo';
-            $this->vista = 'altaDialogo';
+                require_once CONFIG_PATH . 'config.php';
+                require_once MODEL_PATH . 'mNPC.php';
 
-            $datos = $_POST;
+                $this->tituloPag = 'Alta Dialogo';
+                $this->vista = 'altaDialogo';
 
-            $datos = explode('#', $datos['listaEscenario']);
+                // Llamo al modelo de NPC para sacar el listado de NPCs
+                $modeloNPC = new mNPC();
+                $npcs = $modeloNPC->listarNPCs();
 
-            return $datos;
+                $datos['npcs'] = $npcs; // Saco los NPC de la base de datos
+                $datos['escenarios'] = $_POST; // Saco la información de escenarios que se ha pasado por POST
+                
+                // Divido el id y el nombre del escenario
+                $datos['escenarios'] = explode('#', $datos['escenarios']['listaEscenario']); 
 
-        }
+                return $datos;
+
+            }
 
     }

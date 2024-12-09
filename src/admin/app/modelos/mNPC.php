@@ -55,4 +55,25 @@
             return true;
         }
 
+        public function listarNPCs() {
+
+            $this->conexionBBDD();
+
+            $sql = "SELECT idNPC, nombreNPC FROM NPC";
+
+            $resultado = $this->conexion->query($sql);
+
+            if ($resultado->num_rows == 0) {
+                return false;
+            }
+
+            while ($npc = $resultado->fetch_assoc()) {
+                $npcs[] = $npc;
+            }
+
+            $this->conexion->close();
+
+            return $npcs;
+        }
+
     }

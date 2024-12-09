@@ -13,7 +13,8 @@
         <form class="formAltaDialogo" name="form" action="" method="">
 
             <label for="escenario">Escenario Elegido:</label>
-            <input type="text" placeholder="<?php echo $datos[1]; ?>" disabled>
+            <input type="text" placeholder="<?php echo $datos['escenarios'][1]; ?>" disabled>
+            <input type="text" value="<?php echo $datos['escenarios'][0]; ?>" hidden>
 
             <label for="nombre" class="formAltaDialogo-label">Nombre del Diálogo:</label>
             <input type="text" placeholder="Nombre" name="nombre">
@@ -22,22 +23,34 @@
             <table class="mapa">
                 <tbody>
                     <script>
-                        // Crear una tabla de 10 filas y 12 columnas de forma dinámica
                         for (let i = 0; i < 10; i++) {
                             document.write('<tr>'); // Crear una nueva fila
                             for (let j = 0; j < 12; j++) {
+                                let rowLabel = String.fromCharCode(65 + i); // Convertir el índice de fila a letra (A, B, C, ...)
+                                let colLabel = j + 1; // Índice de columna (1, 2, 3, ...)
+                                let cellLabel = rowLabel + colLabel; // Combinar fila y columna (A1, A2, B1, B2, ...)
                                 // Crear una celda con atributos personalizados de fila y columna, y una función onclick
-                                document.write(`<td data-row="${i}" data-col="${j}" class="celdas"></td>`);
+                                document.write(`<td data-row="${i}" data-col="${j}" class="celdas">${cellLabel}</td>`);
                             }
                             document.write('</tr>'); // Cerrar la fila
                         }
                     </script>
                 </tbody>
             </table>
+            <input type="text" name="colisionElegida" placeholder="A2">
 
             <label for="listaNPC" class="formAltaDialogo-label">Selecciona un NPC:</label>
             <select name="listaNPC" id="listaNPC" class="formAltaDialogo-control">
                 <option hidden disabled selected>- Elige NPC -</option>
+                <?php
+
+                    // Recorremos la lista de NPCs y crear una opción para cada uno
+                    for ($i = 0; $i < count($datos['npcs']); $i++) {
+                        $npc = $datos['npcs'][$i];
+                        echo "<option value='" . $npc['idNPC'] . "#" . $npc['nombreNPC'] . "'>" . $npc['nombreNPC'] . "</option>";
+                    }
+        
+                ?>
             </select>
 
             <label for="mensaje" class="formAltaDialogo-label">Mensaje:</label>

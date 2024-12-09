@@ -17,9 +17,7 @@
                 <option hidden disabled selected>- Elige Escenario -</option>
                 <?php
 
-                    $escenarios = $controlador->listarEscenarios();
-
-                    foreach ($escenarios as $escenario) {
+                    foreach ($datos as $escenario) {
                         echo "<option value='" . $escenario['idEscenario'] . "#" . $escenario['nombreEscenario'] . "'>" . $escenario['nombreEscenario'] . "</option>";
                     }
 
