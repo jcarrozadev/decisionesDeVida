@@ -602,6 +602,107 @@ body {
     border-top: 1px solid #000;
 }
 
+/* DIALOGOS MODALES (ALERT) */
+
+.alertJShtml {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.alertJShtml > div {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.alertJShtml > div > p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.alertJShtml > div > button {
+    background-color: var(--color-amarillo);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.alertJShtml > div > button:hover {
+    background-color: var(--color-amarillo-oscuro);
+}
+
+.confirmJShtml {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.confirmJShtml > div {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.confirmJShtml > div > p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.confirmJShtml > div > button {
+    background-color: var(--color-amarillo);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    margin-right: 10px;
+}
+
+.confirmJShtml > div > button:hover {
+    background-color: var(--color-amarillo-oscuro);
+}
+
+.confirmJShtml > div > button:last-child {
+    background-color: var(--color-rojo);
+}
+
+.confirmJShtml > div > button:last-child:hover {
+    background-color: var(--color-rojo-oscuro);
+}
+
 /**************************************************************************************************************************
 *                                                         Trabajo Conjunto de MQ                                          *
 ***************************************************************************************************************************/
