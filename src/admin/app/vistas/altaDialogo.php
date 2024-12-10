@@ -10,7 +10,7 @@
         <h1 class="title">Alta de Diálogo</h1>
         <h3 class="subtitle">Decisiones de Vida</h3>
 
-        <form class="formAltaDialogo" action="index.php?c=dialogo&m=altaDialogo" method="POST">
+        <form id="formularioAltaDialogo" class="formAltaDialogo">
 
             <label for="escenario">Escenario Elegido:</label>
             <input type="text" placeholder="<?php echo $datos['escenarios'][1]; ?>" disabled>
@@ -66,5 +66,5 @@
         </form>
     </div>
 </main>
-
+<script type="module" src="js/vistas/altaDialogo.js"></script>
 <?php include ASSETS_PATH . 'footer.php'; ?>

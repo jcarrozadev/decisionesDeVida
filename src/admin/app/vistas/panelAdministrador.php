@@ -32,12 +32,12 @@
             </div>
             <div class="tarjeta">
                 <div class="imagen-tarjeta"><img src="img/spritesDefault/Chino_F.png" alt="Foto NPC"></div>
-                <p>Gestión de NPC</p>
+                <p>Alta de NPC</p>
                 <a href="index.php?c=npc&m=formularioAltaNPC">Acceder</a>
             </div>
             <div class="tarjeta">
                 <div class="imagen-tarjeta"><i class="fa-solid fa-comments" style="font-size: 3.2rem;"></i></div>
-                <p>Gestión de Diálogos</p>
+                <p>Alta de Diálogos</p>
                 <a href="index.php?c=escenario&m=formularioObtenerEscenario">Acceder</a>
             </div>
             <div class="tarjeta">
