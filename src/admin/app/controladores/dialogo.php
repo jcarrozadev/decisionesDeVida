@@ -22,6 +22,72 @@
          */
         public function __construct() {}
 
+
+        /**
+         * Carga la vista de gestion de dialogos y devuelve un array con los dialogos
+         * @return array
+         */
+        public function listarDialogos() {
+
+            require_once CONFIG_PATH . 'config.php';
+            require_once MODEL_PATH . 'mDialogo.php';
+
+            $dialogo = new mDialogo();
+            $dialogos = $dialogo->listarDialogos();
+
+            $this->tituloPag = 'Gestión de Diálogos';
+            $this->vista = 'gestionDialogos';
+            return $dialogos;
+        }
+
+        /**
+         * Carga la vista de modificar dialogo y devuelve un array con los datos del dialogo
+         * @return mixed array|false
+         */
+        public function modificarDialogo() {
+
+            require_once CONFIG_PATH . 'config.php';
+
+            $datos = $_POST;
+            $id = $_GET['id'];
+
+            require_once MODEL_PATH . 'mDialogo.php';
+
+            $dialogo = new mDialogo();
+            $dialogo = $dialogo->obtenerDatosDialogo($id);
+
+            $this->tituloPag = 'Modificar dialogo';
+            $this->vista = 'modificarDialogo';
+            return $dialogo;
+
+        }
+
+        /**
+         * Guarda el dialogo en la base de datos
+         * @return bool
+         */
+        public function guardarDialogo() {
+
+            require_once CONFIG_PATH . 'config.php';
+            require_once MODEL_PATH . 'mDialogo.php';
+
+            $datos = $_POST;
+
+            $modeloDialogo = new mDialogo();
+            $resultado = $modeloDialogo->modificarDialogo($datos['idDialogo'], $datos);
+
+            if ($resultado) {
+                $this->mensaje = 'El dialogo se ha guardado correctamente';
+            } else {
+                $this->mensaje = 'Ha habido un error al guardar el dialogo';
+            }
+
+            $this->tituloPag = 'Fin Guardar Dialogo';
+            echo $this->mensaje;
+
+            return $resultado;
+        }
+
         /**
          * Carga la vista del formulario de alta de dialogo
          * @return void
