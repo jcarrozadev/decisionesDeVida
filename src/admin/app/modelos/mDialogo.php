@@ -107,6 +107,26 @@
             return true;
         }
 
-        
+        /**
+         * Elimina un diálogo de la base de datos
+         * @param int $idDialogo
+         * @return bool
+         */
+        public function eliminarDialogo($idDialogo) {
+            $this->conexionBBDD();
+
+            $sql = "DELETE FROM Dialogos WHERE idDialogo = $idDialogo";
+
+            try {
+                $this->conexion->query($sql);
+            } catch (mysqli_sql_exception $e) {
+                $this->conexion->close();
+                $this->mensaje = "Error al eliminar el diálogo: " . $e->getMessage();
+                return false;
+            }
+
+            $this->conexion->close();
+            return true;
+        }
 
     }

@@ -25,7 +25,7 @@
                     echo "<div class='acciones'>";
                         echo "<a class='boton-modificar' href='index.php?c=dialogo&m=modificarDialogo&id=" . $dialogo['idDialogo'] . "'>Modificar</a>";
                         // Cambiar el enlace de "Eliminar" para que use la función de JavaScript
-                        echo "<a class='boton-eliminar' href='javascript:void(0)' onclick='eliminarPersonaje(" . $dialogo['idDialogo'] . ")'>Eliminar</a>";
+                        echo "<a class='boton-eliminar' href='index.php?c=dialogo&m=eliminarDialogo&id=" . $dialogo['idDialogo'] . "'>Eliminar</a>";
                     echo "</div>";
                 echo "</div>";
             }

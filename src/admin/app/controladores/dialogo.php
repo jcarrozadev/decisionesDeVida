@@ -131,6 +131,10 @@
 
         }
 
+        /**
+         * Da de alta un dialogo en la base de datos
+         * @return bool
+         */
         public function altaDialogo() {
 
             require_once CONFIG_PATH . 'config.php';
@@ -183,6 +187,33 @@
              * 
              */
 
+        }
+
+
+        /**
+         * Elimina un dialogo de la base de datos
+         * @return bool
+         */
+        public function eliminarDialogo() {
+
+            require_once CONFIG_PATH . 'config.php';
+            require_once MODEL_PATH . 'mDialogo.php';
+
+            $id = $_GET['id'];
+
+            $modeloDialogo = new mDialogo();
+            $resultado = $modeloDialogo->eliminarDialogo($id);
+
+            if ($resultado) {
+                $this->mensaje = 'El dialogo se ha eliminado correctamente';
+            } else {
+                $this->mensaje = 'Ha habido un error al eliminar el dialogo';
+            }
+
+            $this->tituloPag = 'Fin Eliminar Dialogo';
+            echo $this->mensaje;
+
+            return $resultado;
         }
 
     }
