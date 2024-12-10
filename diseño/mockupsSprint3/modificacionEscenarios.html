@@ -42,24 +42,155 @@
                     <label for="mensajeNarrativo">Mensaje Narrativo:</label>
                     <input type="text" placeholder="Mensaje Narrativo" name="mensajeNarrativo">
 
+                    <label for="imgEscenario">Imagen del Escenario:</label>
+                    <input type="file" id="imgEscenario" name="imgEscenario">
+
                     <label for="colisiones" class="formAltaDialogo-label">Colisiones:</label>
-                    <table class="mapa">
+                    <table>
                         <tbody>
-                            <script>
-                                for (let i = 0; i < 10; i++) {
-                                    document.write('<tr>'); 
-                                    for (let j = 0; j < 12; j++) {
-                                        let rowLabel = String.fromCharCode(65 + i);
-                                        let colLabel = j + 1;
-                                        let cellLabel = rowLabel + colLabel;
-                                        document.write(`<td data-row="${i}" data-col="${j}" class="celdas">${cellLabel}</td>`);
-                                    }
-                                    document.write('</tr>');
-                                }
-                            </script>
+                            <tr>
+                                <td data-row="0" data-col="0">A1</td>
+                                <td data-row="0" data-col="1">A2</td>
+                                <td data-row="0" data-col="2">A3</td>
+                                <td data-row="0" data-col="3">A4</td>
+                                <td data-row="0" data-col="4">A5</td>
+                                <td data-row="0" data-col="5">A6</td>
+                                <td data-row="0" data-col="6">A7</td>
+                                <td data-row="0" data-col="7">A8</td>
+                                <td data-row="0" data-col="8">A9</td>
+                                <td data-row="0" data-col="9">A10</td>
+                                <td data-row="0" data-col="10">A11</td>
+                                <td data-row="0" data-col="11">A12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="1" data-col="0">B1</td>
+                                <td data-row="1" data-col="1">B2</td>
+                                <td data-row="1" data-col="2">B3</td>
+                                <td data-row="1" data-col="3">B4</td>
+                                <td data-row="1" data-col="4">B5</td>
+                                <td data-row="1" data-col="5">B6</td>
+                                <td data-row="1" data-col="6">B7</td>
+                                <td data-row="1" data-col="7">B8</td>
+                                <td data-row="1" data-col="8">B9</td>
+                                <td data-row="1" data-col="9">B10</td>
+                                <td data-row="1" data-col="10">B11</td>
+                                <td data-row="1" data-col="11">B12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="2" data-col="0">C1</td>
+                                <td data-row="2" data-col="1">C2</td>
+                                <td data-row="2" data-col="2">C3</td>
+                                <td data-row="2" data-col="3">C4</td>
+                                <td data-row="2" data-col="4">C5</td>
+                                <td data-row="2" data-col="5">C6</td>
+                                <td data-row="2" data-col="6">C7</td>
+                                <td data-row="2" data-col="7">C8</td>
+                                <td data-row="2" data-col="8">C9</td>
+                                <td data-row="2" data-col="9">C10</td>
+                                <td data-row="2" data-col="10">C11</td>
+                                <td data-row="2" data-col="11">C12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="3" data-col="0">D1</td>
+                                <td data-row="3" data-col="1">D2</td>
+                                <td data-row="3" data-col="2">D3</td>
+                                <td data-row="3" data-col="3">D4</td>
+                                <td data-row="3" data-col="4">D5</td>
+                                <td data-row="3" data-col="5">D6</td>
+                                <td data-row="3" data-col="6">D7</td>
+                                <td data-row="3" data-col="7">D8</td>
+                                <td data-row="3" data-col="8">D9</td>
+                                <td data-row="3" data-col="9">D10</td>
+                                <td data-row="3" data-col="10">D11</td>
+                                <td data-row="3" data-col="11">D12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="4" data-col="0">E1</td>
+                                <td data-row="4" data-col="1">E2</td>
+                                <td data-row="4" data-col="2">E3</td>
+                                <td data-row="4" data-col="3">E4</td>
+                                <td data-row="4" data-col="4">E5</td>
+                                <td data-row="4" data-col="5">E6</td>
+                                <td data-row="4" data-col="6">E7</td>
+                                <td data-row="4" data-col="7">E8</td>
+                                <td data-row="4" data-col="8">E9</td>
+                                <td data-row="4" data-col="9">E10</td>
+                                <td data-row="4" data-col="10">E11</td>
+                                <td data-row="4" data-col="11">E12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="5" data-col="0">F1</td>
+                                <td data-row="5" data-col="1">F2</td>
+                                <td data-row="5" data-col="2">F3</td>
+                                <td data-row="5" data-col="3">F4</td>
+                                <td data-row="5" data-col="4">F5</td>
+                                <td data-row="5" data-col="5">F6</td>
+                                <td data-row="5" data-col="6">F7</td>
+                                <td data-row="5" data-col="7">F8</td>
+                                <td data-row="5" data-col="8">F9</td>
+                                <td data-row="5" data-col="9">F10</td>
+                                <td data-row="5" data-col="10">F11</td>
+                                <td data-row="5" data-col="11">F12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="6" data-col="0">G1</td>
+                                <td data-row="6" data-col="1">G2</td>
+                                <td data-row="6" data-col="2">G3</td>
+                                <td data-row="6" data-col="3">G4</td>
+                                <td data-row="6" data-col="4">G5</td>
+                                <td data-row="6" data-col="5">G6</td>
+                                <td data-row="6" data-col="6">G7</td>
+                                <td data-row="6" data-col="7">G8</td>
+                                <td data-row="6" data-col="8">G9</td>
+                                <td data-row="6" data-col="9">G10</td>
+                                <td data-row="6" data-col="10">G11</td>
+                                <td data-row="6" data-col="11">G12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="7" data-col="0">H1</td>
+                                <td data-row="7" data-col="1">H2</td>
+                                <td data-row="7" data-col="2">H3</td>
+                                <td data-row="7" data-col="3">H4</td>
+                                <td data-row="7" data-col="4">H5</td>
+                                <td data-row="7" data-col="5">H6</td>
+                                <td data-row="7" data-col="6">H7</td>
+                                <td data-row="7" data-col="7">H8</td>
+                                <td data-row="7" data-col="8">H9</td>
+                                <td data-row="7" data-col="9">H10</td>
+                                <td data-row="7" data-col="10">H11</td>
+                                <td data-row="7" data-col="11">H12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="8" data-col="0">I1</td>
+                                <td data-row="8" data-col="1">I2</td>
+                                <td data-row="8" data-col="2">I3</td>
+                                <td data-row="8" data-col="3">I4</td>
+                                <td data-row="8" data-col="4">I5</td>
+                                <td data-row="8" data-col="5">I6</td>
+                                <td data-row="8" data-col="6">I7</td>
+                                <td data-row="8" data-col="7">I8</td>
+                                <td data-row="8" data-col="8">I9</td>
+                                <td data-row="8" data-col="9">I10</td>
+                                <td data-row="8" data-col="10">I11</td>
+                                <td data-row="8" data-col="11">I12</td>
+                            </tr>
+                            <tr>
+                                <td data-row="9" data-col="0">J1</td>
+                                <td data-row="9" data-col="1">J2</td>
+                                <td data-row="9" data-col="2">J3</td>
+                                <td data-row="9" data-col="3">J4</td>
+                                <td data-row="9" data-col="4">J5</td>
+                                <td data-row="9" data-col="5">J6</td>
+                                <td data-row="9" data-col="6">J7</td>
+                                <td data-row="9" data-col="7">J8</td>
+                                <td data-row="9" data-col="8">J9</td>
+                                <td data-row="9" data-col="9">J10</td>
+                                <td data-row="9" data-col="10">J11</td>
+                                <td data-row="9" data-col="11">J12</td>
+                            </tr>
                         </tbody>
                     </table>
-                    <input type="text" name="casilla" placeholder="A2">
+                    <input type="hidden" name="casilla"> <!-- Se rellena con JS marcando en la tabla -->
                     
                     <input type="submit" value="Modificar Escenario">
                 </form>
