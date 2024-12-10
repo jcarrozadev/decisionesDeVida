@@ -44,4 +44,89 @@
             return true;    
         }
 
+        /**
+         * Lista todos los dialogos de la base de datos
+         * @return array $dialogos Array de dialogos con todos los datos
+         */
+        public function listarDialogos() {
+
+            $this->conexionBBDD();
+
+            $sql = "SELECT * FROM Dialogos";
+            
+            $resultado = $this->conexion->query($sql);
+            $dialogos = array();
+            while ($fila = $resultado->fetch_assoc()) {
+                $dialogos[] = $fila;
+            }
+            $this->conexion->close();
+
+            return $dialogos;
+        }
+
+        /**
+         * Obtiene los datos de un dialogo de la base de datos
+         * @param int $idDialogo
+         * @return array|false
+         */
+        public function obtenerDatosDialogo($idDialogo) {
+            $this->conexionBBDD();
+
+            $sql = "SELECT * FROM Dialogos WHERE idDialogo = $idDialogo";
+            $resultado = $this->conexion->query($sql);
+            $dialogo = $resultado->fetch_assoc();
+            $this->conexion->close();
+
+            return $dialogo;
+        }
+
+        /**
+         * Modifica los datos de un diálogo en la base de datos
+         * @param int $idDialogo
+         * @param array $datos
+         * @return bool
+         */
+        public function modificarDialogo($idDialogo, $datos) {
+            $this->conexionBBDD();
+
+            $sql = "UPDATE Dialogos SET 
+                nombreDiálogo = '" . $this->conexion->real_escape_string($datos['nombreDialogo']) . "',
+                mensaje = '" . $this->conexion->real_escape_string($datos['mensaje']) . "',
+                casilla = '" . $this->conexion->real_escape_string($datos['casilla']) . "'
+                WHERE idDialogo = $idDialogo";
+
+            try {
+                $this->conexion->query($sql);
+            } catch (mysqli_sql_exception $e) {
+                $this->conexion->close();
+                $this->mensaje = "Error al modificar el diálogo: " . $e->getMessage();
+            return false;
+            }
+
+            $this->conexion->close();
+            return true;
+        }
+
+        /**
+         * Elimina un diálogo de la base de datos
+         * @param int $idDialogo
+         * @return bool
+         */
+        public function eliminarDialogo($idDialogo) {
+            $this->conexionBBDD();
+
+            $sql = "DELETE FROM Dialogos WHERE idDialogo = $idDialogo";
+
+            try {
+                $this->conexion->query($sql);
+            } catch (mysqli_sql_exception $e) {
+                $this->conexion->close();
+                $this->mensaje = "Error al eliminar el diálogo: " . $e->getMessage();
+                return false;
+            }
+
+            $this->conexion->close();
+            return true;
+        }
+
     }
