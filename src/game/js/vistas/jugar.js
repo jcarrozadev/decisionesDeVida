@@ -2,7 +2,7 @@ let fila = 9; // Fila inicial de personaje
 let columna = 6; // Columna inicial de personaje
 
 // Inicializar personaje en la celda (9,6), abajo en el centro del mapa
-document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = '<img src="img/Chino_F.png" class="personaje" style="width: 46px;">';
+document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = `<img src="${sprites.front}" class="personaje" style="width: 46px;">`;
 
 // Agregar evento de clic a todas las celdas con la clase 'celdaMovimiento'
 document.querySelectorAll('.celdaMovimiento').forEach(cell => {
@@ -11,24 +11,21 @@ document.querySelectorAll('.celdaMovimiento').forEach(cell => {
     });
 });
 
-function colocarPersonaje(cell) {
-    // Obtener la fila y columna de la celda en la que se hizo clic
+// Modifica las funciones donde se coloca al personaje para que también usen el sprite dinámico
+function colocarPersonaje(cell, sprite) {
     const row = parseInt(cell.getAttribute('data-row'));
     const col = parseInt(cell.getAttribute('data-col'));
 
-    // Verificar si la celda clicada es adyacente a la posición actual
     if (celdaCercana(row, col)) {
-        // Limpiar todas las celdas excepto las que tienen la clase 'muerte-celda'
         document.querySelectorAll("td").forEach(td => {
             if (!td.classList.contains("muerte-celda")) {
                 td.innerHTML = ""; // Eliminar el contenido de la celda
             }
         });
 
-        // Colocar al personaje en la celda clicada
-        cell.innerHTML = '<img src="img/Chino_F.png" class="personaje" style="width: 46px;">';
+        // Colocar al personaje en la celda clicada con el sprite correspondiente
+        cell.innerHTML = `<img src="${sprite}" class="personaje" style="width: 46px;">`;
 
-        // Actualizar la posición actual de personaje
         fila = row;
         columna = col;
     }
@@ -44,19 +41,24 @@ function celdaCercana(row, col) {
 document.addEventListener('keydown', function(event) {
     let nuevaFila = fila;
     let nuevaColumna = columna;
+    let nuevoSprite = sprites.front;  // Direccion por defecto (frente)
 
     switch (event.key) {
         case 'w': // Mover hacia arriba
             nuevaFila = fila - 1;
+            nuevoSprite = sprites.back; // Cambiar sprite a 'back' para moverse hacia arriba
             break;
         case 'a': // Mover hacia la izquierda
             nuevaColumna = columna - 1;
+            nuevoSprite = sprites.left; // Cambiar sprite a 'left' para moverse hacia la izquierda
             break;
         case 's': // Mover hacia abajo
             nuevaFila = fila + 1;
+            nuevoSprite = sprites.front; // Cambiar sprite a 'front' para moverse hacia abajo
             break;
         case 'd': // Mover hacia la derecha
             nuevaColumna = columna + 1;
+            nuevoSprite = sprites.right; // Cambiar sprite a 'right' para moverse hacia la derecha
             break;
         default:
             return; // Salir si no se presionó una tecla WASD
@@ -67,7 +69,7 @@ document.addEventListener('keydown', function(event) {
         // Obtener la celda de la nueva posición
         const nuevaCelda = document.querySelector(`td[data-row='${nuevaFila}'][data-col='${nuevaColumna}']`);
 
-        // Colocar al personaje en la nueva celda
-        colocarPersonaje(nuevaCelda);
+        // Colocar al personaje en la nueva celda con el sprite correcto
+        colocarPersonaje(nuevaCelda, nuevoSprite);
     }
 });

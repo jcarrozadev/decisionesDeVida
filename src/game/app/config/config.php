@@ -6,6 +6,7 @@
 
     // ----------------------- RUTAS
     define('SPRITE_PATH', 'img/spritesPersonajes/');
+    define('SPRITE_PATH_NPC', 'img/spritesNPC/');
     define('MODEL_PATH', 'app/modelos/');
     define('VIEW_PATH', 'app/vistas/');
     define('CONTROLLER_PATH', 'app/controladores/');
@@ -22,4 +23,7 @@
     define('DINERO_MAX', 100000);
     define('TIEMPO_MAX', 100000);
     
+    // ----------------------- Rutas del CONFIG DB
+    define('CONFIG_PATH', 'app/config/');
+
 ?>
