@@ -2,7 +2,7 @@ let fila = 9; // Fila inicial de personaje
 let columna = 6; // Columna inicial de personaje
 
 // Inicializar personaje en la celda (9,6), abajo en el centro del mapa
-document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = '<img src="/img/personaje.png" class="personaje">';
+document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = '<img src="img/Chino_F.png" class="personaje" style="width: 46px;">';
 
 // Agregar evento de clic a todas las celdas con la clase 'celdaMovimiento'
 document.querySelectorAll('.celdaMovimiento').forEach(cell => {
@@ -26,7 +26,7 @@ function colocarPersonaje(cell) {
         });
 
         // Colocar al personaje en la celda clicada
-        cell.innerHTML = '<img src="/img/personaje.png" class="personaje">';
+        cell.innerHTML = '<img src="img/Chino_F.png" class="personaje" style="width: 46px;">';
 
         // Actualizar la posición actual de personaje
         fila = row;
