@@ -3,7 +3,7 @@
 <?php include ASSETS_PATH . 'header.php'; ?>
 
 <main> <!-- Contenido por Pablo -->
-    <a href="index.php">
+    <a href="index.php?c=dialogo&m=listarDialogos">
         <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
     </a>
     <div class="div_formAltaDialogo">

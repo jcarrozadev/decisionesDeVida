@@ -37,8 +37,8 @@
             </div>
             <div class="tarjeta">
                 <div class="imagen-tarjeta"><i class="fa-solid fa-comments" style="font-size: 3.2rem;"></i></div>
-                <p>Alta de Diálogos</p>
-                <a href="index.php?c=escenario&m=formularioObtenerEscenario">Acceder</a>
+                <p>Gestión de Diálogos</p>
+                <a href="index.php?c=dialogo&m=listarDialogos">Acceder</a>
             </div>
             <div class="tarjeta">
                 <div class="imagen-tarjeta"></div>
