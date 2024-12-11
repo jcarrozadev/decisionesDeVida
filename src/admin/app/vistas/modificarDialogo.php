@@ -10,12 +10,12 @@
         <h1 class="title">Modificar Diálogo</h1>
         <h3 class="subtitle">Decisiones de Vida</h3>
 
-        <form class="formAltaDialogo" action="index.php?c=dialogo&m=guardarDialogo" method="POST">
+        <form class="formAltaDialogo" id="formModDialogo">
 
             <input type="text" name="idDialogo" value="<?php echo $datos['idDialogo']?>" hidden>
 
             <label for="nombreDialogo" class="formAltaDialogo-label">Nombre del Diálogo:</label>
-            <input type="text" value="<?php echo $datos['nombreDiálogo']; ?>" name="nombreDialogo">
+            <input type="text" id="nombre" value="<?php echo $datos['nombreDiálogo']; ?>" name="nombreDialogo">
 
             <label for="colisiones" class="formAltaDialogo-label">Colisiones:</label>
             <table class="mapa">
@@ -35,20 +35,21 @@
                     </script>
                 </tbody>
             </table>
-            <input type="text" name="casilla" value="<?php echo $datos['casilla']; ?>">
+            <input type="text" id="casilla" name="casilla" value="<?php echo $datos['casilla']; ?>">
 
             <label for="mensaje" class="formAltaDialogo-label">Mensaje:</label>
-            <input type="text" value="<?php echo $datos['mensaje']; ?>" name="mensaje">
+            <input type="text" id="mensaje" value="<?php echo $datos['mensaje']; ?>" name="mensaje">
 
             <label for="respuesta1" class="formAltaDialogo-label">Respuesta 1:</label>
-            <input type="text" value="" name="respuesta1">
+            <input type="text" id="respuesta1" value="" name="respuesta1">
 
             <label for="respuesta2" class="formAltaDialogo-label">Respuesta 2:</label>
-            <input type="text" value="" name="respuesta2"><br/>
+            <input type="text" id="respuesta2" value="" name="respuesta2"><br/>
             
             <input type="submit" class="btn-submit" value="Modificar Diálogo"></input>
         </form>
     </div>
 </main>
+<script src="js/vistas/modificarDialogo.js"></script>
 
 <?php include ASSETS_PATH . 'footer.php'; ?>
