@@ -1,4 +1,3 @@
-//-------------Validaciones Javascript -> Miriam López Vega--------------
 //Cogemos el formulario con el id y añadimos un evento para oír el botón submit
 document.getElementById('formModDialogo').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío del formulario por defecto

@@ -47,8 +47,6 @@
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mPersonaje.php';
 
-            var_dump($_POST);
-
             $files = $_FILES;
             $datos = $_POST;
 

@@ -19,6 +19,6 @@
             </form>
         </div>
     </main>
-<script type="module" src="js/vistas/altaNPC.js"></script>
+<script src="js/vistas/altaNPC.js"></script>
 
 <?php include ASSETS_PATH . 'footer.php'; ?>

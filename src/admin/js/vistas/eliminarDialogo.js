@@ -1,4 +1,3 @@
-//-------------Validaciones Javascript -> Miriam López Vega--------------
 function eliminarDialogo(id) { //Función que elimina el id del diálogo
     if (confirm("¿Estás seguro de que deseas eliminar este diálogo?")) { //Mensaje que confirma que se quiera eliminar ese registro.
         fetch('index.php?c=dialogo&m=eliminarDialogo&id=' + id)

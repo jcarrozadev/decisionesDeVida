@@ -10,7 +10,7 @@
         <h1 class="title">Modificar Diálogo</h1>
         <h3 class="subtitle">Decisiones de Vida</h3>
 
-        <form class="formAltaDialogo" id="formModDialogo" action="index.php?c=dialogo&m=guardarDialogo" method="POST">
+        <form class="formAltaDialogo" id="formModDialogo">
 
             <input type="text" name="idDialogo" value="<?php echo $datos['idDialogo']?>" hidden>
 
