@@ -63,17 +63,23 @@
          * @return array $escenarios Array con los datos del personaje
          */
         public function obtenerDatosEscenario($id) {
-
-            $this->conexionBaseDatos();
-
+            // Establecer la conexión a la base de datos
+            $this->conexionBBDD();
+        
             $sql = "SELECT * FROM Escenario WHERE idEscenario = $id";
-
             $resultado = $this->conexion->query($sql);
-            $escenario = $resultado->fetch_assoc();
+        
+            // Verificar si la consulta devolvió algún resultado
+            if ($resultado->num_rows > 0) {
+                $escenario = $resultado->fetch_assoc(); 
+            } else {
+                $escenario = null;
+            }
+    
             $this->conexion->close();
-
+        
             return $escenario;
         }
-
+            
 
     }

@@ -79,6 +79,35 @@
         }
         
         
+        public function modificarEscenario() {
+            require_once CONFIG_PATH . 'config.php';
+            require_once MODEL_PATH . 'mEscenario.php';
+        
+            if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+                $this->vista = 'vMensaje';
+                $this->mensaje = 'No se ha seleccionado ningún escenario o el ID es inválido';
+                return false; // No se puede continuar sin un ID válido
+            }
+        
+            $id = intval($_GET['id']);
+        
+            $modelo = new MEscenario();
+            $escenario = $modelo->obtenerDatosEscenario($id);
+        
+            // Verificamos si no se encontró el escenario
+            if (!$escenario) {
+                $this->vista = 'vMensaje';
+                $this->mensaje = 'El escenario no existe o no se pudo cargar';
+                return false;
+            }
+        
+            $this->tituloPag = 'Modificar Escenario';
+            $this->vista = 'modificacionEscenarios';
+        
+            // Devolvemos los datos del escenario para ser utilizados en la vista
+            return $escenario;
+        }
+          
 
 
     }

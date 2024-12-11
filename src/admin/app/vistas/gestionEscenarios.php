@@ -8,46 +8,25 @@
             <p>Decisiones de Vida</p>
         </div>
         <section class="contenedor-personajes">
-        <!--
-            <div class='fila-personaje'>
-                <div class='icono-personaje' style='display:flex; align-items:center; justify-content:center; height:100%; padding: 0.5%;'>
-                    <i class="fa-solid fa-location-dot" style='font-size:2.5rem'></i>
-                </div>
-                <p>Bosque Encantado</p>
-                <div class='acciones'>
-                    <a class='boton-modificar' href=''>Modificar</a>
-                </div>
-            </div>
-            <div class='fila-personaje'>
-                <div class='icono-personaje' style='display:flex; align-items:center; justify-content:center; height:100%; padding: 0.5%;'>
-                    <i class="fa-solid fa-location-dot" style='font-size:2.5rem'></i>
-                </div>
-                <p>Cueva Oscura</p>
-                <div class='acciones'>
-                    <a class='boton-modificar' href=''>Modificar</a>
-                </div>
-            </div>
-        -->
-
-            <?php
-                if(count($datos) == 0) {
-                    echo "<p>No hay escenarios disponibles</p>";
-                }
+        <?php
+            if (count($datos) == 0) {
+                echo "<p>No hay escenarios disponibles</p>";
+            } else {
                 foreach ($datos as $escenario) {
                     echo "<div class='fila-personaje'>";
                         echo "<div class='icono-personaje' style='display:flex; align-items:center; justify-content:center; height:100%; padding: 0.5%;'>";
                             echo "<i class='fa-solid fa-location-dot' style='font-size:2.5rem'></i>";
                         echo "</div>";
-
-                        echo "<p>" . $escenario['nombreEscenario'] . "</p>";
+                        echo "<p>" . htmlspecialchars($escenario['nombreEscenario']) . "</p>";
                         echo "<div class='acciones'>";
-                            echo "<a class='boton-modificar' href='index.php?c=escenario&m=modificacionEscenarios&id=" . $escenario['idEscenario'] . "'>Modificar</a>";
+                            // Botón de modificar con enlace al controlador para cargar la página de modificación
+                            echo "<a class='boton-modificar' href='index.php?c=escenario&m=modificarEscenario&id=" . urlencode($escenario['idEscenario']) . "'>Modificar</a>";
                         echo "</div>";
                     echo "</div>";
                 }
-            ?>
-
-        </section>
+            }
+        ?>
+    </section>
     </main>
     <a href="index.php?c=panelAdmin&m=inicio">
         <button class="boton-volver"><i class="fa fa-arrow-left"></i> Volver al Panel de Administración</button>

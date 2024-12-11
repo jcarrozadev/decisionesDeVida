@@ -577,6 +577,10 @@ body {
     background-size: cover;
 }
 
+.seleccionada {
+    background-color: rgba(250, 221, 221, 0.5);
+}
+
 /* PREGUNTAR A ISA COMO HAGO PARA NO DEFORMAR LA TABLA CUANDO SE ACCEDE DESDE DIFERENTES DISPOSITIVOS */
 #formModEscenario > table > tbody > tr > td {
     width: 50px;
