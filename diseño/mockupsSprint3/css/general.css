@@ -153,7 +153,6 @@ body {
     max-width: 100%;
     margin: 0 auto;
     align-items: center;
-    box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
 }
 
 .tarjeta {
@@ -303,7 +302,6 @@ body {
     padding: 20px;
     border-radius: 10px;
     color: black;
-    box-sizing: content-box; /* Asegura que el padding no afecte el tamaño total */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el formulario */
 }
 
@@ -383,7 +381,6 @@ body {
     padding: 20px;
     border-radius: 10px;
     color: black;
-    box-sizing: content-box; /* Asegura que el padding no afecte el tamaño total */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el formulario */
 }
 
