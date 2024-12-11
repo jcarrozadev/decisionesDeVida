@@ -2,7 +2,6 @@ export class Mdialogo {
 
     async altaDialogo(formData) {
 
-        console.log(formData);
         try {
             const response = await fetch('index.php?c=dialogo&m=altaDialogo', {
                 method: 'POST',
