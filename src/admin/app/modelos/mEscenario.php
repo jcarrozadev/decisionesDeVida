@@ -80,6 +80,23 @@
         
             return $escenario;
         }
-            
+        
+        
+        public function guardarColisiones($casillas, $id) {
+            $this->conexionBBDD();
+    
+            // Preparar la consulta para insertar las colisiones
+            $sql = "INSERT INTO Colision (casilla, idEscenario) VALUES (?, ?)";
+            $stmt = $this->conexion->prepare($sql);
+    
+            foreach ($casillas as $casilla) {
+                $stmt->bind_param("si", $casilla, $id);
+                $stmt->execute();
+            }
+    
+            // Cerrar la conexión
+            $stmt->close();
+            $this->conexion->close();
+        }
 
     }

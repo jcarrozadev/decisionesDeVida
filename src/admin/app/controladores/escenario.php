@@ -82,32 +82,38 @@
         public function modificarEscenario() {
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
-        
-            if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    
+            if (!isset($_GET['id'])) {
                 $this->vista = 'vMensaje';
-                $this->mensaje = 'No se ha seleccionado ningún escenario o el ID es inválido';
-                return false; // No se puede continuar sin un ID válido
+                $this->mensaje = 'No se ha seleccionado ningún escenario';
+                return false;
             }
-        
-            $id = intval($_GET['id']);
-        
-            $modelo = new MEscenario();
+    
+            $id = intval($_GET['id']); // Asegúrate de que sea un entero válido
+            $modelo = new mEscenario();
             $escenario = $modelo->obtenerDatosEscenario($id);
-        
-            // Verificamos si no se encontró el escenario
+    
             if (!$escenario) {
                 $this->vista = 'vMensaje';
                 $this->mensaje = 'El escenario no existe o no se pudo cargar';
                 return false;
             }
-        
+    
+            // Verificar si se ha enviado el formulario con las casillas
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['casilla'])) {
+                // Obtener las casillas del formulario
+                $casillas = explode('#', $_POST['casilla']);
+                $modelo->guardarColisiones($casillas, $id);  // Guardar las colisiones en la base de datos
+    
+                $this->mensaje = 'Colisiones guardadas correctamente';
+            }
+    
             $this->tituloPag = 'Modificar Escenario';
-            $this->vista = 'modificacionEscenarios';
-        
-            // Devolvemos los datos del escenario para ser utilizados en la vista
-            return $escenario;
+            $this->vista = 'modificacionEscenarios'; // Carga la vista de modificación
+            return $escenario; // Devuelve los datos del escenario a la vista
         }
           
 
+        
 
     }

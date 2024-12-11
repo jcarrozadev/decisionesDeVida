@@ -36,7 +36,7 @@
             </table>
 
             <label for="casilla">Casilla:</label>
-            <input type="text" name="casilla"><br/><br/>
+            <input type="text" name="casilla"  value="<?php echo isset($escenario['casilla']) ? htmlspecialchars($escenario['casilla']) : ''; ?>"><br/><br/>
                         
             <input type="submit" value="Modificar Escenario">
         </form>
