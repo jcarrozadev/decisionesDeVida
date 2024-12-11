@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head class="cabeceraDialogo">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Asignación de Respuesta</title>
+        <link rel="stylesheet" href="../import.css">
+        <link rel="stylesheet" href="../../../src/game/css/general.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <main><!-- Contenido principal del documento -->
+            <a href="">
+                <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
+            </a>
+            <div class="div_formAltaDialogo">
+                <h1 class="title">Asignación de Respuesta</h1><!--Titulo de la página-->
+                <h3 class="subtitle">Decisiones de Vida</h3><!--Subtítulo de la página-->
+        
+                <form class="formAltaDialogo" name="form" action="" method="">
+        
+                    <label for="listaNPC" class="formAltaDialogo-label">Selecciona un dialogo:</label>
+                    <select name="listaNPC" id="listaNPC" class="formAltaDialogo-control">
+                        <option hidden disabled selected>- Elige Dialogo -</option>
+                    </select>
+ 
+
+                    <label for="mensaje" class="formAltaDialogo-label">Mensaje:</label>
+                    <input type="text" placeholder="Mensaje" name="mensaje">
+
+
+                    <label for="respuesta1" class="formAltaDialogo-label">Respuesta 1:</label>
+                    <input type="text" placeholder="Respuesta 1" name="respuesta1">
+
+                    <div class="formAltaDialogo-group">
+                        <label for="tiempo1" class="formAltaDialogo-label">Tiempo:</label>
+                        <input type="number" placeholder="Tiempo 1" name="tiempo1">
+
+                        <label for="dinero1" class="formAltaDialogo-label">Dinero:</label>
+                        <input type="number" placeholder="Dinero 1" name="dinero1">
+                    </div>
+
+                    <label for="respuesta2" class="formAltaDialogo-label">Respuesta 2:</label>
+                    <input type="text" placeholder="Respuesta 2" name="respuesta2">
+
+                    <div class="formAltaDialogo-group">
+                        <label for="tiempo2" class="formAltaDialogo-label">Tiempo:</label>
+                        <input type="number" placeholder="Tiempo 2" name="tiempo2">
+
+                        <label for="dinero2" class="formAltaDialogo-label">Dinero:</label>
+                        <input type="number" placeholder="Dinero 2" name="dinero2">
+                    </div>
+                    
+                    <button type="submit">Asignar</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

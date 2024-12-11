@@ -193,6 +193,72 @@ header {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+button[type="submit"] {
+    background-color: #3B7359;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+form#dialogoForm {
+    max-width: 600px;
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: var(--color-azul);
+}
+
+form#dialogoForm h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 84%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Fondo blanco */
+    color: #000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom:10px; /* Texto negro */
+}
+
+.form-control option {
+    background-color: #fff; /* Fondo blanco para opciones */
+    color: #000; /* Texto negro */
+}
+
+.btn-submit {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: var(--color-amarillo);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-submit:hover {
+    background-color: var(--color-amarillo-oscuro);
+}   
+
 /* Estilos para el pie de página */
 footer {
     text-align: center;
@@ -200,6 +266,14 @@ footer {
     color: var(--color-blanco);
     padding: 20px;
     margin-top: auto; /* Empuja el pie de página hacia el final de la página */
+}
+
+#footerDialogo{
+    text-align: center;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    /*padding: 20px;*/
+    margin-top: auto;
 }
 
 
