@@ -1,3 +1,4 @@
+//-------------Validaciones Javascript -> Miriam López Vega--------------
 //Coge el formulario por su id y a través del evento detiene el envío del formulario cuando se clique en el botón 'submit'
 document.getElementById('npcForm').addEventListener('submit', function(event) {
     event.preventDefault();  /*Evita el envío tradicional del formulario*/
