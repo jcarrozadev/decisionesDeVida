@@ -4,15 +4,6 @@
 *                                                         Trabajo de Javier                                               *
 ***************************************************************************************************************************/
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: var(--color-gris-oscuro);
-    color: var(--color-blanco);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
 
 /* Contenedores Generales */
 .contenedor-principal {
@@ -699,10 +690,6 @@ body {
 .confirmJShtml > div > button:last-child:hover {
     background-color: var(--color-rojo-oscuro);
 }
-
-/* PANEL DE JUEGO */
-
-
 
 /**************************************************************************************************************************
 *                                                         Trabajo Conjunto de MQ                                          *
