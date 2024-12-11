@@ -8,132 +8,34 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Press+Start+2P&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/juego.css">
-
-        <!-- <style>
-            body {
-                font-family: 'Montserrat', sans-serif;
-                background-color: #f0f0f0;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-
-            .container {
-                display: grid;
-                grid-template-columns: 1fr auto 1fr; /* Tres columnas */
-                grid-template-rows: auto; /* Ajuste automático de filas */
-                gap: 20px;
-                align-items: center;
-                justify-items: center;
-                width: 100%;
-                max-width: 1200px;
-            }
-
-            #leyenda-izquierda, #leyenda-derecha {
-                font-family: 'Press Start 2P', cursive;
-                background-color: #ffcc00;
-                padding: 15px;
-                border-radius: 8px;
-                text-align: center;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            }
-
-            #leyenda-izquierda {
-                grid-column: 1;
-                justify-self: start;
-            }
-
-            #leyenda-izquierda strong, #leyenda-izquierda strong {
-                display: block;
-                margin-bottom: 5px;
-                font-size: 1.2em;
-            }
-
-            #leyenda-izquierda span, #leyenda-derecha span {
-                display: block;
-                margin-bottom: 10px;
-                font-size: 1em;
-                color: #ff0000;
-            }
-
-            #leyenda-derecha {
-                grid-column: 3;
-                justify-self: end;
-            }
-
-            #mapa {
-                grid-column: 2;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            
-            table {
-                border-collapse: collapse;
-                background-image: url('<?php echo ESCENARIO_PATH ?>/escenario1.png');
-                background-size: cover;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            }
-
-            td { 
-                width: 50px;
-                height: 50px;
-                border: 1px solid #ccc;
-                text-align: center;
-                vertical-align: middle;
-            }
-
-            .charmander {
-                width: 100%;
-                height: auto;
-            }
-
-            .muerte-celda {
-                background-color: #ff0000;
-            }
-        </style> -->
     </head>
-    <body>
-        <header>
-            <h1>Decisiones de Vida</h1>
-            <p>Bosque encantado</p>
-        </header>
+    <body id="bodyJuego">
         <main>
-            <div>
+            <div id="leyenda-usuario" class="leyendas">
                 <div>
-                    <strong>Nombre de Usuario</strong>
-                    <p>Nombre Usuario</p>
+                    <strong>Nombre Usuario</strong>
+                    <p id="nombreUsuario">Nombre Usuario</p>
                 </div>
                 <div>
                     <strong>Personaje</strong>
-                    <img src="" alt="">
+                    <div>
+                        <img id="spritePersonaje" src="img\sprites\front.png" alt="Nombre Personaje">
+                        <p id="nombrePersonaje">Nombre Personaje</p>
+                    </div>
                 </div>
                 <div>
                     <strong>Tiempo</strong>
-                    <p>1300 h</p>
+                    <p id="tiempo">1300 h</p>
                 </div>
                 <div>
                     <strong>Dinero</strong>
-                    <p>12000 €</p>
+                    <p id="dinero">12000 €</p>
                 </div>                
             </div>
-        </main>
-
-
-        <div class="container">
-            <!-- Leyenda izquierda -->
-            <div id="leyenda-izquierda">
-                <strong>Nombre de Usuario:</strong>
-                <span id="nombre-usuario">Nombre Usuario</span>
-                <strong>ID Personaje</strong>
-                <span>ID Personaje</span>
-            </div>
-            <!-- Tabla en el centro -->
-            <div id="mapa">
-                <table>
+            <div id="escenarioJuego">
+                <h1>Decisiones de Vida</h1>
+                <p>Bosque encantado</p>
+                <table class="tablaEscenario">
                     <tbody>
                         <tr>
                             <td class='celdaMovimiento' data-row='1' data-col='1'></td>
@@ -264,12 +166,45 @@
                     </tbody>
                 </table>
             </div>
-
-            <!-- Leyenda derecha -->
-            <div id="leyenda-derecha">
-                <strong>Controles:</strong>
-                <span>Moverse - WASD</span>
+            <div id="leyenda-controles" class="leyendas">
+                <div>
+                    <strong>Controles</strong>
+                    <p>Movimiento</p>
+                    <p>W A S D</p>
+                </div>
+                <div id="objetivos">
+                    <strong>Objetivos</strong>
+                    <div>
+                        <input id="1" type="checkbox" checked disabled> <!-- checked -->
+                        <label for="1">Consigue trabajo</label>
+                    </div>
+                    <div>
+                        <input id="2" type="checkbox" disabled> <!-- checked -->
+                        <label for="2">Ayuda a una familia</label>
+                    </div>
+                    <div>
+                        <input id="3" type="checkbox" checked disabled> <!-- checked -->
+                        <label for="3">Escribe un libro</label>
+                    </div>
+                    <div>
+                        <input id="4" type="checkbox" checked disabled> <!-- checked -->
+                        <label for="4">Compra una casa</label>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div id="cruceta">
+                <div class="empty"></div>
+                <button onclick="">▲</button>
+                <div class="empty"></div>
+        
+                <button onclick="">◀</button>
+                <div class="empty"></div>
+                <button onclick="">▶</button>
+        
+                <div class="empty"></div>
+                <button onclick="">▼</button>
+                <div class="empty"></div>
+            </div>
+        </main>
     </body>
 </html>

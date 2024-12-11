@@ -24,8 +24,150 @@
 
 /* ------------------ Selección de personaje ------------------ */
 
+/* header {
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    padding: 1vh 0;
+    text-align: center;
+    height: 8vh;
+} */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
 }
 
+#bodyJuego {
+    background-image: url("../img/fondos/fondoJuego.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "press start 2p";
+    color: #2e2e2e;
+}
+
+#bodyJuego strong{
+    color: #000;
+}
+
+#bodyJuego > main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    text-align: center;
+}
+
+.leyendas {
+
+    background-color: #ffffff7a;
+    padding: 2vh 2vw;
+    border-radius: 10px;
+    margin: 1vh auto 0 auto; /* Ajustamos a la altura del escenario */
+    width:15vw;
+    max-width: 250px;
+    min-height: 400px;
+}
+
+#escenarioJuego {
+    margin-top: -10vh; /* Subir el div del juego un poco para arriba */
+}
+
+#leyenda-usuario, #bodyJuego h1 {
+    color: #1D4E89;
+}
+
+#objetivos input[type="checkbox"] {
+    display: none;
+}
+
+#objetivos input[type="checkbox"] + label {
+    font-size: .85em;
+    font-weight: bold;
+    color: #484848;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#objetivos input[type="checkbox"]:checked + label {
+    color: #0fbf12;
+}
+
+#objetivos input[type="checkbox"] + label:before {
+    content: "";
+    width: 12px;
+    height: 6px;
+    border: 4px solid #0fbf1200;
+    border-right: 0;
+    border-top: 0;
+    margin-top: 0em;
+    transform: rotate(-55deg);
+    margin-right: 8px;
+}
+
+#objetivos input[type="checkbox"]:checked + label:before {
+    border: 4px solid #0fbf12;
+    border-right: 0;
+    border-top: 0;
+    margin-top: 0em;
+    transform: rotate(-55deg);
+    margin-right: 8px; /* Separar el check en verde del texto */
+}
+
+.tablaEscenario {
+    margin: 2vh auto 0 auto;
+    border-collapse: collapse;
+    background-image: url("../img/escenarios/escenario1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Tamaño WIDTH 588px y HEIGHT 441px */
+}
+
+.tablaEscenario > tbody > tr > td {
+    width: 47px;
+    height: 47px;
+    border: 1px solid #000;
+}
+
+/* CRUCETA DE MOVIMIENTO EN TABLET */
+
+#cruceta {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+#cruceta button {
+    width: 60px;
+    height: 60px;
+    background-color: #333333a8;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#cruceta button:hover {
+    background-color: #555;
+}
+
+.empty {
+    background: none;
+    box-shadow: none;
+    cursor: default;
+}
+
+@media (min-width: 1400px) {
+    #cruceta {
+        display: none;
+    }
+}
