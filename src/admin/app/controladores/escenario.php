@@ -38,6 +38,21 @@
         }
 
 
+
+        public function mEscenario() {
+            require_once MODEL_PATH . 'mEscenario.php';
+        
+            $modeloEscenario = new mEscenario();
+            $datos = $modeloEscenario->listarEscenarios();
+        
+            $this->tituloPag = 'Gestión de Escenarios';
+            $this->vista = 'gestionEscenarios';
+        
+            return $datos;
+        }
+
+
+
         /**´
          * Método que se encarga de obtener los escenarios de la base de datos
          * @return array
@@ -47,16 +62,23 @@
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
 
-            $mEscenario = new MEscenario();
-            $escenarios = $mEscenario->listarEscenarios();
+            $escenario = new mEscenario();
+            $escenarios = $escenario->listarEscenarios();
 
+            
             if(!$escenarios) { // Si no hay escenarios que se muestre por Javascript el mensaje
                 $this->mensaje = 'No se han encontrado escenarios';
                 return false;
             }
+            
 
+            $this->tituloPag = 'Gestión de Escenarios';
+            $this->vista = 'gestionEscenarios';
             return $escenarios;
 
         }
+        
+        
+
 
     }

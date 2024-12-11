@@ -470,10 +470,11 @@ body {
     margin: 2% auto;
     background-color: white;
 }
-.mapa, th, td {
+.mapa {
     border: 2px solid black;
     background-color: white;
 }
+
 .celdas {
     width: 48px;
     height: 42px;
@@ -514,7 +515,6 @@ body {
 .modNPCbtn-submit:hover {
     background-color: var(--color-amarillo-oscuro);
 }
-
 
 /**************************************************************************************************************************
 *                                                         Trabajo de Jose Luis                                            *
@@ -702,7 +702,6 @@ body {
 .confirmJShtml > div > button:last-child:hover {
     background-color: var(--color-rojo-oscuro);
 }
-
 
 /**************************************************************************************************************************
 *                                                         Trabajo Conjunto de MQ                                          *

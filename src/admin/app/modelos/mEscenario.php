@@ -34,27 +34,46 @@
          * @return array
          */
         public function listarEscenarios() {
-
             $this->conexionBBDD();
-
+        
             $sql = "SELECT * FROM Escenario";
-
+        
             $resultado = $this->conexion->query($sql);
-
+        
             if ($resultado->num_rows == 0) { 
                 $this->mensaje = "No hay escenarios disponibles.";
-                return false;
+                return [];
             }
-
+        
             $escenarios = [];
-
+        
             while ($escenario = $resultado->fetch_assoc()) {
                 $escenarios[] = $escenario;
             }
-
+        
             $this->conexion->close();
-
+        
             return $escenarios;
         }
+
+
+        /**
+         * Obtiene los datos de un personaje en base a su id
+         * @param int $id
+         * @return array $escenarios Array con los datos del personaje
+         */
+        public function obtenerDatosEscenario($id) {
+
+            $this->conexionBaseDatos();
+
+            $sql = "SELECT * FROM Escenario WHERE idEscenario = $id";
+
+            $resultado = $this->conexion->query($sql);
+            $escenario = $resultado->fetch_assoc();
+            $this->conexion->close();
+
+            return $escenario;
+        }
+
 
     }

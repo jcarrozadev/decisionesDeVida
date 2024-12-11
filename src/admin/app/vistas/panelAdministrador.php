@@ -41,6 +41,11 @@
                 <a href="index.php?c=dialogo&m=listarDialogos">Acceder</a>
             </div>
             <div class="tarjeta">
+                <div class="imagen-tarjeta"><i class="fa-solid fa-location-dot" style="font-size: 3.2rem;"></i></div>
+                <p>Gestión de Escenarios</p>
+                <a href="index.php?c=escenario&m=mEscenario">Acceder</a>
+            </div>
+            <div class="tarjeta">
                 <div class="imagen-tarjeta"></div>
                 <p>Gestión de Ranking</p>
                 <a href="#"><span style="color:red;">Locked</span></a>
