@@ -72,8 +72,8 @@
             }
             
 
-            $this->tituloPag = 'Gestión de Escenarios';
-            $this->vista = 'gestionEscenarios';
+           // $this->tituloPag = 'Gestión de Escenarios';
+            //$this->vista = 'gestionEscenarios';
             return $escenarios;
 
         }
