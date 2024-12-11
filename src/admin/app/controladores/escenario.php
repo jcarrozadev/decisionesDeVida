@@ -28,8 +28,12 @@
          */
         public function formularioObtenerEscenario() {
 
+            $datos = $this->listarEscenarios();
+
             $this->tituloPag = 'Alta Dialogo';
             $this->vista = 'obtenerEscenario';
+
+            return $datos;
 
         }
 
@@ -38,7 +42,7 @@
          * Método que se encarga de obtener los escenarios de la base de datos
          * @return array
          */
-        public function listarEscenarios() {
+        private function listarEscenarios() {
 
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';

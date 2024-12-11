@@ -42,6 +42,7 @@
             $resultado = $this->conexion->query($sql);
 
             if ($resultado->num_rows == 0) { 
+                $this->mensaje = "No hay escenarios disponibles.";
                 return false;
             }
 

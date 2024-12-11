@@ -44,12 +44,10 @@
          */
         public function altaPersonaje() {
             
-<<<<<<< HEAD
-            require_once 'app/config/config.php';
-=======
             require_once CONFIG_PATH . 'config.php';
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
             require_once MODEL_PATH . 'mPersonaje.php';
+
+            var_dump($_POST);
 
             $files = $_FILES;
             $datos = $_POST;
@@ -139,11 +137,7 @@
                 Falta comprobar si se ha conseguido listar algun personaje
                 si no, poner un comentario como que no hay personajes disponibles
             */
-<<<<<<< HEAD
-            require_once 'app/config/config.php';
-=======
             require_once CONFIG_PATH . 'config.php';
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
             require_once MODEL_PATH . 'mPersonaje.php';
 
             $personaje = new mPersonaje();
@@ -160,11 +154,7 @@
          */
         public function modificarPersonaje() {
 
-<<<<<<< HEAD
-            require_once 'app/config/config.php';
-=======
             require_once CONFIG_PATH . 'config.php';
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
             
             if(!isset($_GET['id'])) {
                 $this->vista = 'vMensaje';
@@ -202,11 +192,7 @@
             $files = $_FILES;
             $datos = $_POST;
 
-<<<<<<< HEAD
-            require_once 'app/config/config.php';
-=======
             require_once CONFIG_PATH . 'config.php';
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
             require_once MODEL_PATH . 'mPersonaje.php';
 
                 // validamos el nombre
@@ -331,11 +317,7 @@
          */
         public function eliminarPersonaje() {
 
-<<<<<<< HEAD
-            require_once 'app/config/config.php';
-=======
             require_once CONFIG_PATH . 'config.php';
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
             require_once MODEL_PATH . 'mPersonaje.php';
 
             $files = $_FILES;

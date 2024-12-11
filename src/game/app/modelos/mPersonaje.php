@@ -14,22 +14,14 @@
         public readonly string $mensaje;
 
         public function __construct() {
-<<<<<<< HEAD
-            require_once 'app/config/configdb.php';
-=======
             require_once CONFIG_PATH . 'configdb.php';
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
         }
 
         private function conexionBaseDatos() {
             $this->conexion = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
             $this->conexion->set_charset("utf8");
         }
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
         /**
          * Lista todos los personajes de la base de datos
          * @return array $personajes Array de personajes con todos los datos

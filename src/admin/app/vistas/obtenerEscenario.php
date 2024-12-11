@@ -1,83 +1,32 @@
 <!-- Javier Arias Carroza -->
 
 <?php include ASSETS_PATH . 'header.php'; ?>
-<style>
-    form#dialogoForm {
-        max-width: 600px;
-        width: 40%;
-        margin: 20px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        background-color: var(--color-azul);
-    }
 
-    form#dialogoForm h2 {
-        margin-bottom: 20px;
-    }
+<main> <!-- Contenido por Pablo -->
+    <a href="index.php?c=dialogo&m=listarDialogos">
+        <button class="boton_volver">Volver</button><!-- Botón para volver a la página anterior -->
+    </a>
+    <div class="div_formAltaDialogo">
+        <h1>Alta de Diálogo</h1><!--Titulo de la página-->
+        <h3>Decisiones de Vida</h3><!--Subtítulo de la página-->
 
-    .form-group {
-        margin-bottom: 15px;
-    }
+        <form class="formAltaDialogo" name="formAltaDialogo" method="post" action="index.php?c=dialogo&m=formularioAltaDialogo">
 
-    .form-label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
+            <label for="listaEscenario" class="formAltaDialogo-label">Selecciona un Escenario:</label>
+            <select name="listaEscenario" id="listaEscenario" class="formAltaDialogo-control">
+                <option hidden disabled selected>- Elige Escenario -</option>
+                <?php
 
-    .form-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #fff; /* Fondo blanco */
-        color: #000; /* Texto negro */
-    }
+                    foreach ($datos as $escenario) {
+                        echo "<option value='" . $escenario['idEscenario'] . "#" . $escenario['nombreEscenario'] . "'>" . $escenario['nombreEscenario'] . "</option>";
+                    }
 
-    .form-control option {
-        background-color: #fff; /* Fondo blanco para opciones */
-        color: #000; /* Texto negro */
-    }
-
-    .btn-submit {
-        display: inline-block;
-        padding: 10px 20px;
-        color: #fff;
-        background-color: var(--color-amarillo);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none;
-    }
-
-    .btn-submit:hover {
-        background-color: var(--color-amarillo-oscuro);
-    }   
-</style>
-<form id="dialogoForm" enctype="multipart/form-data">
-    <h2 style="text-align:center;">Alta de Diálogo</h2>
-    <hr>
-    <div class="form-group">
-        <label for="listaNPC" class="form-label">Selecciona un Escenario:</label>
-        <select name="listaNPC" id="listaNPC" class="form-control">
-            <option hidden disabled selected>- Elige Escenario -</option>
-            <?php
-
-                $escenarios = $controlador->listarEscenarios();
-
-                foreach ($escenarios as $escenario) {
-                    echo "<option value='" . $escenario['idEscenario'] . "'>" . $escenario['nombreEscenario'] . "</option>";
-                }
-
-            ?>
-        </select>
+                ?>
+            </select>
+            
+            <input type="submit" class="btn-submit" value="Siguiente">
+        </form>
     </div>
-    <button type="submit" class="btn-submit">Enviar</button>
-</form>
-<div style="text-align:center; margin-top: 20px; max-width: 600px; margin: 20px auto; width: 25%;">
-    <a href="index.php" class="btn-submit" style="background-color: var(--color-amarillo); text-decoration:none;">Volver</a>
-</div>
+</main>
 
 <?php include ASSETS_PATH . 'footer.php'; ?>

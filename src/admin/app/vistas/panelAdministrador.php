@@ -10,11 +10,8 @@
         <link rel="stylesheet" href="css/import.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/footer.css">
-<<<<<<< HEAD
-=======
         <!-- IMPORT -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a
     </head>
     <body>
         <header id="headerPanelAdmin">
@@ -24,24 +21,6 @@
 
         <main class="contenedor-grid">
             <div class="tarjeta">
-<<<<<<< HEAD
-            <div class="imagen-tarjeta"></div>
-            <p>Gestión de Usuarios</p>
-            <a href="#">Acceder</a>
-            </div>
-            <div class="tarjeta">
-            <div class="imagen-tarjeta"></div>
-            <p>Gestión de Personajes</p>
-            <a href="index.php?c=personaje&m=listarPersonajes">Acceder</a>
-            </div>
-            <div class="tarjeta">
-            <div class="imagen-tarjeta"></div>
-            <p>Gestión de Ranking</p>
-            <a href="#">Acceder</a>
-            </div>
-        </main>
-    <?php include ASSETS_PATH . 'footer.php'; ?>
-=======
                 <div class="imagen-tarjeta"></div>
                 <p>Gestión de Usuarios</p>
                 <a href="#"><span style="color:red;">Locked</span></a>
@@ -59,7 +38,7 @@
             <div class="tarjeta">
                 <div class="imagen-tarjeta"><i class="fa-solid fa-comments" style="font-size: 3.2rem;"></i></div>
                 <p>Gestión de Diálogos</p>
-                <a href="index.php?c=escenario&m=formularioObtenerEscenario">Acceder</a>
+                <a href="index.php?c=dialogo&m=listarDialogos">Acceder</a>
             </div>
             <div class="tarjeta">
                 <div class="imagen-tarjeta"></div>
@@ -68,4 +47,3 @@
             </div>
         </main>
 <?php include_once ASSETS_PATH . 'footer.php'; ?>
->>>>>>> 313f3f4a389334a2fc12cab0baef4aa96b8a727a

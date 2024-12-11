@@ -46,7 +46,7 @@
 
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mNPC.php';
-
+            var_dump($_POST);
             $datos = $_POST;
             $sprite = $_FILES;
 

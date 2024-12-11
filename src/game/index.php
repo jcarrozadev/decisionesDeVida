@@ -1,7 +1,7 @@
 <?php
     
     // Incluimos el archivo de configuracion para el controlador por defecto y el metodo por defecto
-    require_once 'app/config/config.php';
+    require_once 'php/config/config.php';
 
     // Si no le pasamos controlador ni metodo, le asignamos al $_GET un valor por defecto del config
     if(!isset($_GET['c'])) $_GET['c'] = CONTROLADOR_DEFECTO;
