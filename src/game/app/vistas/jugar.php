@@ -45,13 +45,13 @@
             justify-self: start;
         }
 
-        #leyenda-izquierda strong {
+        #leyenda-izquierda strong, #leyenda-izquierda strong {
             display: block;
             margin-bottom: 5px;
             font-size: 1.2em;
         }
 
-        #leyenda-izquierda span {
+        #leyenda-izquierda span, #leyenda-derecha span {
             display: block;
             margin-bottom: 10px;
             font-size: 1em;
@@ -72,12 +72,12 @@
 
         table {
             border-collapse: collapse;
-            background-image: url('img/escenario.png');
+            background-image: url('<?php echo ESCENARIO_PATH ?>/escenario1.png');
             background-size: cover;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
-        td {
+        td { 
             width: 50px;
             height: 50px;
             border: 1px solid #ccc;
@@ -124,8 +124,8 @@
 
         <!-- Leyenda derecha -->
         <div id="leyenda-derecha">
-            <strong>Controles:</strong><br>
-            Mover con clics o WASD
+            <strong>Controles:</strong>
+            <span>Moverse - WASD</span>
         </div>
     </div>
 

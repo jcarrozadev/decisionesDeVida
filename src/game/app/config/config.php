@@ -11,6 +11,10 @@
     define('VIEW_PATH', 'app/vistas/');
     define('CONTROLLER_PATH', 'app/controladores/');
 
+    // ----------------------- RUTAS DE ESCENARIO
+    define('ESCENARIO_PATH', 'img/escenarios/');
+    define('ESCENARIO_DEFECT', '21');
+
     define('VIEW_JS_PATH', 'js/vistas/');
 
     // ----------------------- Tamaño máximo de SPRITES

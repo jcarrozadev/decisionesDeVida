@@ -5,11 +5,11 @@ let columna = 6; // Columna inicial de personaje
 document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = `<img src="${sprites.front}" class="personaje" style="width: 46px;">`;
 
 // Agregar evento de clic a todas las celdas con la clase 'celdaMovimiento'
-document.querySelectorAll('.celdaMovimiento').forEach(cell => {
+/*document.querySelectorAll('.celdaMovimiento').forEach(cell => {
     cell.addEventListener('click', function() {
         colocarPersonaje(this);
     });
-});
+});*/
 
 // Modifica las funciones donde se coloca al personaje para que también usen el sprite dinámico
 function colocarPersonaje(cell, sprite) {
@@ -37,32 +37,25 @@ function celdaCercana(row, col) {
     return Math.abs(row - fila) + Math.abs(col - columna) === 1;
 }
 
-// Agregar evento de teclado para mover el personaje con las teclas WASD
-document.addEventListener('keydown', function(event) {
-    let nuevaFila = fila;
-    let nuevaColumna = columna;
-    let nuevoSprite = sprites.front;  // Direccion por defecto (frente)
+/************************************************ FUNCIONES ************************************************/
 
-    switch (event.key) {
-        case 'w': // Mover hacia arriba
-            nuevaFila = fila - 1;
-            nuevoSprite = sprites.back; // Cambiar sprite a 'back' para moverse hacia arriba
-            break;
-        case 'a': // Mover hacia la izquierda
-            nuevaColumna = columna - 1;
-            nuevoSprite = sprites.left; // Cambiar sprite a 'left' para moverse hacia la izquierda
-            break;
-        case 's': // Mover hacia abajo
-            nuevaFila = fila + 1;
-            nuevoSprite = sprites.front; // Cambiar sprite a 'front' para moverse hacia abajo
-            break;
-        case 'd': // Mover hacia la derecha
-            nuevaColumna = columna + 1;
-            nuevoSprite = sprites.right; // Cambiar sprite a 'right' para moverse hacia la derecha
-            break;
-        default:
-            return; // Salir si no se presionó una tecla WASD
-    }
+const movimientos = {
+    'w': { fila: -1, columna: 0, sprite: sprites.back }, // Arriba
+    'a': { fila: 0, columna: -1, sprite: sprites.left }, // Izquierda
+    's': { fila: 1, columna: 0, sprite: sprites.front }, // Abajo
+    'd': { fila: 0, columna: 1, sprite: sprites.right }  // Derecha
+};
+
+document.addEventListener('keydown', function(event) {
+    const movimiento = movimientos[event.key];
+
+    // Si no es una tecla válida, salir
+    if (!movimiento) return;
+
+    // Nuevas coordenadas y el sprite
+    const nuevaFila = fila + movimiento.fila;
+    const nuevaColumna = columna + movimiento.columna;
+    const nuevoSprite = movimiento.sprite;
 
     // Verificar si la nueva posición es válida y adyacente
     if (celdaCercana(nuevaFila, nuevaColumna)) {
@@ -71,5 +64,9 @@ document.addEventListener('keydown', function(event) {
 
         // Colocar al personaje en la nueva celda con el sprite correcto
         colocarPersonaje(nuevaCelda, nuevoSprite);
+
+        // Actualizar las variables globales de posición
+        fila = nuevaFila;
+        columna = nuevaColumna;
     }
 });
