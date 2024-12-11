@@ -25,13 +25,13 @@
                     echo "<div class='acciones'>";
                         echo "<a class='boton-modificar' href='index.php?c=dialogo&m=modificarDialogo&id=" . $dialogo['idDialogo'] . "'>Modificar</a>";
                         // Cambiar el enlace de "Eliminar" para que use la función de JavaScript
-                        echo "<a class='boton-eliminar' onclick='eliminarDialogo(" . $dialogo['idDialogo'] . ")'>Eliminar</a>";
+                        echo "<a class='boton-eliminar' href='index.php?c=dialogo&m=eliminarDialogo&id=" . $dialogo['idDialogo'] . "'>Eliminar</a>";
                     echo "</div>";
                 echo "</div>";
             }
         ?>
     </section>
-</main><script src="js/vistas/eliminarDialogo.js"></script>
+</main>
 <a href="index.php?c=panelAdmin&m=inicio">
     <button class="boton-volver"><i class="fa fa-arrow-left"></i> Volver al Panel de Administración</button>
 </a>

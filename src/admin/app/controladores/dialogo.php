@@ -50,7 +50,7 @@
 
             $datos = $_POST;
             $id = $_GET['id'];
-            var_dump($_POST);
+
             require_once MODEL_PATH . 'mDialogo.php';
 
             $dialogo = new mDialogo();
