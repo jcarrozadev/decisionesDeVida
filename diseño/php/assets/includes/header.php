@@ -7,10 +7,10 @@
         <meta name="author" content="Javier Arias Carroza jariascarroza@gmail.com">
         <title><?php // aqui iría el nombre con variable ?></title>
         <!-- CSS -->
-        <link rel="stylesheet" href="assets/css/import.css">
-        <link rel="stylesheet" href="assets/css/header.css">
-        <link rel="stylesheet" href="assets/css/footer.css">
-        <link rel="stylesheet" href="assets/css/general.css">
+        <link rel="stylesheet" href="../css/import.css">
+        <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/general.css">
         <!-- IMPORT -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     </head>

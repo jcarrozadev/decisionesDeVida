@@ -18,6 +18,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden; /* Evita que la tabla se desborde en pantallas pequeñas */
         }
 
         .container {
