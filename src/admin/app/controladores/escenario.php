@@ -99,18 +99,19 @@
                 return false;
             }
     
-            // Verificar si se ha enviado el formulario con las casillas
+            // Procesar el formulario cuando se envíe
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['casilla'])) {
-                // Obtener las casillas del formulario
-                $casillas = explode('#', $_POST['casilla']);
-                $modelo->guardarColisiones($casillas, $id);  // Guardar las colisiones en la base de datos
+                $casillas = explode('#', $_POST['casilla']); // Separar casillas seleccionadas
+                $modelo->guardarColisiones($casillas, $id);  // Guardar en la base de datos
     
                 $this->mensaje = 'Colisiones guardadas correctamente';
+                header("Location: index.php?c=escenario&m=mEscenario");
+                exit;
             }
     
             $this->tituloPag = 'Modificar Escenario';
-            $this->vista = 'modificacionEscenarios'; // Carga la vista de modificación
-            return $escenario; // Devuelve los datos del escenario a la vista
+            $this->vista = 'modificacionEscenarios';
+            return $escenario; // Devuelve datos a la vista
         }
           
 
