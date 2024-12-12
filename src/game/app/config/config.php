@@ -16,6 +16,7 @@
     define('ESCENARIO_DEFECT', '21');
 
     define('VIEW_JS_PATH', 'js/vistas/');
+    define('SERV_JS_PATH', 'js/servicios/');
 
     // ----------------------- Tamaño máximo de SPRITES
     define('MAX_SPRITE_SIZE', 10000);

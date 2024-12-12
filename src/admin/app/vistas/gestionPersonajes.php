@@ -30,9 +30,9 @@
         ?>
     </section>
 </main>
-<a href="index.php?c=panelAdmin&m=inicio">
+<!-- <a href="index.php?c=panelAdmin&m=inicio">
     <button class="boton-volver"><i class="fa fa-arrow-left"></i> Volver al Panel de Administración</button>
-</a>
+</a> -->
 
 <?php include_once ASSETS_PATH . 'footer.php'; ?>
 

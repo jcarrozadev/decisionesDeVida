@@ -49,6 +49,8 @@
             // Obtener los datos del personaje desde el modelo
             $personaje = $modeloPersonaje->obtenerDatosPersonaje($idPersonaje);
             
+            $nombrePersonaje = $personaje['nombrePersonaje'];
+
             // Si los sprites son BLOB, convertirlos a base64
             $spriteFront = base64_encode($personaje['spriteFront']);
             $spriteBack = base64_encode($personaje['spriteBack']);
@@ -56,6 +58,7 @@
             $spriteRight = base64_encode($personaje['spriteRight']);
             
             return [
+                'nombrePersonaje' => $nombrePersonaje,
                 'spriteFront' => 'data:image/png;base64,' . $spriteFront,
                 'spriteBack' => 'data:image/png;base64,' . $spriteBack,
                 'spriteLeft' => 'data:image/png;base64,' . $spriteLeft,

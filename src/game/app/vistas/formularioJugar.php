@@ -26,7 +26,8 @@
     body {
         margin: 0;
         font-family: 'Press Start 2P';
-        background: var(--color-gris-claro);
+        /* background: var(--color-gris-claro); */
+        background-image: url('img/fondos/fondoElegirPersonaje.jpg');
         display: flex;
         justify-content: center;
         align-items: center;
@@ -135,7 +136,7 @@
                     if (!empty($personajes) && is_array($personajes)) {
                         foreach ($personajes as $datos) {
                             echo '<label class="card">';
-                            echo '<input type="radio" name="personajeElegido" value='. htmlspecialchars($datos['idPersonaje']) .' required>';
+                            echo '<input type="radio" id="personajeElegido" name="personajeElegido" value='. htmlspecialchars($datos['idPersonaje']) .' required>';
                             echo '<img src="data:image/png;base64,' . base64_encode($datos['spriteFront']) . '" alt="Sprite Frontal">';
                             echo '<div>'. htmlspecialchars($datos['nombrePersonaje']) .'</div>';
                             echo '</label>';
@@ -148,5 +149,7 @@
             <input type="submit" value="Jugar">
         </form>
     </div>
-
+    <?php
+        //echo '<script src="' . VIEW_JS_PATH . 'formularioJugar.js"></script>';
+    ?>
 </body>

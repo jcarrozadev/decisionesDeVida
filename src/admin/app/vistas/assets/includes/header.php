@@ -17,11 +17,12 @@
     <body>
         <header>
             <nav class="barra-navegacion">
+                <a href="index.php?c=panelAdmin&m=inicio" class="icono-casa"><i class="fas fa-home"></i></a>
                 <div class="enlaces-centro">
-                    <a href="index.php?c=personaje&m=listarPersonajes">Gestión de Personajes</a>
-                    <a href="#gestionar-usuarios">Gestión de Usuarios</a>
-                    <a href="#gestionar-ranking">Gestión de Ranking</a>
-                    <a href="index.php?c=npc&m=formularioAltaNPC">Gestión de NPC</a>
+                    <a href="">Gestión de Personajes</a>
+                    <a href="">Gestión de Usuarios</a>
+                    <a href="">Gestión de Ranking</a>
+                    <a href="">Gestión de NPC</a>
                 </div>
                 <button class="boton-perfil"><i class="fas fa-user"></i></button>
             </nav>

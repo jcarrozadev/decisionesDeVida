@@ -49,13 +49,14 @@
         
             // Combinar los datos de entrada con los sprites del personaje
             $datos = array_merge($datos, [
+                'nombrePersonaje' => $personaje['nombrePersonaje'],
                 'spriteFront' => $personaje['spriteFront'],
                 'spriteBack' => $personaje['spriteBack'],
                 'spriteLeft' => $personaje['spriteLeft'],
                 'spriteRight' => $personaje['spriteRight']
             ]);
         
-            $this->tituloPag = "Decisiones de Vida";
+            $this->tituloPag = "Juego | Decisiones de Vida";
             $this->vista = "jugar";
         
             return $datos;

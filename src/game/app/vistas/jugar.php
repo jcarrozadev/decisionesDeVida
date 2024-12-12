@@ -19,22 +19,22 @@
                 <div>
                     <strong>Personaje</strong>
                     <div>
-                        <img id="spritePersonaje" src="img\sprites\front.png" alt="Nombre Personaje">
-                        <p id="nombrePersonaje"><?php echo $datos['personajeElegido'] ?></p>
+                        <img id="spritePersonaje" src="<?php echo $datos['spriteFront'] ?>" alt="Nombre Personaje">
+                        <p id="nombrePersonaje"><?php echo $datos['nombrePersonaje'] ?></p>
                     </div>
                 </div>
                 <div>
                     <strong>Tiempo</strong>
-                    <p id="tiempo">1300 h</p>
+                    <p id="tiempo"><?php echo '0'; ?>h</p>
                 </div>
                 <div>
                     <strong>Dinero</strong>
-                    <p id="dinero">12000 €</p>
+                    <p id="dinero"><?php echo '0'; ?>€</p>
                 </div>                
             </div>
             <div id="escenarioJuego">
                 <h1>Decisiones de Vida</h1>
-                <p><?php echo $datos['personajeElegido'] ?></p>
+                <p><?php echo 'nombreEscenario'; ?></p>
                 <table class="tablaEscenario">
                     <tbody>
                         <tr>
