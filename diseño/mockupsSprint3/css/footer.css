@@ -1,0 +1,9 @@
+/* CSS Footer - Javier Arias Carroza */
+
+footer {
+    text-align: center;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    padding: 20px;
+    margin-top: auto;
+}
