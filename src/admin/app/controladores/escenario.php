@@ -84,49 +84,45 @@
         public function modificarEscenario() {
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
-    
+        
             if (!isset($_GET['id'])) {
                 $this->vista = 'vMensaje';
                 $this->mensaje = 'No se ha seleccionado ningún escenario';
                 return false;
             }
-    
-            $id = intval($_GET['id']); // Asegúrate de que sea un entero válido
+        
+            $id = intval($_GET['id']);
             $modelo = new mEscenario();
-            $escenario = $modelo->obtenerDatosEscenario($id);
-    
-            if (!$escenario) {
-                $this->vista = 'vMensaje';
-                $this->mensaje = 'El escenario no existe o no se pudo cargar';
-                return false;
-            }
-    
-            // Validacion del formulario, que se envíe por POST y que no esten vacios los campos nombre ni mensaje
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombreEscenario']) && isset($_POST['mensajeNarrativo']) && !empty($_POST['nombreEscenario']) && !empty($_POST['mensajeNarrativo'])) {
+        
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombreEscenario'], $_POST['mensajeNarrativo'], $_POST['casilla'], $_POST['casillaInicio'])) {
+                // Obtener los valores del formulario
                 $nombreEscenario = htmlspecialchars($_POST['nombreEscenario']);
                 $mensajeNarrativo = htmlspecialchars($_POST['mensajeNarrativo']);
-                $casillas = isset($_POST['casilla']) ? explode('#', $_POST['casilla']) : [];
-            
+                $casillaInicio = htmlspecialchars($_POST['casillaInicio']); // Casilla de inicio
+                $casillas = isset($_POST['casilla']) ? explode('#', $_POST['casilla']) : []; // Casillas seleccionadas
+        
+                // Verificar si las casillas están correctamente recibidas
+                //var_dump($casillas);
+                //var_dump($casillaInicio);
+        
                 // Guardar los cambios en el nombre y el mensaje
-                $modelo->actualizarEscenario($id, $nombreEscenario, $mensajeNarrativo);
-            
-                // Guardar colisiones si se proporcionaron
+                $modelo->actualizarEscenario($id, $nombreEscenario, $mensajeNarrativo, $casillaInicio);
+        
+                // Guardar las colisiones si las casillas no están vacías
                 if (!empty($casillas)) {
                     $modelo->guardarColisiones($casillas, $id);
                 }
-            
+        
+                // Mensaje de éxito
                 $this->mensaje = 'Escenario actualizado correctamente';
                 header("Location: index.php?c=escenario&m=mEscenario");
                 exit;
             }
-            
-    
+        
             $this->tituloPag = 'Modificar Escenario';
             $this->vista = 'modificacionEscenarios';
-            return $escenario; // Devuelve datos a la vista, en la vista se obtiene con $datos (debido al index.php)
+            return $modelo->obtenerDatosEscenario($id);
         }
-          
-
-        
+           
 
     }

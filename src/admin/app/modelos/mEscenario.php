@@ -84,13 +84,12 @@
         /**
          * Actualiza los datos de un escenario en la base de datos
          */
-        public function actualizarEscenario($id, $nombre, $mensaje) {
+        public function actualizarEscenario($id, $nombre, $mensaje, $casillaInicio) {
             $this->conexionBBDD();
-            
-            // Preparar la consulta para actualizar el escenario
-            $sql = "UPDATE Escenario SET nombreEscenario = ?, mensajeNarrativo = ? WHERE idEscenario = ?";
+        
+            $sql = "UPDATE Escenario SET nombreEscenario = ?, mensajeNarrativo = ?, casillaInicio = ? WHERE idEscenario = ?";
             $stmt = $this->conexion->prepare($sql);
-            $stmt->bind_param("ssi", $nombre, $mensaje, $id);
+            $stmt->bind_param("sssi", $nombre, $mensaje, $casillaInicio, $id);
             $stmt->execute();
         
             $stmt->close();
@@ -98,25 +97,27 @@
         }
         
         
+        
         /**
          * Guarda las colisiones de un escenario en la tabla Colision
          */
         public function guardarColisiones($casillas, $id) {
             $this->conexionBBDD();
-    
+        
             // Preparar la consulta para insertar las colisiones
             $sql = "INSERT INTO Colision (casilla, idEscenario) VALUES (?, ?)";
             $stmt = $this->conexion->prepare($sql);
-    
+        
             // Insertar cada casilla en la base de datos
             foreach ($casillas as $casilla) {
                 $stmt->bind_param("si", $casilla, $id);
                 $stmt->execute();
             }
-    
+        
             // Cerrar la conexión
             $stmt->close();
             $this->conexion->close();
         }
+        
 
     }
