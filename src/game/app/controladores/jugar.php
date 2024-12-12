@@ -40,7 +40,17 @@
          */
         public function juego() {
 
-            $datos = $_POST;
+            // Obtener los datos de la URL que sacamos de la COOKIE
+            $datos = [
+                'nombreUsuario' => $_GET['nUsr'],
+                'personajeElegido' => $_GET['iPrs'],
+            ];
+
+            if(!isset($_GET['idEscenario'])){
+                $datos['idEscenario'] = ESCENARIO_DEFECT;
+            } else {
+                $datos['idEscenario'] = $_GET['idEscenario'];
+            }
 
             // Obtener el sprite del personaje seleccionado
             require_once CONTROLLER_PATH . 'personaje.php';

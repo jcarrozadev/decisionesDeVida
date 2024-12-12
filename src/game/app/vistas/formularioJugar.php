@@ -125,7 +125,8 @@
 </head>
 <body>
     <div class="container">
-        <form id="formularioJugar" method="post" action="index.php?c=jugar&m=juego">
+        <!-- <form id="formularioJugar" method="post" action="index.php?c=jugar&m=juego"> -->
+        <form id="formularioJugar">
             <div>
                 <label for="nombreUsuario">Nombre de Usuario:</label>
                 <input type="text" id="nombreUsuario" name="nombreUsuario">
@@ -150,6 +151,6 @@
         </form>
     </div>
     <?php
-        //echo '<script src="' . VIEW_JS_PATH . 'formularioJugar.js"></script>';
+        echo '<script type="module" src="' . VIEW_JS_PATH . 'formularioJugar.js"></script>';
     ?>
 </body>

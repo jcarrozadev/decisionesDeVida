@@ -37,132 +37,15 @@
                 <p><?php echo 'nombreEscenario'; ?></p>
                 <table class="tablaEscenario">
                     <tbody>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='1' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='1' data-col='12'></td>
-                        </tr>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='2' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='2' data-col='12'></td>
-                        </tr>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='3' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='3' data-col='12'></td>
-                        </tr>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='4' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='4' data-col='12'></td>
-                        </tr>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='5' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='5' data-col='12'></td>
-                        </tr>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='6' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='6' data-col='12'></td>
-                        </tr>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='7' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='7' data-col='12'></td>
-                        </tr>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='8' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='8' data-col='12'></td>
-                        </tr>
-                        <tr>
-                            <td class='celdaMovimiento' data-row='9' data-col='1'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='2'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='3'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='4'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='5'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='6'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='7'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='8'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='9'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='10'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='11'></td>
-                            <td class='celdaMovimiento' data-row='9' data-col='12'></td>
-                        </tr>
+                        <?php
+                            for ($row = 1; $row <= 9; $row++) {
+                                echo "<tr>";
+                                for ($col = 1; $col <= 12; $col++) {
+                                    echo "<td class='celdaMovimiento' data-row='$row' data-col='$col'></td>";
+                                }
+                                echo "</tr>";
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
