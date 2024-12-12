@@ -172,9 +172,9 @@
             $resultado = $modeloDialogo->altaDialogo($datos);
 
             if ($resultado) {
-                $this->mensaje = 'El dialogo se ha dado de alta correctamente';
+                $this->mensaje = 'El dialogo con sus respuestas se ha dado de alta correctamente';
             } else {
-                $this->mensaje = 'Ha habido un error al dar de alta el dialogo';
+                $this->mensaje = 'Ha habido un error al dar de alta el dialogo con sus respuestas';
             }
 
             $this->tituloPag = 'Fin Alta Dialogo';

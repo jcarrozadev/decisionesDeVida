@@ -22,26 +22,122 @@
             $this->conexion->set_charset("utf8");
         }
 
-        public function altaDialogo($datos) {
+        /**
+         * Comprueba si un diálogo ya existe en la base de datos
+         * @param string $nombreDialogo
+         * @return bool
+         */
+        public function comprobarDialogoExiste($nombreDialogo) {
             $this->conexionBBDD();
-    
-            $sql = "INSERT INTO Dialogos (nombreDiálogo, mensaje, casilla, idNPC, idEscenario)
+
+            $sql = "SELECT * FROM Dialogos WHERE nombreDiálogo = '$nombreDialogo'";
+            $resultado = $this->conexion->query($sql);
+            $this->conexion->close();
+
+            if ($resultado->num_rows > 0) {
+                return true;
+            }
+
+            return false;
+        }
+
+        /**
+         * Da de alta un diálogo en la base de datos
+         * @param array $datos
+         * @return bool
+         */
+        public function altaDialogo($datos) {
+
+            if ($this->comprobarDialogoExiste($datos['nombreDialogo'])) {
+                $this->mensaje = "El diálogo ya existe. ";
+                echo $this->mensaje;
+                return false;
+            } else {
+
+                $this->conexionBBDD();
+
+                $sql = "INSERT INTO Dialogos (nombreDiálogo, mensaje, casilla, idNPC, idEscenario)
                     VALUES ('" . $this->conexion->real_escape_string($datos['nombreDialogo']) . "', 
                             '" . $this->conexion->real_escape_string($datos['mensaje']) . "', 
                             '" . $this->conexion->real_escape_string($datos['casilla']) . "', 
                             '" . $this->conexion->real_escape_string($datos['listaNPC']) . "', 
                             '" . $this->conexion->real_escape_string($datos['idEscenario']) . "')";
+        
+                try {
+                    $this->conexion->query($sql);
+                    $idDialogo = $this->conexion->insert_id; // Obtener el id del diálogo insertado
+                } catch (mysqli_sql_exception $e) {
+                    $this->mensaje = "Error al crear el diálogo: " . $e->getMessage();
+                    echo $this->mensaje;
+                    return false;
+                }
+            
+                if ($this->altaRespuestas($datos, $idDialogo)) {
+                    return true;
+                }
+        
+                return false;  
+
+            }
+
+            $this->conexion->close();
+        
+            
+        }
+        
+        /**
+         * Da de alta las respuestas de un diálogo en la base de datos
+         * @param array $datos
+         * @param int $idDialogo
+         * @return bool
+         */
+        public function altaRespuestas($datos, $idDialogo) {
+            $this->conexionBBDD();
+            
+            $sqlRespuesta1 = "INSERT INTO Respuestas (mensaje)
+                    VALUES ('" . $this->conexion->real_escape_string($datos['respuesta1']) . "')";
+            if (!$this->conexion->query($sqlRespuesta1)) {
+                echo "Error en la inserción de respuesta1: " . $this->conexion->error;  // Mostrar el error
+                return false;
+            }
+            $idRespuesta1 = $this->conexion->insert_id;
+            
+            $sqlRespuesta2 = "INSERT INTO Respuestas (mensaje)
+                    VALUES ('" . $this->conexion->real_escape_string($datos['respuesta2']) . "')";
+            if (!$this->conexion->query($sqlRespuesta2)) {
+                echo "Error en la inserción de respuesta2: " . $this->conexion->error;  // Mostrar el error
+                return false;
+            }
+            $idRespuesta2 = $this->conexion->insert_id;
+        
+            $this->actualizarRespuestasDialogos($idRespuesta1, $idRespuesta2, $idDialogo);
+            
+            return true;
+            $this->conexion->close();
+        }        
+
+        /**
+         * Actualiza las respuestas de un diálogo en la base de datos
+         * @param int $idRespuesta1
+         * @param int $idRespuesta2
+         * @param int $idDialogo
+         * @return bool
+         */
+        public function actualizarRespuestasDialogos($idRespuesta1, $idRespuesta2, $idDialogo) {
+            $this->conexionBBDD();
+    
+            $sql = "UPDATE Dialogos SET idRespuesta1 = $idRespuesta1, idRespuesta2 = $idRespuesta2 WHERE idDialogo = $idDialogo";
     
             try {
                 $this->conexion->query($sql);
             } catch (mysqli_sql_exception $e) {
                 $this->conexion->close();
-                $this->mensaje = "Error al crear el diálogo: " . $e->getMessage();
+                $this->mensaje = "Error al actualizar las respuestas de los diálogos: " . $e->getMessage();
                 return false;
             }
     
             $this->conexion->close();
-            return true;    
+            return true;
         }
 
         /**
