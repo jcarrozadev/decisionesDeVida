@@ -19,11 +19,12 @@
                         echo "</div>";
                         echo "<p>" . htmlspecialchars($escenario['nombreEscenario']) . "</p>";
                         echo "<div class='acciones'>";
-                            // Botón de modificar con enlace al controlador para cargar la página de modificación
-                            echo "<a class='boton-modificar' href='index.php?c=escenario&m=modificarEscenario&id=" . urlencode($escenario['idEscenario']) . "'>Modificar</a>";
+                            // Construcción del enlace para el botón de modificar
+                            echo "<a class='boton-modificar' href='index.php?c=escenario&m=modificarEscenario&id=" . htmlspecialchars($escenario['idEscenario']) . "'>Modificar</a>";
                         echo "</div>";
                     echo "</div>";
                 }
+                
             }
         ?>
     </section>
