@@ -2,7 +2,7 @@ let fila = 9; // Fila inicial de personaje
 let columna = 6; // Columna inicial de personaje
 
 // Inicializar personaje en la celda (9,6), abajo en el centro del mapa
-document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = `<img src="${sprites.front}" class="personaje" style="width: 46px;">`;
+document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = `<img src="${sprites.front}" class="personaje" style="width: 42px;">`;
 
 // Agregar evento de clic a todas las celdas con la clase 'celdaMovimiento'
 /*document.querySelectorAll('.celdaMovimiento').forEach(cell => {
@@ -24,7 +24,7 @@ function colocarPersonaje(cell, sprite) {
         });
 
         // Colocar al personaje en la celda clicada con el sprite correspondiente
-        cell.innerHTML = `<img src="${sprite}" class="personaje" style="width: 46px;">`;
+        cell.innerHTML = `<img src="${sprite}" class="personaje" style="width: 42px;">`;
 
         fila = row;
         columna = col;
@@ -49,24 +49,31 @@ const movimientos = {
 document.addEventListener('keydown', function(event) {
     const movimiento = movimientos[event.key];
 
-    // Si no es una tecla válida, salir
-    if (!movimiento) return;
+    mover(movimiento);
+});
 
-    // Nuevas coordenadas y el sprite
+function moverTablet(direccion) {
+    const movimiento = movimientos[direccion];
+
+    mover(movimiento);
+
+}
+
+function mover(movimiento) {
+    if (!movimiento) 
+        return; //Movimiento no válido
+
     const nuevaFila = fila + movimiento.fila;
     const nuevaColumna = columna + movimiento.columna;
     const nuevoSprite = movimiento.sprite;
 
-    // Verificar si la nueva posición es válida y adyacente
     if (celdaCercana(nuevaFila, nuevaColumna)) {
-        // Obtener la celda de la nueva posición
+
         const nuevaCelda = document.querySelector(`td[data-row='${nuevaFila}'][data-col='${nuevaColumna}']`);
 
-        // Colocar al personaje en la nueva celda con el sprite correcto
         colocarPersonaje(nuevaCelda, nuevoSprite);
 
-        // Actualizar las variables globales de posición
         fila = nuevaFila;
-        columna = nuevaColumna;
+        columna = nuevaColumna; 
     }
-});
+}

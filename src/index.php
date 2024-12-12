@@ -1,5 +1,5 @@
 <?php
     
-    header('Location: /game');
+    header('Location: game/');
     
 ?>
