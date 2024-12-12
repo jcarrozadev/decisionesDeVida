@@ -78,7 +78,9 @@
 
         }
         
-        
+        /**
+         * Metodo que se encarga de modificar un escenario
+         */
         public function modificarEscenario() {
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
@@ -99,19 +101,29 @@
                 return false;
             }
     
-            // Procesar el formulario cuando se envíe
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['casilla'])) {
-                $casillas = explode('#', $_POST['casilla']); // Separar casillas seleccionadas
-                $modelo->guardarColisiones($casillas, $id);  // Guardar en la base de datos
-    
-                $this->mensaje = 'Colisiones guardadas correctamente';
+            // Validacion del formulario, que se envíe por POST y que no esten vacios los campos nombre ni mensaje
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombreEscenario']) && isset($_POST['mensajeNarrativo']) && !empty($_POST['nombreEscenario']) && !empty($_POST['mensajeNarrativo'])) {
+                $nombreEscenario = htmlspecialchars($_POST['nombreEscenario']);
+                $mensajeNarrativo = htmlspecialchars($_POST['mensajeNarrativo']);
+                $casillas = isset($_POST['casilla']) ? explode('#', $_POST['casilla']) : [];
+            
+                // Guardar los cambios en el nombre y el mensaje
+                $modelo->actualizarEscenario($id, $nombreEscenario, $mensajeNarrativo);
+            
+                // Guardar colisiones si se proporcionaron
+                if (!empty($casillas)) {
+                    $modelo->guardarColisiones($casillas, $id);
+                }
+            
+                $this->mensaje = 'Escenario actualizado correctamente';
                 header("Location: index.php?c=escenario&m=mEscenario");
                 exit;
             }
+            
     
             $this->tituloPag = 'Modificar Escenario';
             $this->vista = 'modificacionEscenarios';
-            return $escenario; // Devuelve datos a la vista
+            return $escenario; // Devuelve datos a la vista, en la vista se obtiene con $datos (debido al index.php)
         }
           
 

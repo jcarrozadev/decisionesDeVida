@@ -8,17 +8,17 @@
         <h1>Modificación de Escenario</h1>
         <h3>Decisiones de Vida</h3>
         
-        <form id="formModEscenario" method="POST" action="index.php?c=escenario&m=modificarEscenario&id=<?php echo intval($_GET['id']); ?>">
+        <form id="formModEscenario" method="POST" enctype="multipart/form-data" action="index.php?c=escenario&m=modificarEscenario&id=<?php echo intval($_GET['id']); ?>">
             <label for="escenario">Nombre Escenario:</label>
             <input type="text" name="nombreEscenario" placeholder="Nombre del Escenario" 
-                    value="<?php echo htmlspecialchars($datos['nombreEscenario']); ?>" readonly>
+                    value="<?php echo htmlspecialchars($datos['nombreEscenario']); ?>">
 
             <label for="mensajeNarrativo">Mensaje Narrativo:</label>
             <input type="text" name="mensajeNarrativo" placeholder="Mensaje Narrativo" 
-                    value="<?php echo htmlspecialchars($datos['mensajeNarrativo']); ?>" readonly>
+                    value="<?php echo htmlspecialchars($datos['mensajeNarrativo']); ?>">
 
             <label for="imgEscenario">Imagen del Escenario:</label>
-            <input type="file" id="imgEscenario" name="imgEscenario" disabled>
+            <input type="file" id="imgEscenario" name="imgEscenario" value="<?php echo htmlspecialchars($datos['nombreImagen']);?>">
 
             <label for="colisiones" class="formAltaDialogo-label">Colisiones:</label>
             <table>
@@ -40,7 +40,6 @@
                         
             <input type="submit" value="Guardar Cambios">
         </form>
-    </div>
 </main>
 
 <script>
