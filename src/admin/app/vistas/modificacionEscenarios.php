@@ -79,7 +79,7 @@
 
             const formData = new FormData(this);
 
-            fetch('index.php?c=escenario&m=mEscenario', {
+            fetch('index.php?c=escenario&m=modificarEscenario', {
                 method: 'POST',
                 body: formData
             })
