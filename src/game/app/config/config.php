@@ -13,7 +13,7 @@
 
     // ----------------------- RUTAS DE ESCENARIO
     define('ESCENARIO_PATH', 'img/escenarios/');
-    define('ESCENARIO_DEFECT', '21');
+    define('ESCENARIO_DEFECT', '1');
 
     define('VIEW_JS_PATH', 'js/vistas/');
     define('SERV_JS_PATH', 'js/servicios/');

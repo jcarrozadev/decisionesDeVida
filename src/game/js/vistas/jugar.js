@@ -1,8 +1,7 @@
-let fila = 9; // Fila inicial de personaje
-let columna = 6; // Columna inicial de personaje
+// COLISIONES
 
-// Inicializar personaje en la celda (9,6), abajo en el centro del mapa
-document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`).innerHTML = `<img src="${sprites.front}" class="personaje" style="width: 42px;">`;
+const casillasColision = window.colisiones.map(colision => colision.casilla);
+console.log(casillasColision);
 
 // Agregar evento de clic a todas las celdas con la clase 'celdaMovimiento'
 /*document.querySelectorAll('.celdaMovimiento').forEach(cell => {
@@ -59,13 +58,39 @@ function moverTablet(direccion) {
 
 }
 
+function validarMovimientoColision(movimiento) {
+    const nuevaFila = fila + movimiento.fila;
+    const nuevaColumna = columna + movimiento.columna;
+
+    // Convertir la fila de número a letra (1 -> A, 2 -> B, ..., 9 -> I)
+    const filaLetra = String.fromCharCode(64 + nuevaFila);
+    // Verificar si la nueva posición está en las casillas de colisión
+    const colision = verificarCasillaColision(filaLetra, nuevaColumna);
+    return !colision;
+}
+
+function verificarCasillaColision(fila, columna) {
+    return casillasColision.some(casilla => {
+        return casilla == `${fila}${columna}`;
+    });
+}
+
 function mover(movimiento) {
     if (!movimiento) 
         return; //Movimiento no válido
-
+    
     const nuevaFila = fila + movimiento.fila;
     const nuevaColumna = columna + movimiento.columna;
     const nuevoSprite = movimiento.sprite;
+
+    if(!validarMovimientoColision(movimiento)) {
+        console.log("Colisión detectada");
+        const celdaActual = document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`);
+        celdaActual.innerHTML = `<img src="${nuevoSprite}" class="personaje" style="width: 42px;">`;
+        return; //Movimiento no válido
+    }
+
+    // AQUI IRIA LA VALIDACION DE SI HAY UN DIALOGO, SI HAY UN DIALOGO LO QUE DEBERIA DE HACER ES MIRAR AL NPC Y NO MOVERSE, Y QUE SALTE EL MODAL DEL DIALOGO
 
     if (celdaCercana(nuevaFila, nuevaColumna)) {
 

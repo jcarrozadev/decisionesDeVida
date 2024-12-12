@@ -119,7 +119,7 @@ body {
 .tablaEscenario {
     margin: 2vh auto 0 auto;
     border-collapse: collapse;
-    background-image: url("../img/escenarios/escenario1.png");
+    /* background-image: url("../img/escenarios/escenario1.png"); */
     background-repeat: no-repeat;
     background-size: cover;
 

@@ -34,8 +34,8 @@
             </div>
             <div id="escenarioJuego">
                 <h1>Decisiones de Vida</h1>
-                <p><?php echo 'nombreEscenario'; ?></p>
-                <table class="tablaEscenario">
+                <p><?php echo $datos['nombreEscenario']; ?></p>
+                <table class="tablaEscenario" style="background-image: url('<?php echo ESCENARIO_PATH . $datos['nombreImagen']; ?>');">
                     <tbody>
                         <?php
                             for ($row = 1; $row <= 9; $row++) {
@@ -97,6 +97,32 @@
                 left: "<?php echo $datos['spriteLeft']; ?>",
                 right: "<?php echo $datos['spriteRight']; ?>"
             };
+
+            const filaLetraToNumero = {
+                'A': 1,
+                'B': 2,
+                'C': 3,
+                'D': 4,
+                'E': 5,
+                'F': 6,
+                'G': 7,
+                'H': 8,
+                'I': 9
+            };
+
+            const casillaInicio = "<?php echo $datos['casillaInicio']; ?>";
+            let columna = parseInt(casillaInicio.substring(1));
+            const filaLetra = casillaInicio.charAt(0);
+            let filaNumero = filaLetraToNumero[filaLetra];
+
+            // PONEMOS EL PERSONAJE EN LA CASILLA DE INICIO CORRESPONDIENTE
+            document.querySelector(`td[data-row='${filaNumero}'][data-col='${columna}']`).innerHTML = `<img src="${sprites.front}" class="personaje" style="width: 42px;">`;
+
+            // PASAMOS LA FILA Y LA COLUMNA AL OTRO SCRIPT
+            window.fila = filaNumero;
+            window.columnaInicio = columna;
+
+            window.colisiones = <?php echo json_encode($datos['colisiones']); ?>;
         </script>
 
 

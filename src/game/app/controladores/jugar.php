@@ -46,16 +46,21 @@
                 'personajeElegido' => $_GET['iPrs'],
             ];
 
-            if(!isset($_GET['idEscenario'])){
+            if(!isset($_GET['idEsc'])){
                 $datos['idEscenario'] = ESCENARIO_DEFECT;
             } else {
-                $datos['idEscenario'] = $_GET['idEscenario'];
+                $datos['idEscenario'] = $_GET['idEsc'];
             }
 
             // Obtener el sprite del personaje seleccionado
             require_once CONTROLLER_PATH . 'personaje.php';
-            $controladorPersonaje = new Cpersonaje();
+            require_once MODEL_PATH . 'mEscenario.php';
+
+            $controladorPersonaje = new Cpersonaje();   // ESTO NO DEBERIA DE SER UN CONTROLADOR, Y SE DEBERIA HACER UN METODO QUE CARGUE LOS SPRITES DEL PERSONAJE Y TODO EL MAPA
             $personaje = $controladorPersonaje->obtenerPersonajePorId($datos['personajeElegido']); // Este método debe devolver un array con los sprites
+
+            $mEscenario = new MEscenario();
+            $escenario = $mEscenario->cargarEscenario($datos['idEscenario']);
         
             // Combinar los datos de entrada con los sprites del personaje
             $datos = array_merge($datos, [
@@ -63,7 +68,12 @@
                 'spriteFront' => $personaje['spriteFront'],
                 'spriteBack' => $personaje['spriteBack'],
                 'spriteLeft' => $personaje['spriteLeft'],
-                'spriteRight' => $personaje['spriteRight']
+                'spriteRight' => $personaje['spriteRight'],             // CON LO QUE TE HE PUESTO ARRIBA ESTO NO HACE FALTA, ESE METODO DEBERIA DEVOLVER TODOS LOS DATOS
+                'nombreEscenario' => $escenario['nombreEscenario'],
+                'nombreImagen' => $escenario['nombreImagen'],
+                'mensajeNarrativo' => $escenario['mensajeNarrativo'],
+                'casillaInicio' => $escenario['casillaInicio'],
+                'colisiones' => $escenario['colisiones']
             ]);
         
             $this->tituloPag = "Juego | Decisiones de Vida";
