@@ -8,7 +8,8 @@
         <h1>Modificación de Escenario</h1>
         <h3>Decisiones de Vida</h3>
         
-        <form id="formModEscenario" action="index.php?c=escenario&m=modificarEscenario&id=<?php echo $datos['idEscenario']; ?>" method="POST" enctype="multipart/form-data">
+        <!-- <form id="formModEscenario" action="index.php?c=escenario&m=modificarEscenario&id=<?php echo $datos['idEscenario']; ?>" method="POST" enctype="multipart/form-data"> -->
+        <form id="formModEscenario" enctype="multipart/form-data">
             <label for="nombreEscenario">Nombre Escenario:</label>
             <input type="hidden" name="idEscenario" value="<?php echo $datos['idEscenario']; ?>">
 
@@ -56,41 +57,14 @@
 
 
             <!-- <label for="casillaInput">Casillas Seleccionadas:</label> -->
-            <input type="hidden" name="casilla" id="casillaInput" value="<?php echo htmlspecialchars(isset($datos['colisiones']) ? implode('#', $datos['colisiones']) : ''); ?>"  readonly><br/>
+            <input type="text" name="casilla" id="casillaInput" value="<?php echo htmlspecialchars(isset($datos['colisiones']) ? implode('#', $datos['colisiones']) : ''); ?>" ><br/>
                                    
             <input type="submit" value="Guardar Cambios">
         </form>
     </div>
 </main>
 <script>
-    const celdas = document.querySelectorAll('.celdaMovimiento');
-    const inputCasilla = document.getElementById('casillaInput');
-    const celdasSeleccionadas = new Set(inputCasilla.value.split('#')); // Conjunto de casillas seleccionadas
-
-    celdas.forEach(celda => {
-        celda.addEventListener('click', () => {
-            const coordenada = celda.dataset.coordenada;
-
-            if (celda.classList.contains('seleccionada')) {
-                // Deseleccionar
-                celda.classList.remove('seleccionada');
-                celdasSeleccionadas.delete(coordenada);
-
-                if (celda.classList.contains('guardada')) {
-                    // Si estaba guardada, eliminar su marca visualmente
-                    celda.classList.remove('guardada');
-                }
-            } else {
-                // Seleccionar
-                celda.classList.add('seleccionada');
-                celdasSeleccionadas.add(coordenada);
-            }
-
-            // Actualizar el input con las casillas seleccionadas
-            inputCasilla.value = Array.from(celdasSeleccionadas).join('#');
-        });
-    });
-
+    window.idEscenario = <?php echo $datos['idEscenario']; ?>;
 </script>
 <script type="module" src="js/vistas/modificacionEscenarios.js"></script>
 

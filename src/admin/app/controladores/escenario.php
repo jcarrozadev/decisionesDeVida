@@ -82,11 +82,13 @@
          * Metodo que se encarga de modificar un escenario
          */
         public function modificarEscenario() {
+
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
         
             if (!isset($_GET['id'])) {
                 $this->mensaje = 'No se ha seleccionado ningún escenario';
+                echo $this->mensaje;
                 return false;
             }
         
@@ -103,16 +105,19 @@
                 // Validar que los campos obligatorios no estén vacíos
                 if (empty($nombreEscenario)) {
                     $this->mensaje = 'El nombre del escenario no puede estar vacío.';
+                    echo $this->mensaje;
                     return false;
                 }
             
                 if (empty($mensajeNarrativo)) {
                     $this->mensaje = 'El mensaje narrativo no puede estar vacío.';
+                    echo $this->mensaje;
                     return false;
                 }
             
                 if (empty($casillaInicio)) {
                     $this->mensaje = 'La casilla de inicio no puede estar vacía.';
+                    echo $this->mensaje;
                     return false;
                 }
             
@@ -126,6 +131,7 @@
             
                 // Mensaje de éxito
                 $this->mensaje = 'Escenario actualizado correctamente';
+                echo $this->mensaje;
                 return true;
             }
             
