@@ -11,6 +11,7 @@
     define('VIEW_PATH', 'app/vistas/');
     define('CONTROLLER_PATH', 'app/controladores/');
     define('ASSETS_PATH', 'app/vistas/assets/includes/');
+    define('ESCENARIO_PATH', '../game/img/escenarios/');
 
     // ----------------------- Tamaño máximo de SPRITES
     define('MAX_SPRITE_SIZE', 10000);

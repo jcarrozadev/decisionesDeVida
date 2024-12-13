@@ -27,32 +27,37 @@
             value="<?php echo htmlspecialchars($datos['casillaInicio']); ?>">
 
             <label for="colisiones" class="formAltaDialogo-label">Colisiones:</label>
-            <table>
+            <table style="background-image: url('<?php echo ESCENARIO_PATH . $datos['nombreImagen']; ?>');">
                 <tbody>
-                    <?php
-                        // Cargar casillas seleccionadas desde los datos
-                        $casillasSeleccionadas = explode('#', $datos['casilla'] ?? '');
-                        $casillasSeleccionadasMap = array_flip($casillasSeleccionadas); // Para búsqueda rápida
+                <?php
+                    $colisionesGuardadas = $datos['colisiones'] ?? [];
+                    $colisionesGuardadasMap = array_flip($colisionesGuardadas); // Map para búsqueda rápida
 
-                        for ($i = 1; $i <= 10; $i++) { 
-                            echo '<tr>'; 
-                            for ($j = 1; $j <= 12; $j++) {
-                                $columna = chr(64 + $j);
-                                $fila = $i;
-                                $coordenada = $columna . $fila;
+                    for ($j = 1; $j <= 10; $j++) { 
+                        echo '<tr>'; 
+                        $columna = chr(64 + $j);
+                        for ($i = 1; $i <= 12; $i++) {
+                            $fila = $i;
+                            $coordenada = $columna . $fila;
 
-                                $class = isset($casillasSeleccionadasMap[$coordenada]) ? 'seleccionada' : '';
-                                echo "<td class='celdaMovimiento $class' data-coordenada='$coordenada'>$coordenada</td>";
+                            $class = '';
+                            if (isset($colisionesGuardadasMap[$coordenada])) {
+                                $class .= ' seleccionada guardada'; // Casilla guardada y seleccionada
                             }
-                            echo '</tr>';
-                        } 
+
+                            echo "<td class='celdaMovimiento $class' data-coordenada='$coordenada'>$coordenada</td>";
+                        }
+                        echo '</tr>';
+                    } 
                     ?>
+
                 </tbody>
             </table>
 
+
             <label for="casillaInput">Casillas Seleccionadas:</label>
-            <input type="text" name="casilla" id="casillaInput" value="<?php echo htmlspecialchars($datos['casilla'] ?? ''); ?>" readonly><br/><br/>
-                        
+            <input type="text" name="casilla" id="casillaInput" value="<?php echo htmlspecialchars(isset($datos['colisiones']) ? implode('#', $datos['colisiones']) : ''); ?>"  readonly><br/><br/>
+                                   
             <input type="submit" value="Guardar Cambios">
         </form>
     </div>
@@ -65,16 +70,27 @@
     celdas.forEach(celda => {
         celda.addEventListener('click', () => {
             const coordenada = celda.dataset.coordenada;
+
             if (celda.classList.contains('seleccionada')) {
+                // Deseleccionar
                 celda.classList.remove('seleccionada');
                 celdasSeleccionadas.delete(coordenada);
+
+                if (celda.classList.contains('guardada')) {
+                    // Si estaba guardada, eliminar su marca visualmente
+                    celda.classList.remove('guardada');
+                }
             } else {
+                // Seleccionar
                 celda.classList.add('seleccionada');
                 celdasSeleccionadas.add(coordenada);
             }
+
+            // Actualizar el input con las casillas seleccionadas
             inputCasilla.value = Array.from(celdasSeleccionadas).join('#');
         });
     });
+
 </script>
 
 <?php include_once ASSETS_PATH . 'footer.php'; ?>

@@ -46,6 +46,22 @@ class mEscenario {
         }
 
         $this->conexion->close();
+        $this->conexionBBDD();
+
+        $sql = "SELECT casilla FROM Colision WHERE idEscenario = $id;";
+        $colisiones=[];
+        $resultado = $this->conexion->query($sql);
+        if ($resultado->num_rows > 0) {
+            while ($fila = $resultado->fetch_assoc()) {
+                $colisiones[] = $fila['casilla']; // Agrega cada casilla al array
+            }
+        } else {
+            $colisiones = null;
+        }
+
+        $escenario['colisiones'] = $colisiones;
+
+        $this->conexion->close();
         return $escenario;
     }
 
@@ -61,6 +77,15 @@ class mEscenario {
 
     public function guardarColisiones($casillas, $id) {
         $this->conexionBBDD();
+        $sql="DELETE FROM Colision WHERE idEscenario = ?";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+
+        $this->conexion->close();
+        $this->conexionBBDD();
+
         $sql = "INSERT INTO Colision (casilla, idEscenario) VALUES (?, ?)";
         $stmt = $this->conexion->prepare($sql);
 
