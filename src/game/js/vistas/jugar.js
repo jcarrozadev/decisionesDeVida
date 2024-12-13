@@ -23,7 +23,7 @@ function colocarPersonaje(cell, sprite) {
         });
 
         // Colocar al personaje en la celda clicada con el sprite correspondiente
-        cell.innerHTML = `<img src="${sprite}" class="personaje" style="width: 42px;">`;
+        cell.innerHTML = `<img src="${sprite}" class="personaje" style="width: 41px;">`;
 
         fila = row;
         columna = col;
@@ -86,7 +86,7 @@ function mover(movimiento) {
     if(!validarMovimientoColision(movimiento)) {
         console.log("Colisión detectada");
         const celdaActual = document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`);
-        celdaActual.innerHTML = `<img src="${nuevoSprite}" class="personaje" style="width: 42px;">`;
+        celdaActual.innerHTML = `<img src="${nuevoSprite}" class="personaje" style="width: 41px;">`;
         return; //Movimiento no válido
     }
 
