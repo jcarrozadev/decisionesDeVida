@@ -45,12 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Envío del formulario
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita el envío por defecto
+        event.preventDefault();
+        pantallaCarga(); // Muestra la pantalla de carga // Evita el envío por defecto
 
         if (validarFormulario()) {
 
             var formData = new FormData(form); // Recoge todos los datos del formulario
-
             // Enviar los datos al servidor
             fetch('index.php?c=escenario&m=modificarEscenario&id=' + idEscenario, {
                 method: 'POST',
@@ -58,8 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .then(response => response.text())
             .then(data => {
+                desactivarCarga();
                 alert(data); // Muestra la respuesta del servidor
-                location.href = 'index.php?c=escenario&m=mEscenario';
+                location.href = 'index.php?c=escenario&m=gestionEscenario';
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -68,3 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function pantallaCarga(){
+    document.getElementById("cargaFormulario").style.display = "grid";
+}
+
+function desactivarCarga(){
+    document.getElementById("cargaFormulario").style.display = "none";
+}
