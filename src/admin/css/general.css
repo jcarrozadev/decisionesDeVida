@@ -81,6 +81,7 @@ body {
     align-items: center;
 }
 
+.boton-completar,
 .boton-modificar,
 .boton-eliminar {
     padding: 8px 16px;
@@ -89,6 +90,15 @@ body {
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
+}
+
+.boton-completar {
+    background-color: var(--color-verde);
+    color: var(--color-blanco);
+}
+
+.boton-completar:hover {
+    background-color: var(--color-verde-oscuro);
 }
 
 .boton-modificar {

@@ -24,4 +24,5 @@
 
     // ----------------------- Rutas del CONFIG DB
     define('CONFIG_PATH', 'app/config/');
+
 ?>
