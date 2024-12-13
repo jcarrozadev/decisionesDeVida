@@ -55,8 +55,8 @@
             </table>
 
 
-            <label for="casillaInput">Casillas Seleccionadas:</label>
-            <input type="text" name="casilla" id="casillaInput" value="<?php echo htmlspecialchars(isset($datos['colisiones']) ? implode('#', $datos['colisiones']) : ''); ?>"  readonly><br/><br/>
+            <!-- <label for="casillaInput">Casillas Seleccionadas:</label> -->
+            <input type="hidden" name="casilla" id="casillaInput" value="<?php echo htmlspecialchars(isset($datos['colisiones']) ? implode('#', $datos['colisiones']) : ''); ?>"  readonly><br/>
                                    
             <input type="submit" value="Guardar Cambios">
         </form>
