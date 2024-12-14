@@ -156,16 +156,20 @@
                 return false;
             }
 
-            if (strlen($datos['casilla']) != 2) {
-                $this->mensaje = 'La casilla debe tener exactamente dos caracteres';
-                echo $this->mensaje;
-                return false;
-            }
+            if (!empty($datos['casilla'])) {
 
-            if (!preg_match('/^[A-J][1-9]$|^[A-J]1[0-2]$/', $datos['casilla'])) {
-                $this->mensaje = 'La casilla debe ser una letra de la A a la J seguida de un número del 1 al 12';
-                echo $this->mensaje;
-                return false;
+                if (strlen($datos['casilla']) <= 3) {
+                    $this->mensaje = 'La casilla debe tener como máximo tres caracteres';
+                    echo $this->mensaje;
+                    return false;
+                }
+
+                if (!preg_match('/^[A-J][1-9]$|^[A-J]1[0-2]$/', $datos['casilla'])) {
+                    $this->mensaje = 'La casilla debe ser una letra de la A a la J seguida de un número del 1 al 12';
+                    echo $this->mensaje;
+                    return false;
+                }
+
             }
 
             $modeloDialogo = new mDialogo();

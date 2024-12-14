@@ -204,6 +204,47 @@
         }
 
         /**
+         * Modifica las respuestas de un diálogo en la base de datos
+         * @param int $idDialogo
+         * @param array $datos
+         * @return bool
+         */
+        public function modificarRespuestas($idDialogo, $datos) {
+            $this->conexionBBDD();
+
+            // Obtener los IDs de las respuestas actuales del diálogo
+            $sql = "SELECT idRespuesta1, idRespuesta2 FROM Dialogos WHERE idDialogo = $idDialogo";
+            $resultado = $this->conexion->query($sql);
+            $dialogo = $resultado->fetch_assoc();
+
+            if (!$dialogo) {
+                $this->conexion->close();
+                $this->mensaje = "No se encontró el diálogo.";
+                return false;
+            }
+
+            $idRespuesta1 = $dialogo['idRespuesta1'];
+            $idRespuesta2 = $dialogo['idRespuesta2'];
+
+            // Actualizar respuesta 1
+            $sqlRespuesta1 = "UPDATE Respuestas SET mensaje = '" . $this->conexion->real_escape_string($datos['respuesta1']) . "' WHERE idRespuesta = $idRespuesta1";
+            if (!$this->conexion->query($sqlRespuesta1)) {
+                echo "Error en la actualización de respuesta1: " . $this->conexion->error;  // Mostrar el error
+                return false;
+            }
+
+            // Actualizar respuesta 2
+            $sqlRespuesta2 = "UPDATE Respuestas SET mensaje = '" . $this->conexion->real_escape_string($datos['respuesta2']) . "' WHERE idRespuesta = $idRespuesta2";
+            if (!$this->conexion->query($sqlRespuesta2)) {
+                echo "Error en la actualización de respuesta2: " . $this->conexion->error;  // Mostrar el error
+                return false;
+            }
+
+            $this->conexion->close();
+            return true;
+        }
+
+        /**
          * Elimina un diálogo de la base de datos
          * @param int $idDialogo
          * @return bool

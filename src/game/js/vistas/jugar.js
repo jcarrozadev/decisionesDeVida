@@ -8,11 +8,15 @@ const casillasColision = window.colisiones.map(colision => colision.casilla);
 const dialogosArray = Object.keys(dialogos).map(key => dialogos[key]);
 // const dialogos = window.dialogos.map(dialogo => dialogo.casilla);
 
+let conversacion = false;
+
 const casillasDialogos = dialogosArray
     .filter(dialogo => dialogo.casilla !== null)
     .map(dialogo => dialogo.casilla);
 
 colocarDialogos(dialogosArray);
+
+// COLOCAR MENSAJE INICIO
 
 function colocarDialogos(dialogosArray) {
     dialogosArray.forEach(dialogo => {
@@ -83,12 +87,30 @@ document.addEventListener('keydown', function(event) {
     mover(movimiento);
 });
 
-function moverTablet(direccion) {
-    const movimiento = movimientos[direccion];
+document.getElementById('crucetaW').addEventListener('click', function() {
 
-    mover(movimiento);
+    mover(movimientos['w']);
 
-}
+});
+
+document.getElementById('crucetaA').addEventListener('click', function() {
+
+    mover(movimientos['a']);
+
+});
+
+document.getElementById('crucetaS').addEventListener('click', function() {
+
+    mover(movimientos['s']);
+
+});
+
+document.getElementById('crucetaD').addEventListener('click', function() {
+
+    mover(movimientos['d']);
+
+});
+
 
 function validarMovimientoColision(movimiento) {
     const nuevaFila = fila + movimiento.fila;
@@ -124,8 +146,109 @@ function validarCasillaDialogo(fila, columna) {
     });
 }
 
+
+function dialogo(dialogoC) {
+
+    if (dialogoC) {
+
+        /**
+         * 
+         * Acciones de dialogo, podrán llevar a otros diálogos o a otro escenario.
+         * 
+         */
+
+        let TEMPdialogoC;
+        
+        console.log(dialogoC);
+
+        document.getElementById("mensajeDialogo").innerText = dialogoC.mensaje;
+        document.getElementById("respuesta1Dialogo").innerText = dialogoC.respuestas.rp1Mensaje;
+        document.getElementById("respuesta2Dialogo").innerText = dialogoC.respuestas.rp2Mensaje;
+
+        document.getElementById("dialogo").style.display = "block";
+
+        document.getElementById("respuesta1Dialogo").onclick = function() {
+            
+            let boolAccion = false;
+
+            if(dialogoC.respuestas.rp1Dialogo) {
+
+                TEMPdialogoC = dialogosArray.find(dialogo => dialogo.idDialogo == dialogoC.respuestas.rp1Dialogo);
+
+                boolAccion = true;
+
+            }
+            
+            if(dialogoC.respuestas.rp1Escenario != null) {
+
+                location.href =
+                    "index.php?c=jugar&m=juego&iPrs="
+                    + getCookie("personajeElegido")
+                    + "&nUsr=" + getCookie("nombreUsuario")
+                    + "&idEsc=" + dialogoC.respuestas.rp1Escenario;
+
+                boolAccion = true;
+
+            }
+
+            dialogoC = TEMPdialogoC;
+
+            dialogo(dialogoC);
+
+            if(!boolAccion) {
+                document.getElementById("dialogo").style.display = "none";
+                conversacion = false;
+            }
+
+        };
+
+        document.getElementById("respuesta2Dialogo").onclick = function() {
+            
+            let boolAccion = false;
+
+            if(dialogoC.respuestas.rp2Dialogo) {
+
+                console.log(dialogoC.respuestas.rp2Dialogo);
+
+                TEMPdialogoC = dialogosArray.find(dialogo => dialogo.idDialogo == dialogoC.respuestas.rp2Dialogo);
+
+                boolAccion = true;
+
+            }
+            
+            if(dialogoC.respuestas.rp2Escenario != null) {
+
+                location.href =
+                    "index.php?c=jugar&m=juego&iPrs="
+                    + getCookie("personajeElegido")
+                    + "&nUsr=" + getCookie("nombreUsuario")
+                    + "&idEsc=" + dialogoC.respuestas.rp2Escenario;
+
+                boolAccion = true;
+
+            }
+
+            dialogoC = TEMPdialogoC;
+
+            dialogo(dialogoC);
+
+            if(!boolAccion) {
+                document.getElementById("dialogo").style.display = "none";
+                conversacion = false;
+            }
+
+        };
+
+    } else {
+        console.error("Diálogo no encontrado");
+    }
+
+}
+
+
+
 function mover(movimiento) {
-    if (!movimiento) 
+    if (!movimiento || conversacion) 
         return; //Movimiento no válido
     
     const nuevaFila = fila + movimiento.fila;
@@ -148,72 +271,17 @@ function mover(movimiento) {
     if(!validarMovimientoDialogo(movimiento)) {
         console.log("Dialogo detectado");
 
+        conversacion = true;
+
         const celdaActual = document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`);
         celdaActual.innerHTML = `<img src="${nuevoSprite}" class="personaje" style="width: 41px;">`;
 
         const dialogoId = document.querySelector(`td[data-row='${nuevaFila}'][data-col='${nuevaColumna}']`).getAttribute("data-dialogo");
 
-        const dialogo = dialogosArray.find(dialogo => dialogo.idDialogo == dialogoId);
+        let dialogoC = dialogosArray.find(dialogo => dialogo.idDialogo == dialogoId);
 
+        dialogo(dialogoC);
         // console.log(dialogo);
-
-        if (dialogo) {
-            
-            console.log(dialogo);
-
-            document.getElementById("mensajeDialogo").innerText = dialogo.mensaje;
-            document.getElementById("respuesta1Dialogo").innerText = dialogo.respuestas.rp1Mensaje;
-            document.getElementById("respuesta2Dialogo").innerText = dialogo.respuestas.rp2Mensaje;
-
-            document.getElementById("dialogo").style.display = "block";
-
-            document.getElementById("respuesta1Dialogo").onclick = function() {
-                
-                if(dialogo.respuestas.rp1Dialogo) {
-
-                    alert("TIENE ACCION A OTRO DIALOGO");
-
-                }
-                
-                if(dialogo.respuestas.rp1Escenario != null) {
-
-                    location.href =
-                        "index.php?c=jugar&m=juego&iPrs="
-                        + getCookie("personajeElegido")
-                        + "&nUsr=" + getCookie("nombreUsuario")
-                        + "&idEsc=" + dialogo.respuestas.rp1Escenario;
-
-                }
-
-
-                document.getElementById("dialogo").style.display = "none";
-            };
-
-            document.getElementById("respuesta2Dialogo").onclick = function() {
-                
-                if(dialogo.respuestas.rp2Dialogo) {
-
-                    alert("TIENE ACCION A OTRO DIALOGO");
-
-                }
-                
-                if(dialogo.respuestas.rp2Escenario != null) {
-
-                    location.href = "index.php?c=jugar&m=juego&iPrs="
-                    + getCookie("personajeElegido")
-                    + "&nUsr="+ getCookie("nombreUsuario")
-                    + "&idEsc=" + dialogo.respuestas.rp2Escenario;
-
-                }
-
-
-                document.getElementById("dialogo").style.display = "none";
-            };
-
-
-        } else {
-            console.error("Diálogo no encontrado");
-        }
         
         return; //Movimiento no válido
     }

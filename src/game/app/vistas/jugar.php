@@ -52,8 +52,13 @@
                 </table>
                 <div id="dialogo">
                     <p id="mensajeDialogo"></p>
-                    <button id="respuesta1Dialogo"></button>
-                    <button id="respuesta2Dialogo"></button>
+                    <div>
+                        <button id="respuesta1Dialogo" class="respuestasDialogo"></button>
+                        <button id="respuesta2Dialogo" class="respuestasDialogo"></button>
+                    </div>
+                </div>
+                <div id="mensajeInicio">
+                    <p id="mensajeIniP"></p>
                 </div>
             </div>
             <div id="leyenda-controles" class="leyendas">
@@ -84,15 +89,15 @@
             </div>
             <div id="cruceta">
                 <div class="empty"></div>
-                <button onclick="moverTablet('w')">▲</button>
+                <button id="crucetaW">▲</button>
                 <div class="empty"></div>
         
-                <button onclick="moverTablet('a')">◀</button>
+                <button id="crucetaA">◀</button>
                 <div class="empty"></div>
-                <button onclick="moverTablet('d')">▶</button>
+                <button id="crucetaD">▶</button>
         
                 <div class="empty"></div>
-                <button onclick="moverTablet('s')">▼</button>
+                <button id="crucetaS">▼</button>
                 <div class="empty"></div>
             </div>
         </main>

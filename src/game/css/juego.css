@@ -77,11 +77,46 @@ body {
 #dialogo {
     position: absolute;
     bottom: 0;
-    width: 98%;
-    max-height: 12vh;
-    background-color: #ffffffe3;
+    width: 97.5%;
+    max-height: 15vh;
+    min-height: 10vh;
+    background-color: var(--color-gris-claro);
+    border: 2px solid var(--color-azul);
     margin: 1% 1%;
     border-radius: 10px;
+    display: none;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+#dialogo > p {
+    margin: 2.5% 0;
+}
+
+#dialogo > div {
+    display: flex;
+    justify-content: center;
+    gap: 1.5%;
+}
+
+.respuestasDialogo {
+    font-family: 'Press Start 2p';
+    font-size: 0.8em;
+    line-height: 1.5em;
+    width: 40%;
+    border-radius: 4px;
+    color: var(--color-blanco);
+    padding: 5px;
+    border: 1px solid black;
+    margin-bottom: 4px;
+}
+
+#respuesta1Dialogo {
+    background-color: var(--color-verde);
+}
+
+#respuesta2Dialogo {
+    background-color: var(--color-rojo);
 }
 
 #leyenda-usuario, #bodyJuego h1 {

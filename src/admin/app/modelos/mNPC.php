@@ -59,7 +59,7 @@
 
             $this->conexionBBDD();
 
-            $sql = "SELECT idNPC, nombreNPC FROM NPC";
+            $sql = "SELECT * FROM NPC";
 
             $resultado = $this->conexion->query($sql);
 

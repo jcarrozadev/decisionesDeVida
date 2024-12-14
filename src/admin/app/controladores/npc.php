@@ -100,4 +100,25 @@
 
         }
 
+        /**
+         * Cargar NPC en la vista gestionNPC
+         * @return array
+         */
+        public function listarNPC() {
+
+            /*
+                Falta comprobar si se ha conseguido listar algun personaje
+                si no, poner un comentario como que no hay personajes disponibles
+            */
+            require_once CONFIG_PATH . 'config.php';
+            require_once MODEL_PATH . 'mNPC.php';
+
+            $npc = new mNPC();
+            $npcs = $npc->listarNPCs();
+
+            $this->tituloPag = 'Gestión de NPCS';
+            $this->vista = 'gestionNPC';
+            return $npcs;
+        }
+
     }

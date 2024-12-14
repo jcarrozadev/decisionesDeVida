@@ -10,15 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
 
-        if(!datos['casilla']) {
-            alert('El campo casilla es obligatorio.');
-            return false;
-        }
+        if(datos['casilla']) {
 
-        const casillaRegex = /^[A-J][1-9]$|^[A-J]1[0-2]$/;
-        if (!casillaRegex.test(datos['casilla'])) {
-            alert('La casilla debe ser una letra de la A a la J seguida de un número del 1 al 12.');
-            return false;
+            const casillaRegex = /^[A-J][1-9]$|^[A-J]1[0-2]$/;
+            if (!casillaRegex.test(datos['casilla'])) {
+                alert('La casilla debe ser una letra de la A a la J seguida de un número del 1 al 12.');
+                return false;
+            }
+
         }
 
         const selectedOption = form.listaNPC.options[form.listaNPC.selectedIndex];
@@ -66,5 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const mensaje = await dialogo.altaDialogo(form);
 
         alert(mensaje);
+
+        window.location.href = 'index.php?c=dialogo&m=listarDialogos';
     });
 });
