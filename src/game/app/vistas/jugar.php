@@ -123,11 +123,14 @@
             window.columnaInicio = columna;
 
             window.colisiones = <?php echo json_encode($datos['colisiones']); ?>;
+            window.dialogos = <?php echo json_encode($datos['dialogos']); ?>;
+
+            // document.querySelector('td[data-row="1"][data-col="1"]').innerHTML = `<img src="${dialogosArray[0]['npc']['sprite']}" class="personaje" style="width: 42px;">`
         </script>
 
 
         <?php
-            echo '<script src="' . VIEW_JS_PATH . 'jugar.js"></script>';
+            echo '<script type="module" src="' . VIEW_JS_PATH . 'jugar.js"></script>';
         ?>
     </body>
 </html>

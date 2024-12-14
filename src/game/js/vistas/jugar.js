@@ -1,33 +1,54 @@
+import {setCookie, getCookie} from "../vistas/cookies.js";
+
 // COLISIONES
 
 const casillasColision = window.colisiones.map(colision => colision.casilla);
-console.log(casillasColision);
+// console.log(casillasColision);
 
-// Agregar evento de clic a todas las celdas con la clase 'celdaMovimiento'
-/*document.querySelectorAll('.celdaMovimiento').forEach(cell => {
-    cell.addEventListener('click', function() {
-        colocarPersonaje(this);
+const dialogosArray = Object.keys(dialogos).map(key => dialogos[key]);
+// const dialogos = window.dialogos.map(dialogo => dialogo.casilla);
+
+const casillasDialogos = dialogosArray
+    .filter(dialogo => dialogo.casilla !== null)
+    .map(dialogo => dialogo.casilla);
+
+colorcarDialogos(dialogosArray);
+
+function colorcarDialogos(dialogosArray) {
+    dialogosArray.forEach(dialogo => {
+        
+        // Comprobamos que el dialogo tenga una casilla buscando el npc
+        if(dialogo.npc) {
+            
+            const fila = dialogo.casilla.charCodeAt(0) - 64; // Convertir letra a número (A -> 1, B -> 2, ..., J -> 10)
+            const columna = parseInt(dialogo.casilla.slice(1)); // Obtener el número de la columna
+
+            const celda = document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`);
+
+            celda.innerHTML = `<img src="${dialogo.npc.sprite}" class="personaje" style="width: 41px;">`;
+            celda.setAttribute("data-dialogo", dialogo.idDialogo);
+
+        }
     });
-});*/
+}
 
 // Modifica las funciones donde se coloca al personaje para que también usen el sprite dinámico
 function colocarPersonaje(cell, sprite) {
     const row = parseInt(cell.getAttribute('data-row'));
     const col = parseInt(cell.getAttribute('data-col'));
 
-    if (celdaCercana(row, col)) {
-        document.querySelectorAll("td").forEach(td => {
-            if (!td.classList.contains("muerte-celda")) {
-                td.innerHTML = ""; // Eliminar el contenido de la celda
-            }
-        });
+    // Eliminar el contenido de las celdas que no sean dialogos
+    document.querySelectorAll("td").forEach(td => {
+        if (!td.hasAttribute("data-dialogo")) {
+            td.innerHTML = ""; // Eliminar el contenido de la celda
+        }
+    });
 
-        // Colocar al personaje en la celda clicada con el sprite correspondiente
-        cell.innerHTML = `<img src="${sprite}" class="personaje" style="width: 41px;">`;
+    // Colocar al personaje en la celda clicada con el sprite correspondiente
+    cell.innerHTML = `<img src="${sprite}" class="personaje" style="width: 41px;">`;
 
-        fila = row;
-        columna = col;
-    }
+    fila = row;
+    columna = col;
 }
 
 // Función que verifica si la celda clicada es adyacente a la actual
@@ -75,6 +96,23 @@ function verificarCasillaColision(fila, columna) {
     });
 }
 
+function validarMovimientoDialogo(movimiento) {
+    const nuevaFila = fila + movimiento.fila;
+    const nuevaColumna = columna + movimiento.columna;
+
+    // Convertir la fila de número a letra (1 -> A, 2 -> B, ..., 9 -> I)
+    const filaLetra = String.fromCharCode(64 + nuevaFila);
+    // Verificar si la nueva posición está en las casillas de colisión
+    const colision = validarCasillaDialogo(filaLetra, nuevaColumna);
+    return !colision;
+}
+
+function validarCasillaDialogo(fila, columna) {
+    return casillasDialogos.some(casilla => {
+        return casilla == `${fila}${columna}`;
+    });
+}
+
 function mover(movimiento) {
     if (!movimiento) 
         return; //Movimiento no válido
@@ -82,6 +120,11 @@ function mover(movimiento) {
     const nuevaFila = fila + movimiento.fila;
     const nuevaColumna = columna + movimiento.columna;
     const nuevoSprite = movimiento.sprite;
+
+    // Validamos si el movimiento se sale de la tabla
+    if(nuevaFila < 1 || nuevaFila > 9 || nuevaColumna < 1 || nuevaColumna > 12) {
+        return; //Movimiento no válido
+    }
 
     if(!validarMovimientoColision(movimiento)) {
         console.log("Colisión detectada");
@@ -91,6 +134,27 @@ function mover(movimiento) {
     }
 
     // AQUI IRIA LA VALIDACION DE SI HAY UN DIALOGO, SI HAY UN DIALOGO LO QUE DEBERIA DE HACER ES MIRAR AL NPC Y NO MOVERSE, Y QUE SALTE EL MODAL DEL DIALOGO
+
+    if(!validarMovimientoDialogo(movimiento)) {
+        console.log("Dialogo detectado");
+
+        const celdaActual = document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`);
+        celdaActual.innerHTML = `<img src="${nuevoSprite}" class="personaje" style="width: 41px;">`;
+
+        const dialogoId = document.querySelector(`td[data-row='${nuevaFila}'][data-col='${nuevaColumna}']`).getAttribute("data-dialogo");
+
+        const dialogo = dialogosArray.find(dialogo => dialogo.idDialogo == dialogoId);
+
+        // console.log(dialogo);
+
+        if (dialogo) {
+            confirm(dialogo.mensaje);
+        } else {
+            console.error("Diálogo no encontrado");
+        }
+        
+        return; //Movimiento no válido
+    }
 
     if (celdaCercana(nuevaFila, nuevaColumna)) {
 

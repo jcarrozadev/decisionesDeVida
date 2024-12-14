@@ -61,6 +61,14 @@
 
             $mEscenario = new MEscenario();
             $escenario = $mEscenario->cargarEscenario($datos['idEscenario']);
+
+            // CONVERTIMOS EL BINARIO DE LOS SPRITE DE LOS DIALOGOS A IMAGENES;
+            foreach ($escenario['dialogos'] as &$dialogo) {
+                if (!empty($dialogo['npc']['sprite']))
+                    $dialogo['npc']['sprite'] = 'data:image/png;base64,' . base64_encode($dialogo['npc']['sprite']);
+            }
+            unset($dialogo); // Break the reference with the last element
+
         
             // Combinar los datos de entrada con los sprites del personaje
             $datos = array_merge($datos, [
@@ -73,7 +81,8 @@
                 'nombreImagen' => $escenario['nombreImagen'],
                 'mensajeNarrativo' => $escenario['mensajeNarrativo'],
                 'casillaInicio' => $escenario['casillaInicio'],
-                'colisiones' => $escenario['colisiones']
+                'colisiones' => $escenario['colisiones'],
+                'dialogos' => $escenario['dialogos']
             ]);
         
             $this->tituloPag = "Juego | Decisiones de Vida";
