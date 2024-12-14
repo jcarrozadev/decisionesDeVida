@@ -48,6 +48,11 @@
                         ?>
                     </tbody>
                 </table>
+                <div id="dialogo">
+                    <p id="mensajeDialogo"></p>
+                    <button id="respuesta1Dialogo"></button>
+                    <button id="respuesta2Dialogo"></button>
+                </div>
             </div>
             <div id="leyenda-controles" class="leyendas">
                 <div>

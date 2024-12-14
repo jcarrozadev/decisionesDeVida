@@ -12,9 +12,9 @@ const casillasDialogos = dialogosArray
     .filter(dialogo => dialogo.casilla !== null)
     .map(dialogo => dialogo.casilla);
 
-colorcarDialogos(dialogosArray);
+colocarDialogos(dialogosArray);
 
-function colorcarDialogos(dialogosArray) {
+function colocarDialogos(dialogosArray) {
     dialogosArray.forEach(dialogo => {
         
         // Comprobamos que el dialogo tenga una casilla buscando el npc
@@ -133,7 +133,6 @@ function mover(movimiento) {
         return; //Movimiento no válido
     }
 
-    // AQUI IRIA LA VALIDACION DE SI HAY UN DIALOGO, SI HAY UN DIALOGO LO QUE DEBERIA DE HACER ES MIRAR AL NPC Y NO MOVERSE, Y QUE SALTE EL MODAL DEL DIALOGO
 
     if(!validarMovimientoDialogo(movimiento)) {
         console.log("Dialogo detectado");
@@ -148,7 +147,59 @@ function mover(movimiento) {
         // console.log(dialogo);
 
         if (dialogo) {
-            confirm(dialogo.mensaje);
+            
+            console.log(dialogo);
+
+            document.getElementById("mensajeDialogo").innerText = dialogo.mensaje;
+            document.getElementById("respuesta1Dialogo").innerText = dialogo.respuestas.rp1Mensaje;
+            document.getElementById("respuesta2Dialogo").innerText = dialogo.respuestas.rp2Mensaje;
+
+            document.getElementById("dialogo").style.display = "block";
+
+            document.getElementById("respuesta1Dialogo").onclick = function() {
+                
+                if(dialogo.respuestas.rp1Dialogo) {
+
+                    alert("TIENE ACCION A OTRO DIALOGO");
+
+                }
+                
+                if(dialogo.respuestas.rp1Escenario != null) {
+
+                    location.href =
+                        "index.php?c=jugar&m=juego&iPrs="
+                        + getCookie("personajeElegido")
+                        + "&nUsr=" + getCookie("nombreUsuario")
+                        + "&idEsc=" + dialogo.respuestas.rp1Escenario;
+
+                }
+
+
+                document.getElementById("dialogo").style.display = "none";
+            };
+
+            document.getElementById("respuesta2Dialogo").onclick = function() {
+                
+                if(dialogo.respuestas.rp2Dialogo) {
+
+                    alert("TIENE ACCION A OTRO DIALOGO");
+
+                }
+                
+                if(dialogo.respuestas.rp2Escenario != null) {
+
+                    location.href = "index.php?c=jugar&m=juego&iPrs="
+                    + getCookie("personajeElegido")
+                    + "&nUsr="+ getCookie("nombreUsuario")
+                    + "&idEsc=" + dialogo.respuestas.rp2Escenario;
+
+                }
+
+
+                document.getElementById("dialogo").style.display = "none";
+            };
+
+
         } else {
             console.error("Diálogo no encontrado");
         }

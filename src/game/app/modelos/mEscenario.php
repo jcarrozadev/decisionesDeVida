@@ -70,7 +70,7 @@
                 $sql =
                 "SELECT rp1.idRespuesta as rp1idRespuesta,
                         rp1.mensaje as rp1Mensaje,
-                        rp1.idDialogo as rps1Dialgo,
+                        rp1.idDialogo as rp1Dialogo,
                         rp1.idEscenario as rp1Escenario,
                         rp2.idRespuesta as rp2idRespuesta,
                         rp2.mensaje as rp2Mensaje,

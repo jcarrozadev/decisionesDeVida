@@ -71,6 +71,17 @@ body {
 
 #escenarioJuego {
     margin-top: -10vh; /* Subir el div del juego un poco para arriba */
+    position: relative;
+}
+
+#dialogo {
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    max-height: 12vh;
+    background-color: #ffffffe3;
+    margin: 1% 1%;
+    border-radius: 10px;
 }
 
 #leyenda-usuario, #bodyJuego h1 {
