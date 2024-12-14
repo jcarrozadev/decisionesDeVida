@@ -23,7 +23,18 @@ function colocarDialogos(dialogosArray) {
             const fila = dialogo.casilla.charCodeAt(0) - 64; // Convertir letra a número (A -> 1, B -> 2, ..., J -> 10)
             const columna = parseInt(dialogo.casilla.slice(1)); // Obtener el número de la columna
 
+            if (fila != 1) { //Celda de arriba parpadeante con la flecha
+                const celdaSeleccionada = document.querySelector(`td[data-row='${fila - 1}'][data-col='${columna}']`);
+
+                celdaSeleccionada.innerHTML = `<i class="fas fa-arrow-down"></i>`;
+                celdaSeleccionada.classList.add("parpadea");
+                celdaSeleccionada.setAttribute("data-dialogo", dialogo.idDialogo);
+
+                casillasColision.push(`${String.fromCharCode(64 + fila - 1)}${columna}`); //Agrega colisión
+            }
+
             const celda = document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`);
+            celda.classList.add("celdaSeleccionada");
 
             celda.innerHTML = `<img src="${dialogo.npc.sprite}" class="personaje" style="width: 41px;">`;
             celda.setAttribute("data-dialogo", dialogo.idDialogo);
