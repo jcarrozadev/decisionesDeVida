@@ -13,7 +13,7 @@ document.getElementById('formModDialogo').addEventListener('submit', function(ev
         .then(data => {
             console.log(data); // Muestra la respuesta del servidor en la consola
             alert(data);  // Mostrar mensaje devuelto por el servidor
-            window.location.reload(); // Recargar la página
+            window.location.href = 'index.php?c=dialogo&m=listarDialogos'; //Redirige a la vista de diálogos
         })
         .catch(error => {
             console.error('Error:', error); //Control de errores

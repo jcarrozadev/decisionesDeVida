@@ -12,10 +12,10 @@
 
         <form class="formAltaDialogo" id="formModDialogo">
 
-            <input type="text" name="idDialogo" value="<?php echo $datos['idDialogo']?>" hidden>
+            <input type="text" name="idDialogo" value="<?php echo $datos['dgIdDialogo']?>" hidden>
 
             <label for="nombreDialogo" class="formAltaDialogo-label">Nombre del Diálogo:</label>
-            <input type="text" id="nombre" value="<?php echo $datos['nombreDiálogo']; ?>" name="nombreDialogo">
+            <input type="text" id="nombre" value="<?php echo $datos['dgNombreDialogo']; ?>" name="nombreDialogo">
 
             <label for="colisiones" class="formAltaDialogo-label">Colisiones:</label>
             <table class="mapa">
@@ -35,16 +35,18 @@
                     </script>
                 </tbody>
             </table>
-            <input type="text" id="casilla" name="casilla" value="<?php echo $datos['casilla']; ?>">
+            <input type="text" id="casilla" name="casilla" value="<?php echo $datos['dgCasilla']; ?>">
 
             <label for="mensaje" class="formAltaDialogo-label">Mensaje:</label>
-            <input type="text" id="mensaje" value="<?php echo $datos['mensaje']; ?>" name="mensaje">
+            <input type="text" id="mensaje" value="<?php echo $datos['dgMensaje']; ?>" name="mensaje">
 
             <label for="respuesta1" class="formAltaDialogo-label">Respuesta 1:</label>
-            <input type="text" id="respuesta1" value="" name="respuesta1">
+            <input type="text" id="respuesta1" value="<?php echo $datos['rp1Mensaje']; ?>" name="respuesta1">
+            <input type="text" name="idResp1" value="<?php echo $datos['rp1idRespuesta'] ?>" hidden>
 
             <label for="respuesta2" class="formAltaDialogo-label">Respuesta 2:</label>
-            <input type="text" id="respuesta2" value="" name="respuesta2"><br/>
+            <input type="text" id="respuesta2" value="<?php echo $datos['rp2Mensaje'] ?>" name="respuesta2"><br/>
+            <input type="text" name="idResp2" value="<?php echo $datos['rp2idRespuesta'] ?>" hidden>
             
             <input type="submit" class="btn-submit" value="Modificar Diálogo"></input>
         </form>

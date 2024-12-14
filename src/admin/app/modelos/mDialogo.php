@@ -168,12 +168,30 @@
         public function obtenerDatosDialogo($idDialogo) {
             $this->conexionBBDD();
 
-            $sql = "SELECT * FROM Dialogos WHERE idDialogo = $idDialogo";
+            $sql = "
+                SELECT
+                    dg.idDialogo as dgIdDialogo,
+                    dg.nombreDiálogo as dgNombreDialogo,
+                    dg.casilla as dgCasilla,
+                    dg.mensaje as dgMensaje,
+                    rp1.idRespuesta as rp1idRespuesta,
+                    rp1.mensaje as rp1Mensaje,
+                    rp1.idDialogo as rp1Dialogo,
+                    rp1.idEscenario as rp1Escenario,
+                    rp2.idRespuesta as rp2idRespuesta,
+                    rp2.mensaje as rp2Mensaje,
+                    rp2.idDialogo as rp2Dialogo,
+                    rp2.idEscenario as rp2Escenario
+                    FROM Dialogos AS dg
+                    INNER JOIN Respuestas AS rp1 ON idRespuesta1 = rp1.idRespuesta
+                    INNER JOIN Respuestas AS rp2 ON idRespuesta2 = rp2.idRespuesta
+                    WHERE dg.idDialogo = " . $idDialogo . ";";
             $resultado = $this->conexion->query($sql);
-            $dialogo = $resultado->fetch_assoc();
+
+            $datos = $resultado->fetch_assoc();
             $this->conexion->close();
 
-            return $dialogo;
+            return $datos;
         }
 
         /**
@@ -193,6 +211,7 @@
 
             try {
                 $this->conexion->query($sql);
+                $this->modificarRespuestas($idDialogo, $datos);
             } catch (mysqli_sql_exception $e) {
                 $this->conexion->close();
                 $this->mensaje = "Error al modificar el diálogo: " . $e->getMessage();
@@ -212,35 +231,21 @@
         public function modificarRespuestas($idDialogo, $datos) {
             $this->conexionBBDD();
 
-            // Obtener los IDs de las respuestas actuales del diálogo
-            $sql = "SELECT idRespuesta1, idRespuesta2 FROM Dialogos WHERE idDialogo = $idDialogo";
-            $resultado = $this->conexion->query($sql);
-            $dialogo = $resultado->fetch_assoc();
+            $idRespuesta1 = $datos['idResp1'];
+            $idRespuesta2 = $datos['idResp2'];
 
-            if (!$dialogo) {
-                $this->conexion->close();
-                $this->mensaje = "No se encontró el diálogo.";
-                return false;
-            }
-
-            $idRespuesta1 = $dialogo['idRespuesta1'];
-            $idRespuesta2 = $dialogo['idRespuesta2'];
-
-            // Actualizar respuesta 1
             $sqlRespuesta1 = "UPDATE Respuestas SET mensaje = '" . $this->conexion->real_escape_string($datos['respuesta1']) . "' WHERE idRespuesta = $idRespuesta1";
             if (!$this->conexion->query($sqlRespuesta1)) {
                 echo "Error en la actualización de respuesta1: " . $this->conexion->error;  // Mostrar el error
                 return false;
             }
 
-            // Actualizar respuesta 2
             $sqlRespuesta2 = "UPDATE Respuestas SET mensaje = '" . $this->conexion->real_escape_string($datos['respuesta2']) . "' WHERE idRespuesta = $idRespuesta2";
             if (!$this->conexion->query($sqlRespuesta2)) {
                 echo "Error en la actualización de respuesta2: " . $this->conexion->error;  // Mostrar el error
                 return false;
             }
-
-            $this->conexion->close();
+            
             return true;
         }
 

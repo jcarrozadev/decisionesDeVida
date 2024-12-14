@@ -54,11 +54,11 @@
             require_once MODEL_PATH . 'mDialogo.php';
 
             $dialogo = new mDialogo();
-            $dialogo = $dialogo->obtenerDatosDialogo($id);
+            $datos = $dialogo->obtenerDatosDialogo($id);
 
             $this->tituloPag = 'Modificar dialogo';
             $this->vista = 'modificarDialogo';
-            return $dialogo;
+            return $datos;
 
         }
 
