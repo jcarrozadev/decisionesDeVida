@@ -26,7 +26,9 @@
 
     // ----------------------- Tamaño máximo de dinero y tiempo
     define('DINERO_MAX', 100000);
-    define('TIEMPO_MAX', 100000);
+    define('TIEMPO_MAX', 24);
+    define('DINERO_INICIAL', 100);
+    define('TIEMPO_INICIAL', 24);
     
     // ----------------------- Rutas del CONFIG DB
     define('CONFIG_PATH', 'app/config/');

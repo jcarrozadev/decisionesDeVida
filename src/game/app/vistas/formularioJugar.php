@@ -86,6 +86,7 @@
     .card input[type="radio"]:checked + img {
         border: 4px solid var(--color-verde);
         border-radius: 50%;
+        background-color: var(--color-amarillo);
     }
 
     .card input[type="radio"]:checked ~ div {
@@ -150,6 +151,10 @@
             <input type="submit" value="Jugar">
         </form>
     </div>
+    <script>
+        window.dineroConfig = <?php echo DINERO_INICIAL; ?>;
+        window.tiempoConfig = <?php echo TIEMPO_INICIAL; ?>;
+    </script>
     <?php
         echo '<script type="module" src="' . VIEW_JS_PATH . 'formularioJugar.js"></script>';
     ?>
