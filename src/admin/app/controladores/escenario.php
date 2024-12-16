@@ -62,7 +62,7 @@
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
 
-            $escenario = new gestionEscenario();
+            $escenario = new mEscenario();
             $escenarios = $escenario->listarEscenarios();
 
             
