@@ -8,14 +8,36 @@ const casillasColision = window.colisiones.map(colision => colision.casilla);
 const dialogosArray = Object.keys(dialogos).map(key => dialogos[key]);
 // const dialogos = window.dialogos.map(dialogo => dialogo.casilla);
 
-let conversacion = false;
+let conversacion = true;
 
 const collisionSound = new Audio('sounds/collisionPokmn.mp3');
 const interactionSound = new Audio('sounds/interaccion.mp3');
 const clickMensaje = new Audio('sounds/clickMensaje.mp3');
 
-// const lofiSound = new Audio('sounds/lofiFondo.mp3');
-// lofiSound.play();
+const lofiSound = new Audio('sounds/lofiFondo.mp3');
+
+const tiempo = getCookie("tiempoTotal");
+const dinero = getCookie("dineroTotal");
+
+window.addEventListener("click", function () {
+    lofiSound.loop = true;
+    lofiSound.play();
+}, { once: true });
+
+// ACEPTAR MENSAJE INICIO
+
+document.getElementById("botonMensajeInicio").onclick = function() {
+    document.getElementById("mensajeInicio").style.display = "none";
+    conversacion = false;
+    console.log("Mensaje inicio aceptado y asignado en "+conversacion);
+}
+
+// HORAS TIEMPO
+
+document.getElementById("tiempo").innerText = tiempo;
+document.getElementById("dinero").innerText = dinero;
+
+// COLOCAR DIALOGOS
 
 const casillasDialogos = dialogosArray
     .filter(dialogo => dialogo.casilla !== null)
@@ -171,6 +193,9 @@ function dialogo(dialogoC) {
         document.getElementById("mensajeDialogo").innerText = dialogoC.mensaje;
         document.getElementById("respuesta1Dialogo").innerText = dialogoC.respuestas.rp1Mensaje;
         document.getElementById("respuesta2Dialogo").innerText = dialogoC.respuestas.rp2Mensaje;
+        
+        let dinero = document.getElementById("dinero");
+        let tiempo = document.getElementById("tiempo");
 
         document.getElementById("dialogo").style.display = "block";
 

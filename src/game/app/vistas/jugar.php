@@ -27,11 +27,11 @@
                 </div>
                 <div>
                     <strong>Tiempo</strong>
-                    <p id="tiempo"><?php echo '0'; ?>h</p>
+                    <p id="tiempo"></p> <!-- SE RELLENA CON JS -->
                 </div>
                 <div>
                     <strong>Dinero</strong>
-                    <p id="dinero"><?php echo '0'; ?>€</p>
+                    <p id="dinero"></p> <!-- SE RELLENA CON JS -->
                 </div>                
             </div>
             <div id="escenarioJuego">
@@ -58,7 +58,8 @@
                     </div>
                 </div>
                 <div id="mensajeInicio">
-                    <p id="mensajeIniP"></p>
+                    <p id="mensajeIniP"><?php echo $datos['mensajeNarrativo']?></p>
+                    <button id="botonMensajeInicio">Aceptar</button>
                 </div>
             </div>
             <div id="leyenda-controles" class="leyendas">

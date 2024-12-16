@@ -78,7 +78,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 97.5%;
-    max-height: 15vh;
+    /* max-height: 15vh; */
     min-height: 10vh;
     background-color: var(--color-gris-claro);
     border: 2px solid var(--color-azul);
@@ -119,8 +119,44 @@ body {
     background-color: var(--color-rojo);
 }
 
+
+#mensajeInicio {
+
+    position: absolute;
+    bottom: 0;
+    width: 97.5%;
+    /* max-height: 15vh; */
+    min-height: 10vh;
+    background-color: var(--color-gris-claro);
+    border: 2px solid var(--color-azul);
+    margin: 1% 1%;
+    border-radius: 10px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+#botonMensajeInicio {
+    font-family: 'Press Start 2p';
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
 #leyenda-usuario, #bodyJuego h1 {
     color: #1D4E89;
+}
+
+#tiempo::after {
+    content: "h/dia";
+}
+
+#dinero::after {
+    content: "€";
 }
 
 #objetivos input[type="checkbox"] {
@@ -175,7 +211,7 @@ body {
 .tablaEscenario > tbody > tr > td {
     width: 47px;
     height: 47px;
-    border: 1px solid #000;
+    border: 1px solid #00000020;
 }
 
 /* CRUCETA DE MOVIMIENTO EN TABLET */
