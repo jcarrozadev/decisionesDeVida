@@ -158,7 +158,7 @@
 
             if (!empty($datos['casilla'])) {
 
-                if (strlen($datos['casilla']) <= 3) {
+                if (strlen($datos['casilla']) >= 3) {
                     $this->mensaje = 'La casilla debe tener como máximo tres caracteres';
                     echo $this->mensaje;
                     return false;
