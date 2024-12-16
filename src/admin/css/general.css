@@ -594,6 +594,46 @@ body {
     background-color: rgba(226, 63, 63, 0.5);
 }
 
+/*Rueda de carga al enviar el form de modificar escenario*/
+#cargaFormulario{ 
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* display: grid; */
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed; /* PARA DEJARLO FIJO Y QUE OCUPE TODA LA PANTALLA */
+    top: 0;
+    left: 0;
+}
+
+  .cargando{ 
+    position: relative; 
+    color: #FFF;
+    margin-top: 2em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase
+  }
+  
+  .rueda {
+    border: 10px solid rgba(255, 255, 255, .3);
+    border-radius: 50%;
+    border-left-color: transparent;
+    width: 80px;
+    height: 80px;
+    animation: giro 1s linear infinite;
+  }
+  
+  @keyframes giro {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
 /* PREGUNTAR A ISA COMO HAGO PARA NO DEFORMAR LA TABLA CUANDO SE ACCEDE DESDE DIFERENTES DISPOSITIVOS */
 #formModEscenario > table > tbody > tr > td {
     width: 55px;

@@ -43,7 +43,7 @@
             <div class="tarjeta">
                 <div class="imagen-tarjeta"><i class="fa-solid fa-location-dot" style="font-size: 3.2rem;"></i></div>
                 <p>Gestión de Escenarios</p>
-                <a href="index.php?c=escenario&m=mEscenario">Acceder</a>
+                <a href="index.php?c=escenario&m=gestionEscenario">Acceder</a>
             </div>
             <div class="tarjeta">
                 <div class="imagen-tarjeta"></div>

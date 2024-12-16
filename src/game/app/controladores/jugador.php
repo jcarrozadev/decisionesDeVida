@@ -56,7 +56,8 @@
             require_once 'app/config/config.php';
             require_once MODEL_PATH . 'mJugador.php';
 
-            $datos = $_POST;
+            $datos = $_COOKIE;
+            //print_r($datos);
 
             if(!$this->validarDatosAlta($datos)) {
                 $this->vista = 'vMensaje';
@@ -72,7 +73,7 @@
                 return false;
             }
 
-            $this->vista = 'vMensaje';
+            $this->vista = 'ranking';
             $this->mensaje = 'Jugador dado de alta correctamente';
             return true;
         }
@@ -84,32 +85,43 @@
          */
         public function validarDatosAlta($datos) {
 
-            // Comprobamos que los datos vengan rellenos
-            if(empty($datos['nombre']) || empty($datos['dinero']) || empty($datos['tiempo']) || empty($datos['idPersonaje'])) {
-                $this->mensaje = 'Faltan datos';
+            // Comprobamos que las cookies necesarias estén configuradas
+            if (!isset($_COOKIE['nombreUsuario'], $_COOKIE['dineroTotal'], $_COOKIE['tiempoTotal'], $_COOKIE['personajeElegido'])) {
+                $this->mensaje = 'Las cookies necesarias no están configuradas.';
                 return false;
             }
 
-            if(strlen($datos['nombre']) > 50) {
+            if(!isset($datos['nombreUsuario'], $datos['dineroTotal'], $datos['tiempoTotal'], $datos['personajeElegido'])) {
+                $this->mensaje = 'Los datos no existen';
+                return false;
+            }
+/* Esta validación no funciona con las cookies, HAY QUE REVISARLO Y CAMBIARLO
+            // Comprobamos que los datos vengan rellenos
+            if(empty($datos['nombreUsuario']) || empty($datos['dineroTotal']) || empty($datos['tiempoTotal']) || empty($datos['personajeElegido'])) {
+                $this->mensaje = 'Los datos no pueden estar vacíos';
+                return false;
+            }
+*/
+            if(strlen($datos['nombreUsuario']) > 50) {
                 $this->mensaje = 'El nombre no puede tener más de 50 caracteres';
                 return false;
             }
 
-            if(preg_match(CARACTERES_NO_PERMITIDOS, $datos['nombre'])) {
+            if(preg_match(CARACTERES_NO_PERMITIDOS, $datos['nombreUsuario'])) {
                 $this->mensaje = 'El nombre no puede contener caracteres especiales';
                 return false;
             }
 
-            if(!is_numeric($datos['dinero']) || !is_numeric($datos['tiempo'])) {
+            if(!is_numeric($datos['dineroTotal']) || !is_numeric($datos['tiempoTotal'])) {
                 $this->mensaje = 'El dinero y el tiempo deben ser numéricos';
                 return false;
             }
-
-            if($datos['dinero'] > DINERO_MAX || $datos['tiempo'] > TIEMPO_MAX) {
+/*
+            if($datos['dineroTotal'] >= DINERO_MAX || $datos['tiempoTotal'] >= TIEMPO_MAX) {
                 $this->mensaje = 'El dinero y/o el tiempo no pueden ser mayores de ' . DINERO_MAX . '€ y ' . TIEMPO_MAX . 'h respectivamente';
                 return false;
             }
-
+*/
             return true;
 
         }
