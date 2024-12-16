@@ -56,7 +56,8 @@
             require_once 'app/config/config.php';
             require_once MODEL_PATH . 'mJugador.php';
 
-            $datos = $_POST;
+            $datos = $_COOKIE;
+            print_r($datos);
 
             if(!$this->validarDatosAlta($datos)) {
                 $this->vista = 'vMensaje';
