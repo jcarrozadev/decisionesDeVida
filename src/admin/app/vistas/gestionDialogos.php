@@ -23,6 +23,7 @@
 
                     echo "<p>" . $dialogo['nombreDiálogo'] . " [" . $dialogo['idDialogo'] . "]</p>";
                     echo "<div class='acciones'>";
+                        echo "<a class='boton-completar' href='mostrarAccionResp.php?id=" . $dialogo['idDialogo'] . "'>Acción de Respuestas</a>";
                         echo "<a class='boton-modificar' href='index.php?c=dialogo&m=modificarDialogo&id=" . $dialogo['idDialogo'] . "'>Modificar</a>";
                         // Cambiar el enlace de "Eliminar" para que use la función de JavaScript
                         echo "<a class='boton-eliminar' onclick='eliminarDialogo(" . $dialogo['idDialogo'] . ")'>Eliminar</a>";
