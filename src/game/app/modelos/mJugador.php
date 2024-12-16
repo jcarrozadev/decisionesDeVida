@@ -34,10 +34,10 @@
 
             // concatenamos el $sql con los datos del jugador y su partida
             $sql = "INSERT INTO Jugador (nombre, dineroTotal, tiempoTotal, idPersonaje) VALUES ('"
-            . $this->conexion->real_escape_string($datos['nombre']) . "', "
-            . $this->conexion->real_escape_string($datos['dinero']) .", "
-            . $this->conexion->real_escape_string($datos['tiempo']) .", "
-            . $this->conexion->real_escape_string($datos['idPersonaje']) . ")";
+            . $this->conexion->real_escape_string($datos['nombreUsuario']) . "', "
+            . $this->conexion->real_escape_string($datos['dineroTotal']) .", "
+            . $this->conexion->real_escape_string($datos['tiempoTotal']) .", "
+            . $this->conexion->real_escape_string($datos['personajeElegido']) . ")";
 
             try {
                 $this->conexion->query($sql);
