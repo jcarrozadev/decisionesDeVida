@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.text())
             .then(data => {
                 desactivarCarga();
-                //alert(data); // Muestra la respuesta del servidor
+                alert(data); // Muestra la respuesta del servidor
                 location.href = 'index.php?c=escenario&m=gestionEscenario';
             })
             .catch(error => {
