@@ -136,6 +136,7 @@ body {
 }
 
 #botonMensajeInicio {
+    font-family: 'Press Start 2p';
     background-color: var(--color-azul);
     color: var(--color-blanco);
     border: none;
