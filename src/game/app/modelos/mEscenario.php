@@ -87,30 +87,6 @@
                 $escenario['dialogos'][$i]['respuestas'] = $respuestas;
             }
 
-            // foreach ($escenario['dialogos'] as $dialogo) {
-                
-            //     $sql =
-            //     "SELECT rp1.idRespuesta as rp1idRespuesta,
-            //             rp1.mensaje as rp1Mensaje,
-            //             rp1.idDialogo as rps1Dialgo,
-            //             rp1.idEscenario as rp1Escenario,
-            //             rp2.idRespuesta as rp2idRespuesta,
-            //             rp2.mensaje as rp1Mensaje,
-            //             rp2.idDialogo as rp2Dialogo,
-            //             rp2.idEscenario as rp2Escenario
-            //         FROM Dialogos AS dg
-            //         INNER JOIN Respuestas AS rp1 ON idRespuesta1 = rp1.idRespuesta
-            //         INNER JOIN Respuestas AS rp2 ON idRespuesta2 = rp2.idRespuesta
-            //         WHERE dg.idDialogo = " . $dialogo['idDialogo'] . ";";
-
-            //         // echo $sql;
-
-            //     $result = $this->conexion->query($sql);
-            //     $respuestas = $result->fetch_all(MYSQLI_ASSOC);
-
-            //     $dialogo['respuestas'] = $respuestas;
-            // }
-
             $this->conexion->close();
             return $escenario;
         }
