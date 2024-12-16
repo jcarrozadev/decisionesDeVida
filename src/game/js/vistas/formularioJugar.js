@@ -11,6 +11,8 @@ document.getElementById("formularioJugar").addEventListener("submit", function(e
 
         setCookie("nombreUsuario", nombreUsuario, 1);
         setCookie("personajeElegido", personajeElegido, 1);
+        setCookie("tiempoTotal", 0, 1);
+        setCookie("dineroTotal", 0, 1);
 
         location.href = "index.php?c=jugar&m=juego&iPrs=" + getCookie("personajeElegido") + "&nUsr=" + getCookie("nombreUsuario");
     } else {

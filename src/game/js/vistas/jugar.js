@@ -10,6 +10,13 @@ const dialogosArray = Object.keys(dialogos).map(key => dialogos[key]);
 
 let conversacion = false;
 
+const collisionSound = new Audio('sounds/collisionPokmn.mp3');
+const interactionSound = new Audio('sounds/interaccion.mp3');
+const clickMensaje = new Audio('sounds/clickMensaje.mp3');
+
+// const lofiSound = new Audio('sounds/lofiFondo.mp3');
+// lofiSound.play();
+
 const casillasDialogos = dialogosArray
     .filter(dialogo => dialogo.casilla !== null)
     .map(dialogo => dialogo.casilla);
@@ -168,6 +175,9 @@ function dialogo(dialogoC) {
         document.getElementById("dialogo").style.display = "block";
 
         document.getElementById("respuesta1Dialogo").onclick = function() {
+
+            // Reproducir sonido de interaccion
+            clickMensaje.play();
             
             let boolAccion = false;
 
@@ -204,6 +214,9 @@ function dialogo(dialogoC) {
 
         document.getElementById("respuesta2Dialogo").onclick = function() {
             
+            // Reproducir sonido de interaccion
+            clickMensaje.play();
+
             let boolAccion = false;
 
             if(dialogoC.respuestas.rp2Dialogo) {
@@ -262,6 +275,8 @@ function mover(movimiento) {
 
     if(!validarMovimientoColision(movimiento)) {
         console.log("Colisión detectada");
+        // REPRODUCIMOS EL SONIDO DE LA COLISION
+        collisionSound.play();
         const celdaActual = document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`);
         celdaActual.innerHTML = `<img src="${nuevoSprite}" class="personaje" style="width: 41px;">`;
         return; //Movimiento no válido
@@ -271,6 +286,10 @@ function mover(movimiento) {
     if(!validarMovimientoDialogo(movimiento)) {
         console.log("Dialogo detectado");
 
+        // REPRODUCIMOS EL SONIDO DE LA INTERACCION
+        interactionSound.play();
+
+        // INDICAMOS QUE ESTA EN UN DIALOGO PARA BLOQUEAR EL MOVIMIENTO
         conversacion = true;
 
         const celdaActual = document.querySelector(`td[data-row='${fila}'][data-col='${columna}']`);
