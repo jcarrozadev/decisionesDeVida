@@ -14,11 +14,13 @@ const collisionSound = new Audio('sounds/collisionPokmn.mp3');
 const interactionSound = new Audio('sounds/interaccion.mp3');
 const clickMensaje = new Audio('sounds/clickMensaje.mp3');
 
-// const lofiSound = new Audio('sounds/lofiFondo.mp3');
-// lofiSound.autoplay = true;
-// lofiSound.loop = true;
+const lofiSound = new Audio('sounds/lofiFondo.mp3');
 
-// lofiSound.play();
+
+window.addEventListener("click", function () {
+    lofiSound.loop = true;
+    lofiSound.play();
+}, { once: true });
 
 // HORAS TIEMPO
 
