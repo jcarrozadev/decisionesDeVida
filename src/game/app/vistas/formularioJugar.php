@@ -150,6 +150,10 @@
             <input type="submit" value="Jugar">
         </form>
     </div>
+    <script>
+        window.dineroConfig = <?php echo DINERO_INICIAL; ?>;
+        window.tiempoConfig = <?php echo TIEMPO_INICIAL; ?>;
+    </script>
     <?php
         echo '<script type="module" src="' . VIEW_JS_PATH . 'formularioJugar.js"></script>';
     ?>

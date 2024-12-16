@@ -15,7 +15,24 @@ const interactionSound = new Audio('sounds/interaccion.mp3');
 const clickMensaje = new Audio('sounds/clickMensaje.mp3');
 
 // const lofiSound = new Audio('sounds/lofiFondo.mp3');
+// lofiSound.autoplay = true;
+// lofiSound.loop = true;
+
 // lofiSound.play();
+
+// HORAS TIEMPO
+
+function asignarHorasTiempoInicial() {
+
+    const tiempo = getCookie("tiempoTotal");
+    const dinero = getCookie("dineroTotal");
+
+    document.getElementById("tiempo").innerText = tiempo;
+    document.getElementById("dinero").innerText = dinero;
+
+}
+
+asignarHorasTiempoInicial();
 
 const casillasDialogos = dialogosArray
     .filter(dialogo => dialogo.casilla !== null)
@@ -171,6 +188,9 @@ function dialogo(dialogoC) {
         document.getElementById("mensajeDialogo").innerText = dialogoC.mensaje;
         document.getElementById("respuesta1Dialogo").innerText = dialogoC.respuestas.rp1Mensaje;
         document.getElementById("respuesta2Dialogo").innerText = dialogoC.respuestas.rp2Mensaje;
+        
+        let dinero = document.getElementById("dinero");
+        let tiempo = document.getElementById("tiempo");
 
         document.getElementById("dialogo").style.display = "block";
 
