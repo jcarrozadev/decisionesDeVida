@@ -82,7 +82,6 @@
          * Metodo que se encarga de modificar un escenario
          */
         public function modificarEscenario() {
-
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
         
@@ -95,52 +94,55 @@
             $id = intval($_GET['id']);
             $modelo = new mEscenario();
         
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombreEscenario'], $_POST['mensajeNarrativo'], $_POST['casilla'], $_POST['casillaInicio'])) {
-                // Validar y obtener los valores del formulario
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Validar campos obligatorios
                 $nombreEscenario = htmlspecialchars(trim($_POST['nombreEscenario'] ?? ''));
                 $mensajeNarrativo = htmlspecialchars(trim($_POST['mensajeNarrativo'] ?? ''));
-                $casillaInicio = htmlspecialchars(trim($_POST['casillaInicio'] ?? '')); // Casilla de inicio
-                $casillas = isset($_POST['casilla']) ? explode('#', $_POST['casilla']) : []; // Casillas seleccionadas
-            
-                // Validar que los campos obligatorios no estén vacíos
-                if (empty($nombreEscenario)) {
-                    $this->mensaje = 'El nombre del escenario no puede estar vacío.';
-                    echo $this->mensaje;
+                $casillaInicio = htmlspecialchars(trim($_POST['casillaInicio'] ?? ''));
+                $casillas = isset($_POST['casilla']) ? explode('#', $_POST['casilla']) : [];
+        
+                if (empty($nombreEscenario) || empty($mensajeNarrativo) || empty($casillaInicio)) {
+                    echo 'Todos los campos son obligatorios.';
                     return false;
                 }
-            
-                if (empty($mensajeNarrativo)) {
-                    $this->mensaje = 'El mensaje narrativo no puede estar vacío.';
-                    echo $this->mensaje;
-                    return false;
+        
+                // Procesar imagen
+                if (isset($_FILES['imgEscenario']) && $_FILES['imgEscenario']['error'] === UPLOAD_ERR_OK) {
+                    // Nombre del archivo subido
+                    $nombreArchivo = basename($_FILES['imgEscenario']['name']);
+                    
+                    // Ruta completa para guardar la imagen en el directorio deseado
+                    $rutaDestino = ESCENARIO_PATH . $nombreArchivo;
+                
+                    // Mover el archivo al directorio de destino
+                    if (move_uploaded_file($_FILES['imgEscenario']['tmp_name'], $rutaDestino)) {
+                        // Guardar el nombre del archivo en la base de datos
+                        $modelo->actualizarImagenEscenario($id, $nombreArchivo);
+                    } else {
+                        echo 'Error al subir la imagen.';
+                        return false;
+                    }
                 }
-            
-                if (empty($casillaInicio)) {
-                    $this->mensaje = 'La casilla de inicio no puede estar vacía.';
-                    echo $this->mensaje;
-                    return false;
-                }
-            
-                // Procesar y guardar los datos
+                
+                
+        
+                // Actualizar otros datos del escenario
                 $modelo->actualizarEscenario($id, $nombreEscenario, $mensajeNarrativo, $casillaInicio);
-            
-                // Guardar las colisiones si las casillas no están vacías
+        
+                // Guardar las colisiones
                 if (!empty($casillas)) {
                     $modelo->guardarColisiones($casillas, $id);
                 }
-            
-                // Mensaje de éxito
-                $this->mensaje = 'Escenario actualizado correctamente';
-                echo $this->mensaje;
+        
+                echo 'Escenario actualizado correctamente.';
                 return true;
             }
-            
-                // Establecer el título y la vista en caso de que no sea un POST válido
-                $this->tituloPag = 'Modificar Escenario';
-                $this->vista = 'modificacionEscenarios';
-                return $modelo->obtenerDatosEscenario($id);
-            
-            }
+        
+            $this->tituloPag = 'Modificar Escenario';
+            $this->vista = 'modificacionEscenarios';
+            return $modelo->obtenerDatosEscenario($id);
+        }
+        
            
 
     }

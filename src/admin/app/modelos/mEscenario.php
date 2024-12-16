@@ -84,6 +84,21 @@ class mEscenario {
         $this->conexion->close();
     }
 
+    public function actualizarImagenEscenario($id, $nombreImagen) {
+        $this->conexionBBDD();
+        $sql = "UPDATE Escenario SET nombreImagen = ? WHERE idEscenario = ?";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bind_param("si", $nombreImagen, $id);
+    
+        if (!$stmt->execute()) {
+            error_log("Error al actualizar la imagen en la base de datos: " . $stmt->error);
+        }
+    
+        $stmt->close();
+        $this->conexion->close();
+    }
+    
+
     /**
      * Método que se encarga de guardar las colisiones de un escenario en la base de datos
      */
