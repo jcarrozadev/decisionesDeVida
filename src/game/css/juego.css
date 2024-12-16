@@ -123,6 +123,14 @@ body {
     color: #1D4E89;
 }
 
+#tiempo::after {
+    content: "h/dia";
+}
+
+#dinero::after {
+    content: "€";
+}
+
 #objetivos input[type="checkbox"] {
     display: none;
 }

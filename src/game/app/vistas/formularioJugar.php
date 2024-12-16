@@ -86,6 +86,7 @@
     .card input[type="radio"]:checked + img {
         border: 4px solid var(--color-verde);
         border-radius: 50%;
+        background-color: var(--color-amarillo);
     }
 
     .card input[type="radio"]:checked ~ div {
