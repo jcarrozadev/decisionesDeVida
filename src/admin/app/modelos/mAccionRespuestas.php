@@ -24,7 +24,7 @@ class MAccionRespuestas {
                     FROM Dialogos d 
                     INNER JOIN Respuestas r1 ON d.idRespuesta1 = r1.idRespuesta 
                     INNER JOIN Respuestas r2 ON d.idRespuesta2 = r2.idRespuesta 
-                    WHERE d.idDialogo ='".$idDialogo."'"; /*Consulta la información según un id de diálogo en concreto*/
+                    WHERE d.idDialogo ='".$idDialogo."'"; /*Consulta  la información según un id de diálogo en concreto*/
 
         $resultado = $this->conexion->query($consulta); 
 
