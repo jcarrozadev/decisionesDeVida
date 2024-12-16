@@ -58,7 +58,8 @@
                     </div>
                 </div>
                 <div id="mensajeInicio">
-                    <p id="mensajeIniP"></p>
+                    <p id="mensajeIniP"><?php echo $datos['mensajeNarrativo']?></p>
+                    <button id="botonMensajeInicio">Aceptar</button>
                 </div>
             </div>
             <div id="leyenda-controles" class="leyendas">
