@@ -39,7 +39,7 @@
 
 
 
-        public function mEscenario() {
+        public function gestionEscenario() {
             require_once MODEL_PATH . 'mEscenario.php';
         
             $modeloEscenario = new mEscenario();
@@ -62,7 +62,7 @@
             require_once CONFIG_PATH . 'config.php';
             require_once MODEL_PATH . 'mEscenario.php';
 
-            $escenario = new mEscenario();
+            $escenario = new gestionEscenario();
             $escenarios = $escenario->listarEscenarios();
 
             

@@ -15,6 +15,9 @@ class mEscenario {
         $this->conexion->set_charset("utf8");
     }
 
+    /**
+     * Método que se encarga de listar los escenarios de la base de datos, en la vista de gestión de escenarios
+     */
     public function listarEscenarios() {
         $this->conexionBBDD();
         $sql = "SELECT * FROM Escenario";
@@ -34,6 +37,9 @@ class mEscenario {
         return $escenarios;
     }
 
+    /**
+     * Método que se encarga de obtener los datos de un escenario
+     */
     public function obtenerDatosEscenario($id) {
         $this->conexionBBDD();
         $sql = "SELECT * FROM Escenario WHERE idEscenario = $id";
@@ -65,6 +71,9 @@ class mEscenario {
         return $escenario;
     }
 
+    /**
+     * Método que se encarga de actualizar los datos de un escenario, excepto la imagen
+     */
     public function actualizarEscenario($id, $nombre, $mensaje, $casillaInicio) {
         $this->conexionBBDD();
         $sql = "UPDATE Escenario SET nombreEscenario = ?, mensajeNarrativo = ?, casillaInicio = ? WHERE idEscenario = ?";
@@ -75,6 +84,9 @@ class mEscenario {
         $this->conexion->close();
     }
 
+    /**
+     * Método que se encarga de guardar las colisiones de un escenario en la base de datos
+     */
     public function guardarColisiones($casillas, $id) {
         $this->conexionBBDD();
         $sql="DELETE FROM Colision WHERE idEscenario = ?";

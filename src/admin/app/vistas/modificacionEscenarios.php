@@ -1,6 +1,6 @@
 <?php include ASSETS_PATH . 'header.php'; ?>  
 <main>
-    <a href="index.php?c=escenario&m=mEscenario">
+    <a href="index.php?c=escenario&m=gestionEscenario">
         <button class="boton_volver">Volver</button>
     </a>
 
@@ -54,18 +54,26 @@
 
                 </tbody>
             </table>
-
-
+            
             <!-- <label for="casillaInput">Casillas Seleccionadas:</label> -->
-            <input type="text" name="casilla" id="casillaInput" value="<?php echo htmlspecialchars(isset($datos['colisiones']) ? implode('#', $datos['colisiones']) : ''); ?>" ><br/>
+            <input type="text" name="casilla" id="casillaInput" value="<?php echo htmlspecialchars(isset($datos['colisiones']) ? implode('#', $datos['colisiones']) : ''); ?>" hidden><br/>
                                    
             <input type="submit" value="Guardar Cambios">
         </form>
+        
+        <div id="cargaFormulario">
+            <div class="contenedor-loader">
+            <div class="rueda"></div>
+        </div>
+            <div class="cargando">Cargando...</div>
+        </div>
+
     </div>
 </main>
 <script>
     window.idEscenario = <?php echo $datos['idEscenario']; ?>;
 </script>
 <script type="module" src="js/vistas/modificacionEscenarios.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <?php include_once ASSETS_PATH . 'footer.php'; ?>
