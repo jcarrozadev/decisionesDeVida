@@ -13,9 +13,10 @@ document.getElementById('formModDialogo').addEventListener('submit', function(ev
         .then(response => response.text())
         .then(data => {
             console.log(data); // Muestra la respuesta del servidor en la consola
-            modal.style.display = 'block';
-            document.getElementById('tituloModal').innerHTML = 'Diálogo Modificado';
-            document.getElementById('mensajeModal').innerHTML = data;
+            // modal.style.display = 'block';
+            // document.getElementById('tituloModal').innerHTML = 'Diálogo Modificado';
+            // document.getElementById('mensajeModal').innerHTML = data;
+            alert(data);
             window.location.href = 'index.php?c=dialogo&m=listarDialogos'; //Redirige a la vista de diálogos
         })
         .catch(error => {

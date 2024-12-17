@@ -78,9 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const dialogo = new Cdialogo();
         const mensaje = await dialogo.altaDialogo(form);
 
-        modal.style.display = 'block';
-        document.getElementById('tituloModal').innerHTML = 'Alta de diálogo';
-        document.getElementById('mensajeModal').innerHTML = mensaje;
+        // modal.style.display = 'block';
+        // document.getElementById('tituloModal').innerHTML = 'Alta de diálogo';
+        // document.getElementById('mensajeModal').innerHTML = mensaje;
+
+        alert(mensaje);
 
         window.location.href = 'index.php?c=dialogo&m=listarDialogos';
     });

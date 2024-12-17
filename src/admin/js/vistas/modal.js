@@ -7,7 +7,6 @@ cerrarModal.addEventListener("click", () => {
 
 botonModal.addEventListener("click", () => {
     modal.style.display = "none";
-    window.location.reload();
 });
 
 window.addEventListener("click", (e) => {
