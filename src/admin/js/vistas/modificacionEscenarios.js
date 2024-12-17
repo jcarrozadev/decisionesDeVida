@@ -1,3 +1,5 @@
+let modal = document.getElementById('modal');
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById('formModEscenario');
@@ -37,7 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const casillaInicio = document.getElementById('casillaInicio').value.trim();
 
         if (!nombreEscenario || !mensajeNarrativo || !casillaInicio) {
-            alert('Todos los campos son obligatorios.');
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'Todos los campos son obligatorios.';
             return false;
         }
         return true;
@@ -64,7 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Hubo un error al modificar el escenario');
+                modal.style.display = 'block';
+                document.getElementById('tituloModal').innerHTML = 'Error';
+                document.getElementById('mensajeModal').innerHTML = 'Hubo un error al modificar el escenario';
             });
         }
     });

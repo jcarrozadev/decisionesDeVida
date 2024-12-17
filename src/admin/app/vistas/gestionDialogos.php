@@ -32,7 +32,11 @@
             }
         ?>
     </section>
-</main><script src="js/vistas/eliminarDialogo.js"></script>
+</main>
+
+<?php include ASSETS_PATH . 'modal.php'; ?>
+<script src="js/vistas/eliminarDialogo.js"></script>
+<script src="js/vistas/modal.js"></script>
 <!-- <a href="index.php?c=panelAdmin&m=inicio">
     <button class="boton-volver"><i class="fa fa-arrow-left"></i> Volver al Panel de Administración</button>
 </a> -->

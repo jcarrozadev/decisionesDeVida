@@ -26,6 +26,9 @@
     </section>
 </main>
 
+<?php include_once ASSETS_PATH . 'modal.php'; ?>
+
 <?php include_once ASSETS_PATH . 'footer.php'; ?>
 
 <script src="js/vistas/eliminarPersonaje.js"></script>
+<script src="js/vistas/modal.js"></script>

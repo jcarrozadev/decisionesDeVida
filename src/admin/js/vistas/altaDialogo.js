@@ -1,12 +1,16 @@
 import { Cdialogo } from '../controladores/dialogo.js';
 
+let modal = document.getElementById('modal');
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('formularioAltaDialogo');
 
     function validarDatos(datos) {
        
         if(!datos['nombreDialogo']) {
-            alert('El campo nombre del diálogo es obligatorio.');
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'El campo nombre del diálogo es obligatorio.';
             return false;
         }
 
@@ -14,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const casillaRegex = /^[A-J][1-9]$|^[A-J]1[0-2]$/;
             if (!casillaRegex.test(datos['casilla'])) {
-                alert('La casilla debe ser una letra de la A a la J seguida de un número del 1 al 12.');
+                modal.style.display = 'block';
+                document.getElementById('tituloModal').innerHTML = 'Error';
+                document.getElementById('mensajeModal').innerHTML = 'La casilla debe ser una letra de la A a la J seguida de un número del 1 al 12.';
                 return false;
             }
 
@@ -22,22 +28,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const selectedOption = form.listaNPC.options[form.listaNPC.selectedIndex];
         if (selectedOption.disabled) {
-            alert('Debe seleccionar un NPC de la lista.');
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'Debe seleccionar un NPC de la lista.';
             return false;
         }
 
         if(!datos['mensaje']) {
-            alert('El campo mensaje es obligatorio.');
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'El campo mensaje es obligatorio.';
             return false;
         }
 
         if(!datos['respuesta1']) {
-            alert('El campo respuesta 1 es obligatorio.');
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'El campo respuesta 1 es obligatorio.';
             return false;
         }
 
         if(!datos['respuesta2']) {
-            alert('El campo respuesta 2 es obligatorio.');
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'El campo respuesta 2 es obligatorio.';
             return false;
         }
 
@@ -64,7 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const dialogo = new Cdialogo();
         const mensaje = await dialogo.altaDialogo(form);
 
-        alert(mensaje);
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Alta de diálogo';
+        document.getElementById('mensajeModal').innerHTML = mensaje;
 
         window.location.href = 'index.php?c=dialogo&m=listarDialogos';
     });

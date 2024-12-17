@@ -1,3 +1,5 @@
+let modal = document.getElementById('modal');
+
 document.getElementById('formulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío del formulario por defecto
 
@@ -14,11 +16,16 @@ document.getElementById('formulario').addEventListener('submit', function(event)
         .then(response => response.text())
         .then(data => {
             console.log(data); // Muestra la respuesta del servidor en la consola
-            alert(data);
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Personaje dado de alta';
+            document.getElementById('mensajeModal').innerHTML = data;
+            window.location.href = 'index.php?c=personaje&m=listarPersonajes'; 
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Hubo un error al dar de alta el personaje');
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'Ha ocurrido un error al dar de alta el personaje.';
         });
 
     }
@@ -40,13 +47,17 @@ function validarFormulario() {
 
     // Validar que el campo de nombre no esté vacío
     if (!nombre) {
-        alert('Por favor, rellena el nombre del personaje.');
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Alerta';
+        document.getElementById('mensajeModal').innerHTML = 'Por favor, rellena el nombre del personaje.';
         return false; // Detener el envío
     }
 
     // Validar que se hayan seleccionado todas las imágenes requeridas
     if (spriteF.length === 0 || spriteB.length === 0 || spriteL.length === 0 || spriteR.length === 0) {
-        alert('Por favor, sube todas las imágenes.');
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Alerta';
+        document.getElementById('mensajeModal').innerHTML = 'Por favor, sube todas las imágenes.';
         return false; // Detener el envío
     }
 
@@ -65,7 +76,9 @@ function validarTamañoArchivo(archivo, nombre, tamanioMaximo) {
     
     // Comprobar si el tamaño del archivo excede el límite permitido
     if (archivo.size > tamanioMaximo) {
-        alert(`La imagen ${nombre} no debe pesar más de ${tamanioMaximo / 1024}KB.`);
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Alerta';
+        document.getElementById('mensajeModal').innerHTML = `La imagen ${nombre} no debe pesar más de ${tamanioMaximo / 1024}KB.`;
         return false; // Detener la validación
     }
     return true; // El archivo cumple con el tamaño permitido

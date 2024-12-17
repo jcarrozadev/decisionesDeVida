@@ -1,3 +1,5 @@
+let modal = document.getElementById('modal');
+
 //Coge el formulario por su id y a través del evento detiene el envío del formulario cuando se clique en el botón 'submit'
 document.getElementById('npcForm').addEventListener('submit', function(event) {
     event.preventDefault();  /*Evita el envío tradicional del formulario*/
@@ -15,11 +17,15 @@ document.getElementById('npcForm').addEventListener('submit', function(event) {
         .then(response => response.text())
         .then(data => {
             console.log(data); // Muestra la respuesta del servidor en la consola
-            alert(data);
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'NPC eliminado';
+            document.getElementById('mensajeModal').innerHTML = data; // Mostrar el mensaje devuelto por el servidor
         })
         .catch(error => {
             console.error('Error:', error);//Control de errores
-            alert('Error al dar de alta al NPC'); //Lanza un mensaje si hubo algún problema al modificar el diálogo
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'Error al dar de alta al NPC'; // Mostrar el mensaje devuelto por el servidor
         });
     }
 });
@@ -33,17 +39,23 @@ function validarAlta(){
     const maxCaracteres = 30;    // Máximo de caracteres permitidos en el nombre
 
     if (!nombreNpc) {//Comprueba que exista el nombre del npc
-        alert ('Rellena el nombre del NPC.');//Muestra un mensaje cuando el nombre está vacío
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = 'Rellena el nombre del NPC.'; // Mostrar el mensaje devuelto por el servidor
         return false;// Detener el envío
     }
 
     if(nombreNpc.length > maxCaracteres){ //Comprueba que el nombre del diálogo no supere los 30 caracteres
-        alert(`El nombre del NPC no puede superar los ${maxCaracteres} caracteres.`);//Lanza un mensaje si supera el número de caracteres
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = `El nombre del NPC no puede superar los ${maxCaracteres} caracteres.`; // Mostrar el mensaje devuelto por el servidor
         return false;// Detener el envío
     }
 
     if (sprite.length === 0){ //Comprueba que se suba la imagen
-        alert ("Debes subir la imagen del NPC"); //Lanza un mensaje si la imagen no se ha subido
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = "Debes subir la imagen del NPC"; // Mostrar el mensaje devuelto por el servidor
         return false;// Detener el envío
     }
 
@@ -61,12 +73,16 @@ function validarImg(imagen,tamanioMaxImg){
     const tipoArchivo = ['image/png', 'image/jpeg', 'image/jpg']; //Tipos de archivo válidos
 
     if (!tipoArchivo.includes(imagen.type)){ //Comprobamos que la imagen incluya alguno de esos tipos de archivo
-        alert(`La imagen tiene que tener la extensión PNG, JPG o JPEG.`)//Si no,lanza un mensaje
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = `La imagen tiene que tener la extensión PNG, JPG o JPEG.`; // Mostrar el mensaje devuelto por el servidor
         return false;//Detiene el envío
     }
 
     if(imagen.size > tamanioMaxImg){//Comprobamos que la imagen no exceda del tamaño máximo permitido
-        alert("La imagen seleccionada, supera el tamaño máximo (10KB)"); //Lanza un mensaje
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = `La imagen seleccionada, supera el tamaño máximo (10KB)`; // Mostrar el mensaje devuelto por el servidor
         return false;//Detiene el envío
     }
 

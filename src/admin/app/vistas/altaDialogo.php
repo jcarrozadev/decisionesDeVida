@@ -66,5 +66,7 @@
         </form>
     </div>
 </main>
+<?php include ASSETS_PATH . 'modal.php'; ?>
 <script type="module" src="js/vistas/altaDialogo.js"></script>
+<script src="js/vistas/modal.js"></script>
 <?php include ASSETS_PATH . 'footer.php'; ?>

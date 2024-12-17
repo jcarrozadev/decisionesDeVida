@@ -34,6 +34,10 @@
     <button class="boton-volver"><i class="fa fa-arrow-left"></i> Volver al Panel de Administración</button>
 </a> -->
 
+<?php include_once ASSETS_PATH . 'modal.php'; ?>
+
 <?php include_once ASSETS_PATH . 'footer.php'; ?>
 
 <script src="js/vistas/eliminarPersonaje.js"></script>
+
+<script src="js/vistas/modal.js"></script>

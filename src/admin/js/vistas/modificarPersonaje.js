@@ -1,3 +1,5 @@
+let modal = document.getElementById('modal');
+
 document.getElementById('formulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita el envío del formulario por defecto
 
@@ -11,12 +13,16 @@ document.getElementById('formulario').addEventListener('submit', function(event)
         .then(response => response.text())
         .then(data => {
             console.log(data); // Muestra la respuesta del servidor en la consola
-            alert(data);  // Mostrar mensaje devuelto por el servidor
-            window.location.reload(); // Recargar la página
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Personaje Modificado';
+            document.getElementById('mensajeModal').innerHTML = data;
+            //window.location.reload(); // Recargar la página
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('Hubo un error al modificar el personaje');
+            modal.style.display = 'block';
+            document.getElementById('tituloModal').innerHTML = 'Error';
+            document.getElementById('mensajeModal').innerHTML = 'Hubo un error al modificar el personaje';
         });
     }
 });
@@ -37,13 +43,17 @@ function validarFormulario() {
 
     // Validar que el campo de nombre no esté vacío
     if (!nombre) {
-        alert('Por favor, rellena el nombre del personaje.');
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = 'Por favor, rellena el nombre del personaje.';
         return false; // Detener el envío
     }
 
     // Validar que el nombre no exceda el límite de caracteres
     if (nombre.length > maxCaracteres) {
-        alert(`El nombre del personaje no debe exceder ${maxCaracteres} caracteres.`);
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = `El nombre del personaje no debe exceder ${maxCaracteres} caracteres.`;
         return false; // Detener el envío
     }
 
@@ -62,13 +72,17 @@ function validarImagen(archivo, nombre, tamanioMaximo) {
     // Validar el tipo de archivo
     const tiposPermitidos = ['image/png', 'image/jpeg', 'image/jpg'];
     if (!tiposPermitidos.includes(archivo.type)) {
-        alert(`La imagen ${nombre} debe ser de tipo PNG, JPG o JPEG.`);
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = `La imagen ${nombre} debe ser de tipo PNG, JPG o JPEG.`;
         return false; // Detener la validación
     }
 
     // Validar el tamaño del archivo
     if (archivo.size > tamanioMaximo) {
-        alert(`La imagen ${nombre} no debe pesar más de ${tamanioMaximo / 1024}KB.`);
+        modal.style.display = 'block';
+        document.getElementById('tituloModal').innerHTML = 'Error';
+        document.getElementById('mensajeModal').innerHTML = `La imagen ${nombre} no debe pesar más de ${tamanioMaximo / 1024}KB.`;
         return false; // Detener la validación
     }
 

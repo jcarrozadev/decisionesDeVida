@@ -52,6 +52,10 @@
         </form>
     </div>
 </main>
+
+<?php include ASSETS_PATH . 'modal.php'; ?>
+
 <script src="js/vistas/modificarDialogo.js"></script>
+<script src="js/vistas/modal.js"></script>
 
 <?php include ASSETS_PATH . 'footer.php'; ?>

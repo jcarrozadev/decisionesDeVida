@@ -70,10 +70,14 @@
 
     </div>
 </main>
+
+<?php include ASSETS_PATH . 'modal.php'; ?>
+
 <script>
     window.idEscenario = <?php echo $datos['idEscenario']; ?>;
 </script>
 <script type="module" src="js/vistas/modificacionEscenarios.js"></script>
+<script src="js/vistas/modal.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <?php include_once ASSETS_PATH . 'footer.php'; ?>
