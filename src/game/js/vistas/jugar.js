@@ -206,6 +206,9 @@ function dialogo(dialogoC) {
             
             let boolAccion = false;
 
+            if(dialogoC.respuestas.rp1EsFinal == 1)
+                location.href = "index.php?c=jugador&m=altaJugador";
+
             if(dialogoC.respuestas.rp1Dialogo) {
 
                 TEMPdialogoC = dialogosArray.find(dialogo => dialogo.idDialogo == dialogoC.respuestas.rp1Dialogo);
@@ -243,6 +246,9 @@ function dialogo(dialogoC) {
             clickMensaje.play();
 
             let boolAccion = false;
+
+            if(dialogoC.respuestas.rp2EsFinal == 1)
+                location.href = "index.php?c=jugador&m=altaJugador";
 
             if(dialogoC.respuestas.rp2Dialogo) {
 

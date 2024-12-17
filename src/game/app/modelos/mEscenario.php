@@ -72,10 +72,12 @@
                         rp1.mensaje as rp1Mensaje,
                         rp1.idDialogo as rp1Dialogo,
                         rp1.idEscenario as rp1Escenario,
+                        rp1.esFinal as rp1EsFinal,
                         rp2.idRespuesta as rp2idRespuesta,
                         rp2.mensaje as rp2Mensaje,
                         rp2.idDialogo as rp2Dialogo,
-                        rp2.idEscenario as rp2Escenario
+                        rp2.idEscenario as rp2Escenario,
+                        rp2.esFinal as rp2EsFinal
                     FROM Dialogos AS dg
                     INNER JOIN Respuestas AS rp1 ON idRespuesta1 = rp1.idRespuesta
                     INNER JOIN Respuestas AS rp2 ON idRespuesta2 = rp2.idRespuesta
