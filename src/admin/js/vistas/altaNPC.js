@@ -17,9 +17,11 @@ document.getElementById('npcForm').addEventListener('submit', function(event) {
         .then(response => response.text())
         .then(data => {
             console.log(data); // Muestra la respuesta del servidor en la consola
-            modal.style.display = 'block';
-            document.getElementById('tituloModal').innerHTML = 'NPC eliminado';
-            document.getElementById('mensajeModal').innerHTML = data; // Mostrar el mensaje devuelto por el servidor
+            // modal.style.display = 'block';
+            // document.getElementById('tituloModal').innerHTML = 'NPC eliminado';
+            // document.getElementById('mensajeModal').innerHTML = data; // Mostrar el mensaje devuelto por el servidor
+            alert(data);
+            window.location.href = 'index.php?c=npc&m=listarNPC'; // Redireccionar a la lista de NPCs
         })
         .catch(error => {
             console.error('Error:', error);//Control de errores
