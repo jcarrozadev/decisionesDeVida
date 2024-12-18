@@ -58,6 +58,11 @@ body {
     text-align: center;
 }
 
+#bodyJuego > main > div {
+    flex-shrink: 1; /* VALOR POR DEFECTO 1 */
+    flex-grow: 0; /* VALOR POR DEFECTO 0 PREGUNTAR POR POSICION AL PONER 1*/
+}
+
 .leyendas {
 
     background-color: #ffffff7a;
